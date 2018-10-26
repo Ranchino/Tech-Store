@@ -1,5 +1,5 @@
 var listOfProducts;
-// TEEEETasd
+// TEEEETasdsadfsdfsdf
 
 /** Get products from the json file and store it in a gobal variable "*/
 function loadProducts() {
