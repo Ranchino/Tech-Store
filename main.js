@@ -1,6 +1,6 @@
 var listOfProducts;
 
-/** Get products from the json file and store it in a gobal variable */
+/** Get products from the json file and store it in a gobal variable "*/
 function loadProducts() {
     fetch("./products.json")
     .then(function(response) {
