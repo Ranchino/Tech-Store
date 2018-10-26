@@ -1,0 +1,23 @@
+[
+    {
+        "title": "iPhone X",
+        "description": "Last years phone from Apple with a beautiful all display front.",
+        "image": "iPhoneX.png",
+        "price": 11495
+    },{
+        "title": "One Plus 5",
+        "description": "Sleek and powerful smartphone from One Plus.",
+        "image": "OnePlus5.png",
+        "price": 4995
+    },{
+        "title": "Galaxy S8",
+        "description": "Really cool edge to edge smartphone from Samsung.",
+        "image": "SamsungS8.png",
+        "price": 7990
+    },{
+        "title": "LG V30",
+        "description": "Super nice and beautiful smartphone from LG.",
+        "image": "LGV30.png",
+        "price": 7495
+    }
+]
