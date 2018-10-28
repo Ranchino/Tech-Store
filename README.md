@@ -1,9 +1,9 @@
 # Tech-Store
-A site that sells phones and computers (e-commerce).
+This is a school project where we have created a website that sells phones and computers (company "Tech-Store").
 
-Här skapa vi en e-handel sida där man kan "köpa" mobiltelefoner och datorer, 
-lägga produkter i kundvarukorgen, ta bort produkter, räkna ut totalpriset, login funktion och få ut sina köp historik.
+Here we create an e-commerce page where you can "buy" mobile phones and computers,
+add products to the customer basket, remove products, calculate total price, login function and get their purchase history.
 
-Webbutvecklare som är involverad i projektet är: Slim-Pete, DY Dog, R Slice.
+The webdevelopers involved in the project are: Slim-Pete, DY Dog, R Slice.
 
 Check out our site [here](https://ranchino.github.io/Tech-Store/)!
