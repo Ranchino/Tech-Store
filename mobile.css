@@ -10,10 +10,11 @@
         width: auto;
     }
     
-    .tech-store-text {
-        color: white;
-        font-size: 2.5em;
-        text-decoration: none;
-        margin-left: 0.5em;
-    }
+    /* Shopping cart själva ikonen */
+   .fa-shopping-cart {
+       color: white;
+       float: right;
+       border: 1px solid red;
+       margin: 0.5em;
+   }
 }
