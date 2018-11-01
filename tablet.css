@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+}
+header {
+    height: 5em;
+}
+
+/* Navigation bar */
+.nav-bar {
+    background-color: #212121;
+    height: 5em;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    color: #FFFFFF;
+
+}
+
+/* Logotype link to home page */
+header h1 a{
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 0.4em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Shopping cart and order number PARENT */
+.right-section {
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
+/* Number of orders */
+.number-of-orders {
+    margin-top: 1em;
+    margin-right: 0.2em;
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header shopping cart icon */
+.fa-shopping-cart {
+   color: #FFFFFF;
+   margin-top: 0.67em;
+   margin-right: 0.3em;
+}
+
+
+.phoneCardClass {
+    height: 105vh;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+    color: #212121;
+    width: 100%;
+
+}
+
+.phoneCardClass:nth-child(even){
+background-color: #F5F5F5;
+
+
+}
+
+.phoneCardClass img {
+    width: 15em;
+}
+.phoneCardClass h1 {
+    margin: 0;
+}
+
+/* Button add to shopping cart */
+.add-to-cart {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #5596F5;
+    text-decoration: none;
+    color: #F5F5F5;
+    padding: 1em;
+    border-radius: 0.7em;
+}
+.add-to-cart:hover{
+    background-color: white;
+    color: #5596F5;
+    border: 1px solid #5596F5;
+}
+/* Changing icon that is "before" the text */
+.add-to-cart:before {
+    content: "\f218";
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+}

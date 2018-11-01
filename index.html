@@ -12,16 +12,26 @@
         <!-- Våra egna filer, skriv inte css i HTML filen tack! -->
         <script src="./main.js"></script>
         <link rel="stylesheet" href="mobile.css">
+        <link rel="stylesheet" href="tablet.css">
     </head>
-    <body onload="initSite()">
+    <body>
         <header>
-            <!-- Your header title and shopping cart button goes here  -->
-            <i class="fas fa-shopping-cart fa-2x"></i> <!-- fa-2x är storleken på ikonen -->
+            <div class="nav-bar">
+            <!-- Logotype linking to home page  -->
+            <h1><a href="#homepage">TechStore</a></h1>
+           
+            <div class="right-section">
+                <!-- Number of orders we will manipulate with javascript -->
+                <span class="number-of-orders">4</span>
+                <!-- Varukorgen on click takes us to another page  -->
+                <a href="#gotovarukorgen"><i class="fas fa-shopping-cart fa-2x"></i></a> 
+             </div>
+            </div>
         </header>
 
         <main>
-            <!-- Add the content of your site here via javascript -->
+            <!-- Insert products using products.json via javascript -->
+        
         </main>
-
     </body>
 </html>
