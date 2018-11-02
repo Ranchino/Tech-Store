@@ -1,0 +1,21 @@
+/* For ipads aka tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .phoneCardClass {
+        padding-bottom: 6em;
+        padding-top: 5em;
+    }
+    .phoneCardClass img {
+        width: 20em!important;
+    }
+    .phoneCardClass h1 {
+        font-size: 4em!important;
+    }
+    .phoneCardClass h5, h3 {
+        font-size: 1.5em!important;
+        margin: 0.7em;
+    }
+   
+    .add-to-cart {
+        font-size: 1.4em;
+    }
+}

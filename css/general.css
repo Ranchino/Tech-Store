@@ -47,14 +47,13 @@ header h1 a{
 
 
 .phoneCardClass {
-    height: 105vh;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-   align-items: center;
+    text-align: center;
     color: #212121;
     width: 100%;
+   padding-top: 4em;
+   padding-bottom: 4em;
 
 }
 
@@ -79,7 +78,9 @@ background-color: #F5F5F5;
     color: #F5F5F5;
     padding: 1em;
     border-radius: 0.7em;
+    font-size: 1em;
 }
+
 .add-to-cart:hover{
     background-color: white;
     color: #5596F5;
@@ -91,3 +92,6 @@ background-color: #F5F5F5;
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
 }
+
+
+

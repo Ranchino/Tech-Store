@@ -43,12 +43,10 @@ function createPhoneCard(listOfProducts) {
     getPhonePrice.innerText = listOfProducts.price + " kr"
     phone.appendChild(getPhonePrice)
 
-    var getPhonePrice = document.createElement("a")
-    getPhonePrice.className = "add-to-cart fas fa-cart-arrow-down"
-    getPhonePrice.setAttribute('href', "#läggtill")
-    getPhonePrice.innerText = " Lägg till i kundvagnen"
-
-    phone.appendChild(getPhonePrice)
+    var addToCart = document.createElement("button")
+    addToCart.className = "add-to-cart"
+    addToCart.innerText = " Lägg till i kundvagnen"
+    phone.appendChild(addToCart)
 
    
 
