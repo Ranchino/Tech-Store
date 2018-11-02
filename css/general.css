@@ -52,15 +52,13 @@ header h1 a{
     text-align: center;
     color: #212121;
     width: 100%;
-   padding-top: 4em;
-   padding-bottom: 4em;
+    padding-top: 4em;
+    padding-bottom: 4em;
 
 }
 
 .phoneCardClass:nth-child(even){
 background-color: #F5F5F5;
-
-
 }
 
 .phoneCardClass img {
@@ -92,6 +90,7 @@ background-color: #F5F5F5;
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
 }
-
-
-
+/* dont display in first site */
+.fa-trash-alt {
+    display: none;
+}
