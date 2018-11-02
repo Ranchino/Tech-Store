@@ -1,3 +1,5 @@
+/* if we put a function in javascript the problem would be that when hitting referesh customer looses his basket */
+
 /* Getting json files ready */
     fetch("./products.json")
     .then(function(response) {
@@ -43,14 +45,25 @@ function createPhoneCard(listOfProducts) {
     getPhonePrice.innerText = listOfProducts.price + " kr"
     phone.appendChild(getPhonePrice)
 
+    
     var getPhonePrice = document.createElement("a")
     getPhonePrice.className = "add-to-cart fas fa-cart-arrow-down"
     getPhonePrice.setAttribute('href', "#läggtill")
     getPhonePrice.innerText = " Lägg till i kundvagnen"
-
+    
     phone.appendChild(getPhonePrice)
+    
+    var getPhoneClearButton = document.createElement("thrash")
+    getPhoneClearButton.className = "far fa-trash-alt"
+    getPhoneClearButton.setAttribute('href', "#tabort")
+    getPhoneClearButton.innerText = " Ta bort"
 
+    phone.appendChild(getPhoneClearButton)
    
 
     return phone
 }
+
+    /* function createCompletePurchase(CompletePurchase) {
+        var 
+    } */

@@ -53,24 +53,33 @@
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 2em;
-    }
+        flex-direction: row;
+        }
     
     div .phoneCardClass {
         height: 10em;
         width: 10em;
-        border: 0.1em solid lightblue;
+        border: 0.1em solid #5596F5;
         border-radius: 1em;
         height: 50vh;
         margin: 0.3em;
     }
+
     
-    .phoneCardClass img {
+    div .phoneCardClass img {
         width: 7em;
-        height: auto;
+        height: 15em;
+        margin-left: 1.5em;
     }
     
     .phoneCardClass h1 {
         margin: 0;
+        text-align: center;
+    }
+
+    .phoneCardClass h3 {
+        margin: 0;
+        text-align: center;
     }
 
     /* display none in shoppingcart */
@@ -81,5 +90,13 @@
     /* display none in shoppingcart */
     .add-to-cart {
         display: none;
+    }
+
+    .fa-trash-alt {
+        margin-top: 0.5em;
+        height: auto;
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
     }
 }
