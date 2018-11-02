@@ -14,7 +14,7 @@
 var wrapperForAllPhones = document.createElement("div")
 wrapperForAllPhones.className = "wrapperForAllPhones"
 
-/** Not sure what this does */
+/* Not sure what this does */
 function addProductsToWebpage() {
     for(var index = 0; index < listOfProducts.length; index++)
     {
@@ -64,10 +64,15 @@ function createPhoneCard(listOfProducts) {
 
     phone.appendChild(getPhoneClearButton)
    
-
+    
     return phone
 }
 
-    /* function createCompletePurchase(CompletePurchase) {
-        var 
-    } */
+function createPurchaseButton() {
+    var getCompletePurchaseButton = document.createElement("div")
+    getCompletePurchaseButton.className = "fas fa-check"
+    getCompletePurchaseButton.innerText = " Slutför köp"
+    
+    phone.appendChild(getCompletePurchaseButton)
+    return getCompletePurchaseButton
+}
