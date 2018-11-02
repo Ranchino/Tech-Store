@@ -21,7 +21,7 @@ function addProductsToWebpage() {
         var phone = createPhoneCard(listOfProducts[index])
         wrapperForAllPhones.appendChild(phone)
     }
-    document.body.appendChild(wrapperForAllPhones)
+    document.getElementById("main").appendChild(wrapperForAllPhones)
 }
   
  /* This makes json objects visual on website */
@@ -47,23 +47,17 @@ function createPhoneCard(listOfProducts) {
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
+
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
-    var getPhonePrice = document.createElement("a")
-    getPhonePrice.className = "add-to-cart fas fa-cart-arrow-down"
-    getPhonePrice.setAttribute('href', "#läggtill")
-    getPhonePrice.innerText = " Lägg till i kundvagnen"
-    
-    phone.appendChild(getPhonePrice)
-    
+    /* Shopping cart stuff */
     var getPhoneClearButton = document.createElement("thrash")
     getPhoneClearButton.className = "far fa-trash-alt"
     getPhoneClearButton.setAttribute('href', "#tabort")
     getPhoneClearButton.innerText = " Ta bort"
 
     phone.appendChild(getPhoneClearButton)
-   
 
     return phone
 }
