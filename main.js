@@ -54,3 +54,17 @@ function createPhoneCard(listOfProducts) {
 
     return phone
 }
+
+
+//Function To Display Popup
+$(document).ready(function(){
+    $("#userclick").click(function(){
+        $("#popUp").fadeIn(500)
+    })
+
+    $("#userclose").click(function(){
+        $("#popUp").hide()
+    })
+
+})
+
