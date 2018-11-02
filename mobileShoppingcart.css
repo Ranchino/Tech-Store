@@ -1,0 +1,85 @@
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    header {
+        height: 5em;
+    }
+    /* Navigation bar */
+    .nav-bar {
+        background-color: #212121;
+        height: 5em;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        color: #FFFFFF;
+    }
+    
+    /* Logotype link to home page */
+    header h1 a {
+        color: #FFFFFF;
+        margin-left: 0.4em;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Shopping cart and order number PARENT */
+    .right-section {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        color: white;
+    }
+
+    /* Number of orders */
+    .number-of-orders {
+        margin-top: 1em;
+        margin-right: 0.2em;
+        font-size: 1.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Header shopping cart icon */
+    .fa-shopping-cart {
+        color: #FFFFFF;
+        margin-top: 0.67em;
+        margin-right: 0.3em;
+    }
+
+    .wrapperForAllPhones {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2em;
+    }
+    
+    div .phoneCardClass {
+        height: 10em;
+        width: 10em;
+        border: 0.1em solid lightblue;
+        border-radius: 1em;
+        height: 50vh;
+        margin: 0.3em;
+    }
+    
+    .phoneCardClass img {
+        width: 7em;
+        height: auto;
+    }
+    
+    .phoneCardClass h1 {
+        margin: 0;
+    }
+
+    /* display none in shoppingcart */
+    .phoneCardClass h5 {
+        display: none;
+    }
+
+    /* display none in shoppingcart */
+    .add-to-cart {
+        display: none;
+    }
+}
