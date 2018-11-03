@@ -14,12 +14,14 @@
 var wrapperForAllPhones = document.createElement("div")
 wrapperForAllPhones.className = "wrapperForAllPhones"
 
-/* Not sure what this does */
+/* Telling json objects to go into our div #main,
+Loop will always add new product automatically and display on html
+Example when adding new phone  */
 function addProductsToWebpage() {
     for(var index = 0; index < listOfProducts.length; index++)
     {
-        var phone = createPhoneCard(listOfProducts[index])
-        wrapperForAllPhones.appendChild(phone)
+        var createPhone = createPhoneCard(listOfProducts[index])
+        wrapperForAllPhones.appendChild(createPhone)
     }
     document.getElementById("main").appendChild(wrapperForAllPhones)
 }
@@ -47,11 +49,10 @@ function createPhoneCard(listOfProducts) {
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
-
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
-    /* Shopping cart stuff */
+    /* Shopping cart site */
     var getPhoneClearButton = document.createElement("thrash")
     getPhoneClearButton.className = "far fa-trash-alt"
     getPhoneClearButton.setAttribute('href', "#tabort")
@@ -59,6 +60,7 @@ function createPhoneCard(listOfProducts) {
 
     phone.appendChild(getPhoneClearButton)
     return phone
+    
 }
 
 function createPurchaseButton() {
@@ -69,3 +71,18 @@ function createPurchaseButton() {
     phone.appendChild(getCompletePurchaseButton)
     return getCompletePurchaseButton
 }
+
+$(document).ready(function() {
+    $(".add-to-cart").click(function() {
+        if(typeof(Storage)) {
+            if (localStorage.ordersInCart) {
+                localStorage.ordersInCart = Number(localStorage.ordersInCart) + 1;  
+            } 
+            } else {
+            console.log("testar")
+        } 
+        $(".fa-shopping-cart").effect("bounce", "slow")
+        document.querySelector(".number-of-orders").innerText = "" + localStorage.ordersInCart;
+    });
+    document.querySelector(".number-of-orders").innerText = "" + localStorage.ordersInCart;
+    })

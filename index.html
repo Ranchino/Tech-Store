@@ -5,8 +5,9 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Jquery CDN länk -->
+        <!-- Jquery CDN länkar med lite extra jquery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <!-- Fontawesome ikoner -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
         <!-- Våra egna filer, skriv inte css i HTML filen tack! -->
@@ -23,17 +24,15 @@
            
             <div class="right-section">
                 <!-- Number of orders we will manipulate with javascript -->
-                <span class="number-of-orders">4</span>
+                <span class="number-of-orders"></span>
                 <!-- Varukorgen on click takes us to another page  -->
                 <a href="shoppingcart.html"><i class="fas fa-shopping-cart fa-2x"></i></a> 
              </div>
             </div>
         </header>
-
         <main id="main">
-           
-            <!-- Insert products using products.json via javascript -->
-       
+            <!-- Products from javascript is inside here -->
         </main>
+        <div class="result"></div>
     </body>
 </html>
