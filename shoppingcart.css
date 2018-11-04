@@ -131,7 +131,9 @@
 
 @media screen and (min-width: 769px) {
 
-
+body{
+    margin: 0;
+}
 header {
     height: 5em;
 }
