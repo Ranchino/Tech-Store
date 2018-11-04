@@ -1,6 +1,7 @@
 body {
     margin: 0;
 }
+
 header {
     height: 5em;
 }
@@ -45,7 +46,15 @@ header h1 a{
    margin-right: 0.3em;
 }
 
+/*Header login profile*/
+.fa-user {
+    color: #FFFFFF;
+    margin-top: 0.67em;
+    margin-right: 0.3em;
+    padding-right: 1em;
+}
 
+    
 .phoneCardClass {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
@@ -102,6 +111,55 @@ background-color: #F5F5F5;
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
 }
+
+#profileForm {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 0.03em;
+    position: relative;
+    
+}
+
+#popUp {
+    display: none;
+    height: 32.5em;
+    width: 25em;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10%;
+    color: black;
+    background-color: #F5F5F5;
+    position: fixed;
+    z-index: 100;
+
+}
+
+
+
+/*LogIn form*/
+.fa-times-circle {
+    color: red;
+    text-align: right;
+    margin-top: 0.3em;
+    margin-left: -0.5em;
+}
+
+#birdImg {
+    width: 10em;
+    height: 10em;
+   
+}
+
+.formImage {
+    height: 15em;
+   
+}
+
+#userclose {
+    height: 1em;
+    width: 100%;    
 /* dont display in first site */
 .fa-trash-alt {
     display: none;
