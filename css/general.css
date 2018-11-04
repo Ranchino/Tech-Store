@@ -1,6 +1,7 @@
 body {
     margin: 0;
 }
+
 header {
     height: 5em;
 }
@@ -53,23 +54,20 @@ header h1 a{
     padding-right: 1em;
 }
 
-
+    
 .phoneCardClass {
-    height: 105vh;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-   align-items: center;
+    text-align: center;
     color: #212121;
     width: 100%;
+    padding-top: 4em;
+    padding-bottom: 4em;
 
 }
 
 .phoneCardClass:nth-child(even){
 background-color: #F5F5F5;
-
-
 }
 
 .phoneCardClass img {
@@ -87,7 +85,9 @@ background-color: #F5F5F5;
     color: #F5F5F5;
     padding: 1em;
     border-radius: 0.7em;
+    font-size: 1em;
 }
+
 .add-to-cart:hover{
     background-color: white;
     color: #5596F5;
@@ -107,6 +107,7 @@ background-color: #F5F5F5;
     height: 100%;
     padding-top: 0.03em;
     position: relative;
+    
 }
 
 #popUp {
@@ -119,6 +120,8 @@ background-color: #F5F5F5;
     color: black;
     background-color: #F5F5F5;
     position: fixed;
+    z-index: 100;
+
 }
 
 
@@ -145,4 +148,7 @@ background-color: #F5F5F5;
 #userclose {
     height: 1em;
     width: 100%;    
+/* dont display in first site */
+.fa-trash-alt {
+    display: none;
 }

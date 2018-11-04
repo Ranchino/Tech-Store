@@ -11,8 +11,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
         <!-- Våra egna filer, skriv inte css i HTML filen tack! -->
         <script src="./main.js"></script>
-        <link rel="stylesheet" href="mobile.css">
-        <link rel="stylesheet" href="tablet.css">
+        <link rel="stylesheet" href="./css/mobile.css">
+        <link rel="stylesheet" href="./css/general.css">
+        <link rel="stylesheet" href="./css/tablet.css">
     </head>
     <body>
         <header>
@@ -25,7 +26,7 @@
                 <!-- Number of orders we will manipulate with javascript -->
                 <span class="number-of-orders">4</span>
                 <!-- Varukorgen on click takes us to another page  -->
-                <a href="#gotovarukorgen"><i class="fas fa-shopping-cart fa-2x"></i></a> 
+                <a href="shoppingcart.html"><i class="fas fa-shopping-cart fa-2x"></i></a> 
              </div>
             </div>
         </header>
@@ -47,9 +48,10 @@
                 </div>
             </div>
 
-        <main>
+        <main id="main">
+           
             <!-- Insert products using products.json via javascript -->
-        
+       
         </main>
     </body>
 </html>
