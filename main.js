@@ -63,14 +63,7 @@ function createPhoneCard(listOfProducts) {
     
 }
 
-function createPurchaseButton() {
-    var getCompletePurchaseButton = document.createElement("div")
-    getCompletePurchaseButton.className = "fas fa-check"
-    getCompletePurchaseButton.innerText = " Slutför köp"
-    
-    phone.appendChild(getCompletePurchaseButton)
-    return getCompletePurchaseButton
-}
+
 
 $(document).ready(function() {
     $(".add-to-cart").click(function() {
