@@ -108,6 +108,10 @@ function validate(){
 
 }
 
+function calculator() {
+    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + "1234"
+}
+
 /* localStorage cookies number of orders in shopping cart */
 
     $(document).ready(function() {
