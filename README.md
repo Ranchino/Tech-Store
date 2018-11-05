@@ -2,9 +2,6 @@
 
 Kravspecifikationer kvar
 
-Navigationsbar (Godkänt)
-•	När en produkt läggs till i kundvagnen skall detta reﬂekteras med att det visas en siﬀra intill kundvagnsknappen som reﬂekterar antalet produkter i kundvagnen.
-
 Startsida (Godkänt)
 •	Det skall även, för varje produkt, ﬁnnas en knapp för att lägga till produkterna i kundvagnen.
 
