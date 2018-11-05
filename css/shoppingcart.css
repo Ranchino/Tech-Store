@@ -131,9 +131,13 @@
 
 @media screen and (min-width: 769px) {
 
+    body {
+        margin: 0;
+    }
 
 header {
     height: 5em;
+    width: 100%;
 }
 /* Navigation bar */
 .nav-bar {
@@ -186,18 +190,15 @@ header h1 a {
     }
 
 div .phoneCardClass {
-    height: 12em;
     width: 10em;
     border: 0.1em solid #5596F5;
     border-radius: 1em;
-    height: 50vh;
     margin: 1em;
 }
 
 
 div .phoneCardClass img {
     width: 8em;
-    height: 16em;
     margin-left: 1em;
 }
 
