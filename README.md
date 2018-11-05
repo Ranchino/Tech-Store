@@ -1,4 +1,27 @@
 # Tech-Store
+
+Kravspecifikationer kvar
+
+Navigationsbar (Godkänt)
+•	När en produkt läggs till i kundvagnen skall detta reﬂekteras med att det visas en siﬀra intill kundvagnsknappen som reﬂekterar antalet produkter i kundvagnen.
+
+Startsida (Godkänt)
+•	Det skall även, för varje produkt, ﬁnnas en knapp för att lägga till produkterna i kundvagnen.
+
+Kundvagnssida (Godkänt)
+•	Kundvagnssidan skall lista produkterna som användaren har lagt till i kundvagnen.
+•	Varje produkt i listan skall visa bilden, titeln, priset och en knapp för att ta bort produkten ur kundvagnen.
+•	Nedanför listan skall det ﬁnnas ett totalbelopp samt en knapp för att slutföra köpet.
+•	Knappen för att slutföra köpet skall, vid klickning, visa en bekräftelse på köpet i en popup.
+
+Kriterier för Väl Godkänd
+•	Utöka produktlistan med ett urval från årets modeller så det totalt ﬁnns 10 st. telefoner.
+•	När man bekräftar ett köp skall kundvagnen tömmas.
+•	Skapa en loginsida där det är möjligt att skapa ett konto samt logga in och se alla beställningarna som har gjorts. Här är design och funktionaliteten frivillig men det skall ﬁnnas en motivation kring vilka besluts som har tagits och varför i er readme ﬁl. Använd localStorage för att spara nya användare samt gjorda beställningar.
+•	Användning av Issues på GitHub för att planera och fördela arbetet sinsemellan.
+
+
+
 This is a school project where we have created a website that sells phones and computers (company "Tech-Store").
 
 Here we create an e-commerce page where you can "buy" mobile phones and computers,
