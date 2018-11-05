@@ -54,29 +54,34 @@
         justify-content: center;
         margin-top: 2em;
         height: auto;
+        font-family: Arial, Helvetica, sans-serif;
         flex-direction: row;
     }
     
     div .phoneCardClass {
         height: auto!important;
-        width: 10em;
         border: 0.1em solid #5596F5;
         border-radius: 1em;
-        height: 50vh;
-        margin: 0.3em;
-        padding: 0.2em;
+        text-align: center;
+        padding: 0.5em;
+        margin: 0.5em;
     }
 
     
     div .phoneCardClass img {
         width: 9em;
-        height: auto;
-        margin-left: 0.5em;
+        height: 18em;
     }
-    
+    /* this hides the tablet h1 on mobile */
     .phoneCardClass h1 {
+        display: none;
+    }
+
+    /* this is the header for mobiles on mobile  */
+    .phoneCardClass h2 {
         margin: 0;
         text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .phoneCardClass h3 {
@@ -93,58 +98,80 @@
     .add-to-cart {
         display: none;
     }
+    /* display only in shoppingcart */
+    .fa-trash-alt:before {
+        content: "\f2ed";
+        font-family: 'font awesome\ 5 free';
+    }
 
     .fa-trash-alt {
-        margin-top: 0.5em;
-        height: 1.2em;
-        width: 7em;
-        padding-top: 0.1em;
+        font-family: Arial, Helvetica, sans-serif;
         text-decoration: none;
-        text-align: center;
         color: #FFFFFF;
         background-color: #E64E4E;
-        margin-left: 1.5em;
         border-radius: 0.5em;
+        padding: 0.5em;
+        margin-top: 1em;
     }
 
-    button {
+    .containerForFaCheck {
         width: 100%;
-        margin-top: 1em;
-        margin-bottom: 2em;
+        text-align: center;
     }
     
-    
+    .fa-check:before {
+        content: "\f00c";
+        font-family: 'font awesome\ 5 free';
+    }
+
     .fa-check {
-        width: 8em;
         background-color: #5596F5;
         color: white;
-        border-radius: 0.6em;
-        text-align: center;
-        height: 2em;
-        padding-top: 1em;
+        border-radius: 0.3em;
         font-size: 2em;
+        padding: 0.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #sumOfProducts {
+        font-size: 2em;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .containerForShoppingCart {
+        width: 100%;
         text-align: center;
     }
+
+    .fa-shopping-cart:before {
+        content: "\f07a";
+        font-family: 'font awesome\ 5 free';
+    }
+    
+    .containerForShoppingCart .fa-shopping-cart {
+        color: black;
+        font-size: 2em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
 }
 
 /* this is for tablet */
 
 @media screen and (min-width: 769px) {
 
-<<<<<<< HEAD:css/shoppingcart.css
     body {
         margin: 0;
     }
 
-=======
-body{
-    margin: 0;
-}
->>>>>>> 7b8c85038c4d7671c9c50233cb0c46b65b742f13:shoppingcart.css
-header {
-    height: 5em;
-    width: 100%;
-}
+    header {
+        height: 5em;
+        width: 100%;
+    }
 /* Navigation bar */
 .nav-bar {
     background-color: #212121;
@@ -191,7 +218,7 @@ header h1 a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 8em;
+    margin-top: 2em;
     flex-direction: row;
     }
 
@@ -200,22 +227,32 @@ div .phoneCardClass {
     border: 0.1em solid #5596F5;
     border-radius: 1em;
     margin: 1em;
+    padding: 0.5em;
+    text-align: center;
 }
 
 
 div .phoneCardClass img {
-    width: 8em;
-    margin-left: 1em;
+    width: 9em;
+    height: 18em;
 }
 
 .phoneCardClass h1 {
+    display: none;
+}
+
+/* this is the header for mobiles on mobile  */
+.phoneCardClass h2 {
     margin: 0;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 .phoneCardClass h3 {
     margin: 0;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* display none in shoppingcart */
@@ -228,16 +265,80 @@ div .phoneCardClass img {
     display: none;
 }
 
+.fa-trash-alt:before {
+    content: "\f2ed";
+    font-family: 'font awesome\ 5 free';
+}
+
 .fa-trash-alt {
-    margin-top: 0.5em;
-    height: 1.2em;
-    width: 7em;
-    padding-top: 0.1em;
+    margin-top: 1em;
+    padding: 0.5em;
     text-decoration: none;
     text-align: center;
     color: #FFFFFF;
     background-color: #E64E4E;
-    margin-left: 1.5em;
     border-radius: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+.fa-trash-alt:hover {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #E64E4E;
+    border: 1px solid #E64E4E;
+}
+
+.containerForFaCheck {
+    width: 100%;
+    text-align: center;
+}
+
+.fa-check:before {
+    content: "\f00c";
+    font-family: 'font awesome\ 5 free';
+}
+
+.fa-check {
+    background-color: #5596F5;
+    color: white;
+    border-radius: 0.6em;
+    text-align: center;
+    padding: 1em;
+    font-size: 2em;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+.fa-check:hover {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #5596F5;
+    border: 1px solid #5596F5;
+}
+
+#sumOfProducts {
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerForShoppingCart {
+    width: 100%;
+    text-align: center;
+}
+
+.fa-shopping-cart:before {
+    content: "\f07a";
+    font-family: 'font awesome\ 5 free';
+}
+
+.containerForShoppingCart .fa-shopping-cart {
+    color: black;
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 }
