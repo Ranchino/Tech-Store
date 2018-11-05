@@ -70,9 +70,11 @@ function createPhoneCard(listOfProducts) {
 
 /* sum for picked phones */
 
-    
-
-
+function calculator(price) {
+    var price = listOfProducts.price
+    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
+    console.log()
+}
 
 
 //Function To Display Popup
@@ -110,10 +112,6 @@ function validate(){
     return;
     }
 
-}
-
-function calculator() {
-    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + "1234"
 }
 
 /* localStorage cookies number of orders in shopping cart */
