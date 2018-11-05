@@ -132,16 +132,4 @@ function validate(){
         
         }); 
 
-
-   /*  $(document).ready(function() {
-        $(".add-to-cart").click(function() {
-        if (typeof(Storage) !== "undefined") {
-            // Store
-            localStorage.setItem("lastname", "Smith") + 1;
-            // Retrieve
-            document.getElementById("result").innerHTML = localStorage.getItem("lastname") + 1;
-        } else {
-            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-        }
-    });
-    }); */
+   
