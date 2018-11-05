@@ -69,7 +69,11 @@ function createPhoneCard(listOfProducts) {
 
 
 /* sum for picked phones */
+
     
+
+
+
 
 //Function To Display Popup
 $(document).ready(function(){
@@ -108,6 +112,10 @@ function validate(){
 
 }
 
+function calculator() {
+    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + "1234"
+}
+
 /* localStorage cookies number of orders in shopping cart */
 
     $(document).ready(function() {
@@ -117,7 +125,6 @@ function validate(){
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-        console.log(localStorage.clickcount)
         $(".add-to-cart").click(function() {
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
