@@ -58,7 +58,7 @@ function createPhoneCard(listOfProducts) {
     phone.appendChild(addToCart)
     
     /* Shopping cart site */
-    var getPhoneClearButton = document.createElement("thrash")
+    var getPhoneClearButton = document.createElement("button")
     getPhoneClearButton.className = "far fa-trash-alt"
     getPhoneClearButton.setAttribute('href', "#tabort")
     getPhoneClearButton.innerText = " Ta bort"
