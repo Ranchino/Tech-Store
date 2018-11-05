@@ -5,6 +5,7 @@
     .then(function(response) {
         return response.json();
     })
+
     .then(function(data) {
         listOfProducts = data.phones;
         addProductsToWebpage();
@@ -43,6 +44,10 @@ function createPhoneCard(listOfProducts) {
     getPhoneImage.src = "/assets/" + listOfProducts.image
     phone.appendChild(getPhoneImage)
 
+    var getPhoneName = document.createElement("h2")
+    getPhoneName.innerText = listOfProducts.title
+    phone.appendChild(getPhoneName)
+
     var getPhonePrice = document.createElement("h3")
     getPhonePrice.innerText = listOfProducts.price + " kr"
     phone.appendChild(getPhonePrice)
@@ -53,15 +58,18 @@ function createPhoneCard(listOfProducts) {
     phone.appendChild(addToCart)
     
     /* Shopping cart site */
-    var getPhoneClearButton = document.createElement("thrash")
+    var getPhoneClearButton = document.createElement("button")
     getPhoneClearButton.className = "far fa-trash-alt"
     getPhoneClearButton.setAttribute('href', "#tabort")
     getPhoneClearButton.innerText = " Ta bort"
 
     phone.appendChild(getPhoneClearButton)
     return phone
-    
 }
+
+
+/* sum for picked phones */
+    
 
 
 //Function To Display Popup
@@ -76,14 +84,6 @@ $(document).ready(function(){
 
 })
 
-function createPurchaseButton() {
-    var getCompletePurchaseButton = document.createElement("div")
-    getCompletePurchaseButton.className = "fas fa-check"
-    getCompletePurchaseButton.innerText = " Slutför köp"
-    
-    phone.appendChild(getCompletePurchaseButton)
-    return getCompletePurchaseButton
-}
 
 //Login function
 var attempt = 3; 
