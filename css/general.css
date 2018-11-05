@@ -55,6 +55,9 @@ header h1 a{
     padding-right: 1em;
 }
 
+.phoneCardClass h2{
+    display: none;
+}
 
 .phoneCardClass {
     height: 100%;
