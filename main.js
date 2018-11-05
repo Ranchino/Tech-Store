@@ -108,17 +108,27 @@ function validate(){
 
 }
 
-$(document).ready(function() {
-    $(".add-to-cart").click(function() {
-        if(typeof(Storage)) {
-            if (localStorage.ordersInCart) {
-                localStorage.ordersInCart = Number(localStorage.ordersInCart) + 1;  
-            } 
+/* localStorage cookies number of orders in shopping cart */
+
+    $(document).ready(function() {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount);
+        } else {
+            localStorage.clickcount = 0;
+        }
+        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+        console.log(localStorage.clickcount)
+        $(".add-to-cart").click(function() {
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
-            console.log("testar")
-        } 
-        $(".fa-shopping-cart").effect("bounce", "slow")
-        document.querySelector(".number-of-orders").innerText = "" + localStorage.ordersInCart;
-    });
-    document.querySelector(".number-of-orders").innerText = "" + localStorage.ordersInCart;
-    })
+                localStorage.clickcount = 1;
+            }
+            console.log(localStorage.clickcount)
+            document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+            $(".fa-shopping-cart").effect("bounce", "slow")
+        });   
+        
+        }); 
+
+   
