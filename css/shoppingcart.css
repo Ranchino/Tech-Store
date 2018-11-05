@@ -131,10 +131,16 @@
 
 @media screen and (min-width: 769px) {
 
+<<<<<<< HEAD:css/shoppingcart.css
     body {
         margin: 0;
     }
 
+=======
+body{
+    margin: 0;
+}
+>>>>>>> 7b8c85038c4d7671c9c50233cb0c46b65b742f13:shoppingcart.css
 header {
     height: 5em;
     width: 100%;

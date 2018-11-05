@@ -1,4 +1,7 @@
-/* For ipads aka tablets */
+/* ONLY for ipads aka tablets. 
+Devices between 768px - 1024px will get this css.
+Because most tablets have this width
+*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .phoneCardClass {
         padding-bottom: 6em;
