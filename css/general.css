@@ -1,3 +1,4 @@
+/* CSS for home page ONLY */
 body {
     margin: 0;
 }
@@ -110,6 +111,7 @@ background-color: #F5F5F5;
     content: "\f218";
     font-family: 'Font Awesome\ 5 Free';
     font-weight: 900;
+    
 }
 
 #profileForm {
@@ -160,6 +162,8 @@ background-color: #F5F5F5;
 #userclose {
     height: 1em;
     width: 100%;    
+}
+
 /* dont display in first site */
 .fa-trash-alt {
     display: none;
