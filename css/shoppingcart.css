@@ -114,6 +114,7 @@
         padding: 0.5em;
         margin-top: 1em;
         font-size: 1em;
+        outline: 0;
     }
 
     .containerForFaCheck {
@@ -277,6 +278,7 @@ div .phoneCardClass img {
 .fa-trash-alt {
     margin-top: 1em;
     padding: 0.5em;
+    outline: 0;
     text-decoration: none;
     text-align: center;
     color: #FFFFFF;

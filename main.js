@@ -71,7 +71,6 @@ function createPhoneCard(listOfProducts) {
 /* sum for picked phones */
     
 
-
 //Function To Display Popup
 $(document).ready(function(){
     $("#userclick").click(function(){
