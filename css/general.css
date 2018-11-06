@@ -117,6 +117,8 @@ background-color: #F5F5F5;
     
 }
 
+
+/*form display when click on user icon*/
 #profileForm {
     display: flex;
     justify-content: center;
@@ -124,13 +126,13 @@ background-color: #F5F5F5;
     height: 100%;
     padding-top: 0.03em;
     position: relative;
-    
 }
 
 #popUp {
     display: none;
-    height: 32.5em;
-    width: 25em;
+    height: auto;
+    max-width: 24em;
+    padding-bottom: 2%;
     border: 1px solid black;
     text-align: center;
     border-radius: 10%;
@@ -141,6 +143,31 @@ background-color: #F5F5F5;
 
 }
 
+#popUp input {
+    font-family: "Roboto", sans-serif; 
+    outline: 1;
+    background: #FFFFFF;
+    width: 70%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+}
+
+#popUp .message{
+    margin: 1em;
+    font-size: 1em;
+}
+
+#popUp .message a{
+    text-decoration: none;
+}
+
+#popUp .userReg{
+    display: none;
+}
 
 
 /*LogIn form*/
@@ -152,19 +179,61 @@ background-color: #F5F5F5;
 }
 
 #birdImg {
-    width: 10em;
-    height: 10em;
-   
+    width: 8em;
+    height: 8em;
 }
 
 .formImage {
-    height: 15em;
-   
+    height: 12em;
 }
 
 #userclose {
     height: 1em;
     width: 100%;    
+}
+
+#logIn {
+    background: #5596F5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 0.7em;
+    margin-top: 1em;
+    text-transform: uppercase;
+    outline: 0;
+    width: 70%;
+}
+
+#logIn:hover{
+    background-color: white;
+    color: #5596F5;
+    border: 1px solid #5596F5;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: 0;
+    width: 70%;
+}
+
+#regist {
+    background: #5596F5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 0.7em;
+    margin-top: 1em;
+    text-transform: uppercase;
+    outline: 0;
+    width: 70%;
+}
+
+#regist:hover{
+    background-color: white;
+    color: #5596F5;
+    border: 1px solid #5596F5;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: 0;
+    width: 70%;
 }
 
 /* dont display in first site */
