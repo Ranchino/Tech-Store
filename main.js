@@ -43,7 +43,7 @@ function createPhoneCard(listOfProducts) {
     phone.appendChild(getDescription)
 
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "/assets/" + listOfProducts.image
+    getPhoneImage.src = "./assets/" + listOfProducts.image
     phone.appendChild(getPhoneImage)
 
     var getPhoneName = document.createElement("h2")
@@ -88,12 +88,64 @@ function addToCart(element) {
 
 /* sum for picked phones */
 
-function calculator(price) {
+/* function calculator() {
     var price = listOfProducts.price
     document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
     console.log()
 }
+ */
 
+    var products = []
+
+    var cart = []
+
+    function loadProducts() {
+        for( var i = 0; i < products.length; i++) {
+            createButton(products[i])
+        }
+    }
+
+    function createButton(product) {
+        var document = document.createElement("button")
+        createButton.innerText = "lägg till"
+        createButton.setAttribute("onclick", "addProductToCart(this)")
+        var body = documeny.getElementsByClassName("body")[0]
+        body.appendChild(button)
+    }
+    
+    function addProductToCart(element) {
+
+    }
+
+    fetch("./products.json")
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(json) {
+    products = json
+    });
+
+    
+    /* function addProduct(Element){
+        Element.setAttribute("onclick", "addProduct(this)")
+        Element.getAttribute("data")
+        console.log("data")
+    } */
+
+
+
+   /*  const data = {
+     title: ['iPhone X', 'One Plus 5', 'Galaxy S8'],
+    };
+
+    const button = document.querySelectorAll('.button');
+    button.forEach(button => {
+        
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('title', JSON.stringify(this.attr('data-title')));
+        });
+    }); */
 
 
 //Function To Display Popup
