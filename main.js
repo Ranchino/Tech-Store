@@ -30,34 +30,34 @@ function addProductsToWebpage() {
 }
   
  /* This makes json objects visual on website */
-function createPhoneCard(listOfProducts) {
+function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
 
     var getPhoneName = document.createElement("h1")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getDescription = document.createElement("h5")
-    getDescription.innerText = listOfProducts.description
+    getDescription.innerText = product.description
     phone.appendChild(getDescription)
 
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + listOfProducts.image
+    getPhoneImage.src = "./assets/" + product.image
     phone.appendChild(getPhoneImage)
 
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = listOfProducts.price + " kr"
+    getPhonePrice.innerText = product.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
     addToCart.setAttribute("onclick", "addToCart(this)")
-    addToCart.setAttribute("data", "title")
+    addToCart.setAttribute("data", product.title)
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
@@ -76,13 +76,14 @@ function createPhoneCard(listOfProducts) {
 function addToCart(element) {
      var productTitle = element.getAttribute("data")
      for (var i = 0; i < listOfProducts.length; i++) {
-        if (listOfProducts == listOfProducts[i].title) {
+
+        if (productTitle == listOfProducts[i].title) {
             var productsToSave = {
                 title: listOfProducts[i].title,
                 price: listOfProducts[i].price
             }
+            console.log(productsToSave)
         }
-        console.log(listOfProducts[i])
      }
 }
 
