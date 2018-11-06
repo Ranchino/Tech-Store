@@ -89,34 +89,8 @@ function addToCart(element) {
 
 /* sum for picked phones */
 
-/* function calculator() {
-    var price = listOfProducts.price
-    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
-    console.log()
-}
- */
 
-    var products = []
 
-    var cart = []
-
-    function loadProducts() {
-        for( var i = 0; i < products.length; i++) {
-            createButton(products[i])
-        }
-    }
-
-    function createButton(product) {
-        var document = document.createElement("button")
-        createButton.innerText = "lägg till"
-        createButton.setAttribute("onclick", "addProductToCart(this)")
-        var body = documeny.getElementsByClassName("body")[0]
-        body.appendChild(button)
-    }
-    
-    function addProductToCart(element) {
-
-    }
 
     fetch("./products.json")
     .then(function(response) {
@@ -183,11 +157,15 @@ function validate(){
     document.getElementsByClassName("password")[0].value = "";    
     return;
     }
+
 }
 
 /* localStorage cookies number of orders in shopping cart */
+
     $(document).ready(function() {
-        if (!localStorage.clickcount) {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount);
+        } else {
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
@@ -196,7 +174,7 @@ function validate(){
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
-                alert("Failed to add product")
+                localStorage.clickcount = 1;
             }
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
             $(".fa-shopping-cart").effect("bounce", "slow")
