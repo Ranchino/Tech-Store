@@ -1,5 +1,7 @@
 /* if we put a function in javascript the problem would be that when hitting referesh customer looses his basket */
 
+var listOfProducts = []
+
 /* Getting json files ready */
     fetch("./products.json")
     .then(function(response) {
@@ -54,6 +56,8 @@ function createPhoneCard(listOfProducts) {
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
+    addToCart.setAttribute("onclick", "addToCart(this)")
+    addToCart.setAttribute("data", "title")
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
@@ -65,8 +69,22 @@ function createPhoneCard(listOfProducts) {
 
     phone.appendChild(getPhoneClearButton)
     return phone
+
+    
 }
 
+function addToCart(element) {
+     var productTitle = element.getAttribute("data")
+     for (var i = 0; i < listOfProducts.length; i++) {
+        if (listOfProducts == listOfProducts[i].title) {
+            var productsToSave = {
+                title: listOfProducts[i].title,
+                price: listOfProducts[i].price
+            }
+        }
+        console.log(listOfProducts[i])
+     }
+}
 
 /* sum for picked phones */
 
@@ -75,6 +93,7 @@ function calculator(price) {
     document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
     console.log()
 }
+
 
 
 //Function To Display Popup
@@ -119,17 +138,20 @@ function validate(){
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+
         $(".add-to-cart").click(function() {
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
                 alert("Failed to add product")
             }
-            console.log(localStorage.clickcount)
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
             $(".fa-shopping-cart").effect("bounce", "slow")
+       
         });   
         
+
+       
         }); 
 
    
