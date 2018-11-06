@@ -5,23 +5,53 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Jquery CDN länk -->
+        <!-- Jquery CDN länkar med lite extra jquery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <!-- Fontawesome ikoner -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
         <!-- Våra egna filer, skriv inte css i HTML filen tack! -->
         <script src="./main.js"></script>
-        <link rel="stylesheet" href="mobile.css">
+        <link rel="stylesheet" href="./css/mobile.css">
+        <link rel="stylesheet" href="./css/general.css">
+        <link rel="stylesheet" href="./css/tablet.css">
     </head>
-    <body onload="initSite()">
+    <body onload="">
         <header>
-            <!-- Your header title and shopping cart button goes here  -->
-            <i class="fas fa-shopping-cart fa-2x"></i> <!-- fa-2x är storleken på ikonen -->
+            <div class="nav-bar">
+            <!-- Logotype linking to home page  -->
+            <h1><a href="#homepage">TechStore</a></h1>
+           
+            <div class="right-section">
+            <i class="far fa-user fa-2x" id="userclick"></i>
+                <!-- Number of orders we will manipulate with javascript -->
+                <span class="number-of-orders"></span>
+                <!-- Varukorgen on click takes us to another page  -->
+                <a href="shoppingcart.html"><i class=" fas fa-shopping-cart fa-2x"></i></a> 
+             </div>
+            </div>
         </header>
+            <!--Login form-->
+            <div id="profileForm">
+                <div id="popUp">
+                    <form action="#" id="form" method="POST" name="form">
+                        <div class="formImage">
+                            <i class="far fa-times-circle fa-2x" id="userclose"></i>
+                            <img id="birdImg" src="./assets/avatar-1295429_1280.png" onclick="div_hiden()">
+                        </div>
+                        <h2>Användarnamn</h2>
+                        <input type="text" class="userName" placeholder="Användarnamn" value="">
+                        <h2>Lösenord</h2>
+                        <input type="password" class="password" placeholder="Lösenord" value="">
+                        <br>
+                        <button type="button" id="logIn" onclick="validate()">Logga in</button>
+                    </form>
+                </div>
+            </div>
 
-        <main>
-            <!-- Add the content of your site here via javascript -->
+        <main id="main">
+            <!-- Products from javascript is inside here -->
         </main>
-
+        <div id="result"></div>
     </body>
 </html>
