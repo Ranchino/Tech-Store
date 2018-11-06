@@ -41,7 +41,7 @@ function createPhoneCard(listOfProducts) {
     phone.appendChild(getDescription)
 
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "/assets/" + listOfProducts.image
+    getPhoneImage.src = "/.assets/" + listOfProducts.image
     phone.appendChild(getPhoneImage)
 
     var getPhoneName = document.createElement("h2")
