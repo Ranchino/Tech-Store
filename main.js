@@ -111,15 +111,11 @@ function validate(){
     document.getElementsByClassName("password")[0].value = "";    
     return;
     }
-
 }
 
 /* localStorage cookies number of orders in shopping cart */
-
     $(document).ready(function() {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount);
-        } else {
+        if (!localStorage.clickcount) {
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
@@ -127,7 +123,7 @@ function validate(){
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
-                localStorage.clickcount = 1;
+                alert("Failed to add product")
             }
             console.log(localStorage.clickcount)
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
