@@ -1,5 +1,7 @@
 /* if we put a function in javascript the problem would be that when hitting referesh customer looses his basket */
 
+var listOfProducts = []
+
 /* Getting json files ready */
     fetch("./products.json")
     .then(function(response) {
@@ -28,32 +30,34 @@ function addProductsToWebpage() {
 }
   
  /* This makes json objects visual on website */
-function createPhoneCard(listOfProducts) {
+function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
 
     var getPhoneName = document.createElement("h1")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getDescription = document.createElement("h5")
-    getDescription.innerText = listOfProducts.description
+    getDescription.innerText = product.description
     phone.appendChild(getDescription)
 
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + listOfProducts.image
+    getPhoneImage.src = "./assets/" + product.image
     phone.appendChild(getPhoneImage)
 
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = listOfProducts.price + " kr"
+    getPhonePrice.innerText = product.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
+    addToCart.setAttribute("onclick", "addToCart(this)")
+    addToCart.setAttribute("data", product.title)
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
@@ -65,16 +69,58 @@ function createPhoneCard(listOfProducts) {
 
     phone.appendChild(getPhoneClearButton)
     return phone
+
+    
 }
 
+function addToCart(element) {
+     var productTitle = element.getAttribute("data")
+     for (var i = 0; i < listOfProducts.length; i++) {
+
+        if (productTitle == listOfProducts[i].title) {
+            var productsToSave = {
+                title: listOfProducts[i].title,
+                price: listOfProducts[i].price
+            }
+            console.log(productsToSave)
+        }
+     }
+}
 
 /* sum for picked phones */
 
-function calculator(price) {
-    var price = listOfProducts.price
-    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
-    console.log()
-}
+
+
+
+    fetch("./products.json")
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(json) {
+    products = json
+    });
+
+    
+    /* function addProduct(Element){
+        Element.setAttribute("onclick", "addProduct(this)")
+        Element.getAttribute("data")
+        console.log("data")
+    } */
+
+
+
+   /*  const data = {
+     title: ['iPhone X', 'One Plus 5', 'Galaxy S8'],
+    };
+
+    const button = document.querySelectorAll('.button');
+    button.forEach(button => {
+        
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('title', JSON.stringify(this.attr('data-title')));
+        });
+    }); */
 
 
 //Function To Display Popup
@@ -116,25 +162,32 @@ function validate(){
     document.getElementsByClassName("password")[0].value = "";    
     return;
     }
+
 }
 
 /* localStorage cookies number of orders in shopping cart */
+
     $(document).ready(function() {
-        if (!localStorage.clickcount) {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount);
+        } else {
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+
         $(".add-to-cart").click(function() {
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
-                alert("Failed to add product")
+                localStorage.clickcount = 1;
             }
-            console.log(localStorage.clickcount)
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
             $(".fa-shopping-cart").effect("bounce", "slow")
+       
         });   
         
+
+       
         }); 
 
    
