@@ -11,6 +11,7 @@ var listOfProducts = []
     .then(function(data) {
         listOfProducts = data.phones;
         addProductsToWebpage();
+    
     });
 
 /* Creating one parent div for all */
@@ -28,8 +29,9 @@ function addProductsToWebpage() {
     }
     document.getElementById("main").appendChild(wrapperForAllPhones)
 }
-  
+
  /* This makes json objects visual on website */
+ 
 function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
@@ -69,23 +71,45 @@ function createPhoneCard(product) {
 
     phone.appendChild(getPhoneClearButton)
     return phone
-
-    
 }
+
+var cart = []
 
 function addToCart(element) {
      var productTitle = element.getAttribute("data")
+    cart.push(element)
+    
      for (var i = 0; i < listOfProducts.length; i++) {
 
         if (productTitle == listOfProducts[i].title) {
             var productsToSave = {
+                image: listOfProducts[i].image,
                 title: listOfProducts[i].title,
+                description: listOfProducts[i].description,
                 price: listOfProducts[i].price
             }
-            console.log(productsToSave)
+            var parentDiv = document.getElementById("addedItems")
+
+            var getPhoneImage = document.createElement("img")
+            getPhoneImage.src = "./assets/" + productsToSave.image
+            parentDiv.appendChild(getPhoneImage)
+
+            var getPhoneName = document.createElement("h1")
+            getPhoneName.innerText = productsToSave.title
+            parentDiv.appendChild(getPhoneName)
+
+            var getDescription = document.createElement("h5")
+            getDescription.innerText = productsToSave.description
+            parentDiv.appendChild(getDescription)
+
+            var getPhonePrice = document.createElement("h3")
+            getPhonePrice.innerText = productsToSave.price + " kr"
+            parentDiv.appendChild(getPhonePrice)
         }
      }
+     console.log(productsToSave)
 }
+
 
 /* sum for picked phones */
 
@@ -180,9 +204,6 @@ function validate(){
             $(".fa-shopping-cart").effect("bounce", "slow")
        
         });   
-        
-
-       
-        }); 
+    }); 
 
    
