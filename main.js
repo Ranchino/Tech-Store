@@ -114,15 +114,39 @@ function addToCart(element) {
 /* sum for picked phones */
 
 
+    function initSite() {
+        for(var i = 0; i < listOfProducts.length; i++) {
+            if (listOfProducts[i].title) {
+                var productPriceSum = {
+                    price: listOfProducts[i].price
+                }
+
+                var parentDivTwo = document.getElementById("sumOfProducts")
+                var getPhonePriceSum = document.createElement("h3")
+                getPhonePriceSum.innerText = productPriceSum.price + " kr"
+
+                parentDivTwo.appendChild(getPhonePriceSum)
+                
+
+            }
+        }
+    }
+    
+    sum([500, 300, 400, 500])
+    
+
+    function sum(arr) {
+        var test1 = 0;
+        for(var i = 0; i < arr.length; i++) {
+            test1 = test1 + arr[i];
+        }
+        
+        console.log(test1)
+
+    }
+    
 
 
-    fetch("./products.json")
-    .then(function(response) {
-    return response.json();
-    })
-    .then(function(json) {
-    products = json
-    });
 
     
     /* function addProduct(Element){
@@ -134,7 +158,7 @@ function addToCart(element) {
 
 
    /*  const data = {
-     title: ['iPhone X', 'One Plus 5', 'Galaxy S8'],
+     title: [],
     };
 
     const button = document.querySelectorAll('.button');
@@ -143,9 +167,10 @@ function addToCart(element) {
 
         button.addEventListener('click', () => {
             localStorage.setItem('title', JSON.stringify(this.attr('data-title')));
+            console.log(data)
         });
-    }); */
-
+    });
+ */
 
 //Function To Display Popup
 $(document).ready(function(){
