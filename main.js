@@ -157,6 +157,11 @@ $(document).ready(function(){
         $("#popUp").hide()
     })
 
+    //Change between popup forms
+    $(".message").click(function(){
+        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+
 })
 
 
