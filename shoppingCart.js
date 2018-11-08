@@ -31,6 +31,8 @@ function initSite() {
     console.log(totalPrice)
 }
 
+/* this will help us print out products in cart */
+
 function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
