@@ -59,8 +59,7 @@ function createPhoneCard(product) {
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
-    addToCart.setAttribute("onclick", "addToCart(this)")
-    addToCart.setAttribute("data", product.title)
+    addToCart.onclick = addPhones.bind(undefined, product)
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
@@ -73,102 +72,6 @@ function createPhoneCard(product) {
     phone.appendChild(getPhoneClearButton)
     return phone
 }
-
-var cart = []
-console.log()
-
-function addToCart(element) {
-    var productTitle = element.getAttribute("data")
-    cart.push(element)
-    
-     for (var i = 0; i < listOfProducts.length; i++) {
-
-        if (productTitle == listOfProducts[i].title) {
-            var productsToSave = {
-                image: listOfProducts[i].image,
-                title: listOfProducts[i].title,
-                description: listOfProducts[i].description,
-                price: listOfProducts[i].price
-            }
-            var parentDiv = document.getElementById("addedItems")
-
-            var getPhoneImage = document.createElement("img")
-            getPhoneImage.src = "./assets/" + productsToSave.image
-            parentDiv.appendChild(getPhoneImage)
-
-            var getPhoneName = document.createElement("h1")
-            getPhoneName.innerText = productsToSave.title
-            parentDiv.appendChild(getPhoneName)
-
-            var getDescription = document.createElement("h5")
-            getDescription.innerText = productsToSave.description
-            parentDiv.appendChild(getDescription)
-
-            var getPhonePrice = document.createElement("h3")
-            getPhonePrice.innerText = productsToSave.price + " kr"
-            parentDiv.appendChild(getPhonePrice)
-        }
-     }
-     console.log(productsToSave)
-}
-
-
-/* sum for picked phones */
-
-
-   /*  var shoppingCart = [];
-    var ulElement;
-
-    if (localStorage.shoppingCart) {
-    shoppingCart = JSON.parse(localStorage.shoppingCart)
-}
-
-function addPhones(titel) {
-    for (var i = 0; i < shoppingCart.length; i++) {
-        listOfProducts[i].titel;
-    }
-    shoppingCart.push(titel);
-    
-} */
-
-
-function initSite() {
-    var totalPrice = 0;
-    var listOfProducts = JSON.parse(localStorage.shoppingCart);
-
-    
-    /* console.log(listOfProducts)  */
-
-    for(var i = 0; i < listOfProducts.length; i++) {
-        
-        totalPrice += listOfProducts[i].price;
-    }
-    $('#sumOfProducts').append(totalPrice);
-}
-
-
-/* sum([10, 20, 30])
-
-
-
-function sum(arr) {
-    var test1 = 0;
-    for(var i = 0; i < arr.length; i++) {
-        test1 = test1 + arr[i];
-    }
-    console.log(test1)
-}
-     */
-
-
-
-    
-    /* function addProduct(Element){
-        Element.setAttribute("onclick", "addProduct(this)")
-        Element.getAttribute("data")
-        console.log("data")
-    } */
-
 
 //Function To Display Popup
 $(document).ready(function(){

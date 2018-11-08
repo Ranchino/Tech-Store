@@ -138,6 +138,8 @@
     }
 
     #sumOfProducts {
+        margin-top: 1em;
+        margin-bottom: 1em;
         font-size: 2em;
         width: 100%;
         text-align: center;
@@ -237,7 +239,6 @@ div .phoneCardClass {
 
 
 .phoneCardClass img {
-   
     height: 18em;
 }
 
@@ -324,6 +325,8 @@ div .phoneCardClass {
 }
 
 #sumOfProducts {
+    margin-top: 1em;
+    margin-bottom: 1em;
     font-size: 2em;
     width: 100%;
     text-align: center;
