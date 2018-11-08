@@ -2,6 +2,7 @@
 
 var listOfProducts = []
 
+
 /* Getting json files ready */
     fetch("./products.json")
     .then(function(response) {
@@ -74,9 +75,10 @@ function createPhoneCard(product) {
 }
 
 var cart = []
+console.log()
 
 function addToCart(element) {
-     var productTitle = element.getAttribute("data")
+    var productTitle = element.getAttribute("data")
     cart.push(element)
     
      for (var i = 0; i < listOfProducts.length; i++) {
@@ -114,37 +116,49 @@ function addToCart(element) {
 /* sum for picked phones */
 
 
-    function initSite() {
-        for(var i = 0; i < listOfProducts.length; i++) {
-            if (listOfProducts[i].title) {
-                var productPriceSum = {
-                    price: listOfProducts[i].price
-                }
+   /*  var shoppingCart = [];
+    var ulElement;
 
-                var parentDivTwo = document.getElementById("sumOfProducts")
-                var getPhonePriceSum = document.createElement("h3")
-                getPhonePriceSum.innerText = productPriceSum.price + " kr"
+    if (localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart)
+}
 
-                parentDivTwo.appendChild(getPhonePriceSum)
-                
-
-            }
-        }
+function addPhones(titel) {
+    for (var i = 0; i < shoppingCart.length; i++) {
+        listOfProducts[i].titel;
     }
+    shoppingCart.push(titel);
     
-    sum([500, 300, 400, 500])
-    
+} */
 
-    function sum(arr) {
-        var test1 = 0;
-        for(var i = 0; i < arr.length; i++) {
-            test1 = test1 + arr[i];
-        }
+
+function initSite() {
+    var totalPrice = 0;
+    var listOfProducts = JSON.parse(localStorage.shoppingCart);
+
+    
+    /* console.log(listOfProducts)  */
+
+    for(var i = 0; i < listOfProducts.length; i++) {
         
-        console.log(test1)
-
+        totalPrice += listOfProducts[i].price;
     }
-    
+    $('#sumOfProducts').append(totalPrice);
+}
+
+
+/* sum([10, 20, 30])
+
+
+
+function sum(arr) {
+    var test1 = 0;
+    for(var i = 0; i < arr.length; i++) {
+        test1 = test1 + arr[i];
+    }
+    console.log(test1)
+}
+     */
 
 
 
@@ -155,22 +169,6 @@ function addToCart(element) {
         console.log("data")
     } */
 
-
-
-   /*  const data = {
-     title: [],
-    };
-
-    const button = document.querySelectorAll('.button');
-    button.forEach(button => {
-        
-
-        button.addEventListener('click', () => {
-            localStorage.setItem('title', JSON.stringify(this.attr('data-title')));
-            console.log(data)
-        });
-    });
- */
 
 //Function To Display Popup
 $(document).ready(function(){
