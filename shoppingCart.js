@@ -2,6 +2,8 @@
 
 
 var shoppingCart = [];
+var ulElement;
+
 
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
@@ -15,29 +17,60 @@ function addPhones(product) {
     localStorage.shoppingCart = phoneArray;
 }
 
-
 function initSite() {
     var totalPrice = 0;
-    var listOfProducts = JSON.parse(localStorage.shoppingCart);
+    var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
-    console.log(listOfProducts)
+    console.log(shoppingCartItems)
 
-    for(var i = 0; i < listOfProducts.length; i++) {
-        
-        totalPrice += listOfProducts[i].price;
+    for(var i = 0; i < shoppingCartItems.length; i++) {
+        createPhoneCard(shoppingCartItems[i]);
+        totalPrice += shoppingCartItems[i].price;
     }
     $('#sumOfProducts').append(totalPrice);
     console.log(totalPrice)
 }
 
+function createPhoneCard(product) {
+    var phone = document.createElement("div")
+    phone.className = "phoneCardClass"
+
+    var getPhoneName = document.createElement("h1")
+    getPhoneName.innerText = product.title
+    phone.appendChild(getPhoneName)
+
+    var getDescription = document.createElement("h5")
+    getDescription.innerText = product.description
+    phone.appendChild(getDescription)
+
+    var getPhoneImage = document.createElement("img")
+    getPhoneImage.src = "./assets/" + product.image
+    phone.appendChild(getPhoneImage)
+
+    var getPhoneName = document.createElement("h2")
+    getPhoneName.innerText = product.title
+    phone.appendChild(getPhoneName)
+
+    var getPhonePrice = document.createElement("h3")
+    getPhonePrice.innerText = product.price + " kr"
+    phone.appendChild(getPhonePrice)
+
+    var addToCart = document.createElement("button")
+    addToCart.className = "add-to-cart"
+    addToCart.onclick = addPhones.bind(undefined, product)
+    addToCart.innerText = " Lägg till i kundvagnen"
+    phone.appendChild(addToCart)
+    
+    return phone
+}
+
 
 
 /* ta bort för vi gör en ny funktion */
-/* var cart = []
 
-function addToCart(element) {
+/* function addPhones(element) {
     var productTitle = element.getAttribute("data")
-    cart.push(element)
+    shoppingCart.push(element)
     
      for (var i = 0; i < listOfProducts.length; i++) {
 
@@ -67,6 +100,6 @@ function addToCart(element) {
             parentDiv.appendChild(getPhonePrice)
         }
      }
-     $('#addeditems').append(productsToSave);
+     $('#addedItems').append(productsToSave);
 }
- */
+  */

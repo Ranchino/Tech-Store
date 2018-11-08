@@ -72,10 +72,6 @@
         width: 9em;
         height: 18em;
     }
-    /* this hides the tablet h1 on mobile */
-    .phoneCardClass h1 {
-        display: none;
-    }
 
     /* this is the header for mobiles on mobile  */
     .phoneCardClass h2 {
@@ -89,15 +85,6 @@
         text-align: center;
     }
 
-    /* display none in shoppingcart */
-    .phoneCardClass h5 {
-        display: none;
-    }
-
-    /* display none in shoppingcart */
-    .add-to-cart {
-        display: none;
-    }
     /* display only in shoppingcart */
 
     .fa-trash-alt:before {
@@ -242,9 +229,7 @@ div .phoneCardClass {
     height: 18em;
 }
 
-.phoneCardClass h1 {
-    display: none;
-}
+
 
 /* this is the header for mobiles on mobile  */
 .phoneCardClass h2 {
@@ -262,15 +247,8 @@ div .phoneCardClass {
 }
 
 /* display none in shoppingcart */
-.phoneCardClass h5 {
-    display: none;
-}
 
-/* display none in shoppingcart */
-.add-to-cart {
-    display: none;
-}
-
+ 
 .fa-trash-alt:before {
     content: "\f2ed";
     font-family: 'font awesome\ 5 free';
