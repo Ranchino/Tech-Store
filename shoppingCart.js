@@ -39,9 +39,6 @@ function createPhoneCard(product) {
 }
 
 /* here it will be a confirmation purchase with jquery */
-function purchaseComplete() {
-    alert("Köp slutfört!");
-}
 
 
 /* creating localstorage and storing products */

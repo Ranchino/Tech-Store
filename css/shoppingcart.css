@@ -104,6 +104,12 @@
         outline: 0;
     }
 
+    .fa-trash-alt:hover {
+        cursor: pointer;
+        color: #E64E4E;
+        background-color: #f5f5f5;
+    }
+
     .containerForFaCheck {
         width: 100%;
         text-align: center;
@@ -114,6 +120,13 @@
         content: "\f00c";
         font-family: 'font awesome\ 5 free';
     }
+    
+    .fa-check:hover {
+        outline: 0;
+        cursor: pointer;
+        background-color: white;
+        color: #5596F5;
+    }
 
     .fa-check {
         background-color: #5596F5;
@@ -122,6 +135,7 @@
         font-size: 2em;
         padding: 0.5em;
         font-family: Arial, Helvetica, sans-serif;
+        border: 0.1em solid #5596F5;
     }
 
     #sumOfProducts {
