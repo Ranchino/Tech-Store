@@ -84,8 +84,19 @@ function printProductsInCart() {
 
 /* deletProducts form cart page */
 function deletePhone(product) {
-    shoppingCart.shift(product);
+    shoppingCart.splice();
     
+    //var tempShopingCart = []
+
+    for (var i = 0; i < shoppingCart.length; i++) {
+
+        if (product.title == shoppingCart[i].title) {
+            shoppingCart.splice(i, 1)
+            break;
+        }
+
+    }
+
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();

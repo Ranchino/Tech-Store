@@ -102,6 +102,7 @@
         margin-top: 1em;
         font-size: 1em;
         outline: 0;
+        border: 0.1em solid #E64E4E;
     }
 
     .fa-trash-alt:hover {
