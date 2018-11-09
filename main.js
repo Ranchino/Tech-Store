@@ -101,7 +101,7 @@ function reg() {
     // Name, Password and Mail from the register-form
     var regUserName = document.getElementsByClassName('newUserName')[0].value;
     var regPassword = document.getElementsByClassName('newPassword')[0].value;
-    var regMail = document.getElementsByClassName('mail')[0];
+    var regMail = document.getElementsByClassName('mail')[0].value;
 
     var userList = JSON.parse(localStorage.getItem("accounts"))
     console.log(userList)
@@ -109,14 +109,18 @@ function reg() {
     /* if values empty */
     if (regUserName == "" || regPassword == "" || regMail == "" ) {
         alert ("Du har missat ett fält");
+        return false;
     } 
+    
     if (!userList) {
         // Skapa en ny array med ett nytt userobjekt
         var newUser = [{
             username: regUserName,
-            password: regPassword
+            password: regPassword,
         }]
-            localStorage.setItem("accounts", JSON.stringify(newUser))
+        localStorage.setItem("accounts", JSON.stringify(newUser))
+        accoutCreatedFeedback();
+            
     } else {
         // Lägg till en ny user i account och spara igen
 
@@ -136,20 +140,19 @@ function reg() {
         userList.push(newUser)
 
         localStorage.setItem("accounts", JSON.stringify(userList))
+        accoutCreatedFeedback();
        /*  userList.push({userName: regUserName, password: regPassword})
         localStorage.setItem("accounts", userList) */
     }
+     
+}
 
-       /*  if (accounts) {
-        localStorage.setItem('regUserName', regUserName.value);
-        localStorage.setItem('regPassword', regPassword.value); 
-        alert ("Du har nu skapat ett konto 😎"); 
-
-        $("#popUp").fadeOut(500)
-        $("#popUp").fadeIn(500).delay(2000)
-        $(".loginUser").fadeIn(500).delay(3000)
-        $(".userReg").fadeOut(500).delay(3000)
-    } */
+function accoutCreatedFeedback () {
+    alert ("Du har nu skapat ett konto 😎");    
+    $("#popUp").fadeOut(500)
+    $("#popUp").fadeIn(500).delay(2000)
+    $(".loginUser").fadeIn(500).delay(3000)
+    $(".userReg").fadeOut(500).delay(3000)
 }
 
 
@@ -162,33 +165,31 @@ function validate(){
     var password = document.getElementsByClassName("password")[0].value;*/
 
     // stored data from the register-form
-    localStorage.getItem("accounts", JSON.stringify())
-    var storedName = localStorage.getItem('regUserName');
-    var storedPassword = localStorage.getItem('regPassword');
-    console.log(storedName)
-    console.log(storedPassword)
+  
+   var userName = document.getElementsByClassName('userName')[0];
+   var userPw = document.getElementsByClassName('password')[0];
+   var existingAccount = JSON.parse(localStorage.getItem("accounts"))
+   
+   console.log(userName.value, userPw.value, existingAccount)
 
-    // entered data from the login-form
-    var userName = document.getElementsByClassName('userName')[0];
-    var userPw = document.getElementsByClassName('password')[0];
+    for (var i = 0; i < existingAccount.length; i++) {
+          // entered data from the login-form
 
-    if (userName.value == storedName && userPw.value == storedPassword ){
-        alert ("Du har loggat in!");
-        window.location = "userpage.html";
-        return true;
+        if (userName.value == existingAccount[i].username && userPw.value == existingAccount[i].password ){
+            alert ("Du har loggat in!");
+            window.location = "userpage.html";
+            return true;
+        } else {
+            attempt --;
+            alert("Du har "+attempt+" försök kvar;");
+        } if( attempt == 0){ 
+            alert = false; 
+            userName.value = "";
+            userPw.value = "";    
+            return;
+        }
+        }
     }
-    else{
-    attempt --;
-    alert("Du har "+attempt+" försök kvar;");
-    } if( attempt == 0){ 
-    alert = false; 
-    userName.value = "";
-    userPw.value = "";    
-    return;
-    }
-
-}
-
 
 
 /* localStorage cookies number of orders in shopping cart */
@@ -228,4 +229,15 @@ function validate(){
         });
     }); 
 
+   
+
+    /*  Array and object inside */
+ /* 
+            transaction: [
+                {
+                    date: new Date(),
+                    products: cartList
+                }
+            ] 
+            */
    
