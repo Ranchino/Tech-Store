@@ -2,8 +2,6 @@
 
 Kravspecifikationer kvar
 
-Startsida (Godkänt)
-•	Det skall även, för varje produkt, ﬁnnas en knapp för att lägga till produkterna i kundvagnen.
 
 Kundvagnssida (Godkänt)
 •	Kundvagnssidan skall lista produkterna som användaren har lagt till i kundvagnen.
