@@ -68,6 +68,7 @@ function createPhoneCard(product) {
     return phone
 }
 
+<<<<<<< HEAD
 /* creating localstorage and storing products */
 var shoppingCart = [];
 var ulElement;
@@ -112,6 +113,8 @@ $(document).ready(function(){
     });
 
 })
+=======
+>>>>>>> 235b3abb7b9415232f2dcfa1785f814e9ce0315f
 
 //create a account for new users and save in localstorage
 
@@ -131,6 +134,10 @@ function reg() {
     localStorage.setItem('regUserName', regUserName.value);
     localStorage.setItem('regPassword', regPassword.value);
     alert ("Du har nu skapat ett konto 😎");
+    $("#popUp").fadeOut(500)
+    $("#popUp").fadeIn(500).delay(2000)
+    $(".loginUser").fadeIn(500).delay(3000)
+    $(".userReg").fadeOut(500).delay(3000)
     }
 }
 
@@ -142,8 +149,8 @@ function validate(){
     var password = document.getElementsByClassName("password")[0].value;*/
 
     // stored data from the register-form
-    var storedName = localStorage.getItem('newUserName');
-    var storedPassword = localStorage.getItem('newPassword');
+    var storedName = localStorage.getItem('regUserName');
+    var storedPassword = localStorage.getItem('regPassword');
 
     // entered data from the login-form
     var userName = document.getElementsByClassName('userName');
@@ -158,10 +165,9 @@ function validate(){
     attempt --;
     alert("Du har "+attempt+" försök kvar;");
     } if( attempt == 0){ 
-
     alert = false; 
-    document.getElementsByClassName("userName").value = "";
-    document.getElementsByClassName("password").value = "";    
+    userName.value = "";
+    userPw.value = "";    
     return;
     }
 
@@ -188,7 +194,22 @@ function validate(){
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
             $(".fa-shopping-cart").effect("bounce", "slow")
        
-        });   
+        }); 
+
+
+        //Function To Display Popup
+        $("#userclick").click(function(){
+            $("#popUp").fadeIn(500)
+        })
+    
+        $("#userclose").click(function(){
+            $("#popUp").hide()
+        })
+    
+        //Change between popup forms
+        $(".message").click(function(){
+            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
     }); 
 
    
