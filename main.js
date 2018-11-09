@@ -85,14 +85,43 @@ $(document).ready(function(){
 
 })
 
+//create a account for new users and save in localstorage
 
-//Login function
+
+// storing input from register-form
+function reg() {
+    // Name, Password and Mail from the register-form
+    var regUserName = document.getElementsByClassName('newUserName')[0];
+    var regPassword = document.getElementsByClassName('newPassword')[0];
+    var regMail = document.getElementsByClassName('mail')[0];
+
+    console.log(regUserName, regPassword, regMail)
+
+    if (regUserName.value == "" || regPassword.value == "" || regMail.value == "" ) {
+        alert ("Du har missat ett fält");
+    } else {
+    localStorage.setItem('regUserName', regUserName.value);
+    localStorage.setItem('regPassword', regPassword.value);
+    alert ("Du har nu skapat ett konto 😎");
+    }
+}
+
+//Login function for already exists account
 var attempt = 3; 
 
 function validate(){
-    var userName = document.getElementsByClassName("userName")[0].value;
-    var password = document.getElementsByClassName("password")[0].value;
-    if ( userName == "admin" && password == "admin" ){
+    /*var userName = document.getElementsByClassName("userName")[0].value;
+    var password = document.getElementsByClassName("password")[0].value;*/
+
+    // stored data from the register-form
+    var storedName = localStorage.getItem('newUserName');
+    var storedPassword = localStorage.getItem('newPassword');
+
+    // entered data from the login-form
+    var userName = document.getElementsByClassName('userName');
+    var userPw = document.getElementsByClassName('password');
+
+    if ( userName.value == storedName && userPw.value == storedPassword ){
         alert ("Du har loggat in!");
         window.location = "userpage.html";
         return true;
@@ -103,12 +132,14 @@ function validate(){
     } if( attempt == 0){ 
 
     alert = false; 
-    document.getElementsByClassName("userName")[0].value = "";
-    document.getElementsByClassName("password")[0].value = "";    
+    document.getElementsByClassName("userName").value = "";
+    document.getElementsByClassName("password").value = "";    
     return;
     }
 
 }
+
+
 
 /* localStorage cookies number of orders in shopping cart */
 
