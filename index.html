@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="./css/general.css">
         <link rel="stylesheet" href="./css/tablet.css">
     </head>
-    <body onload="">
+    <body>
         <header>
             <div class="nav-bar">
             <!-- Logotype linking to home page  -->
@@ -34,24 +34,33 @@
             <!--Login form-->
             <div id="profileForm">
                 <div id="popUp">
-                    <form action="#" id="form" method="POST" name="form">
-                        <div class="formImage">
-                            <i class="far fa-times-circle fa-2x" id="userclose"></i>
-                            <img id="birdImg" src="./assets/avatar-1295429_1280.png" onclick="div_hiden()">
-                        </div>
-                        <h2>Användarnamn</h2>
-                        <input type="text" class="userName" placeholder="Användarnamn" value="">
-                        <h2>Lösenord</h2>
-                        <input type="password" class="password" placeholder="Lösenord" value="">
+                    <div class="formImage">
+                        <i class="far fa-times-circle fa-2x" id="userclose"></i>
+                        <img id="birdImg" src="./assets/avatar-1295429_1280.png" onclick="div_hiden()">
+                    </div>
+                    <form class="userReg">
+                        <input type="text" class="newUserName" placeholder="Användarnamn" required>
+                        <input type="password" class="newPassword" placeholder="Lösenord" required>
+                        <input type="email" class="mail" placeholder="E-post" required>
                         <br>
+                        <button type="button" id="regist" onclick="reg()">Bli medlem</button>
+                        <p class="message">Redan medlem? <a href="#">Logga in</a></p>
+                    </form>
+                    <form class="loginUser">
+                        <input type="text" class="userName" placeholder="Användarnamn" value="">
+                        <input type="password" class="password" placeholder="Lösenord" value="">
                         <button type="button" id="logIn" onclick="validate()">Logga in</button>
+                        <p class="message">Inte medlem? <a href="#">Registrera dig här</a></p>
                     </form>
                 </div>
             </div>
-
+            <div id="addedItems">
+            
+            </div>
         <main id="main">
+            
             <!-- Products from javascript is inside here -->
         </main>
-        <div id="result"></div>
+       
     </body>
 </html>

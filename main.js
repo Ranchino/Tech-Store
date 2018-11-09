@@ -1,5 +1,8 @@
 /* if we put a function in javascript the problem would be that when hitting referesh customer looses his basket */
 
+var listOfProducts = []
+
+
 /* Getting json files ready */
     fetch("./products.json")
     .then(function(response) {
@@ -9,6 +12,7 @@
     .then(function(data) {
         listOfProducts = data.phones;
         addProductsToWebpage();
+    
     });
 
 /* Creating one parent div for all */
@@ -26,93 +30,167 @@ function addProductsToWebpage() {
     }
     document.getElementById("main").appendChild(wrapperForAllPhones)
 }
-  
+
  /* This makes json objects visual on website */
-function createPhoneCard(listOfProducts) {
+ 
+function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
 
     var getPhoneName = document.createElement("h1")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getDescription = document.createElement("h5")
-    getDescription.innerText = listOfProducts.description
+    getDescription.innerText = product.description
     phone.appendChild(getDescription)
 
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + listOfProducts.image
+    getPhoneImage.src = "./assets/" + product.image
     phone.appendChild(getPhoneImage)
 
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = listOfProducts.title
+    getPhoneName.innerText = product.title
     phone.appendChild(getPhoneName)
 
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = listOfProducts.price + " kr"
+    getPhonePrice.innerText = product.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
+    addToCart.onclick = addPhones.bind(undefined, product)
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
     /* Shopping cart site */
-    var getPhoneClearButton = document.createElement("button")
-    getPhoneClearButton.className = "far fa-trash-alt"
-    getPhoneClearButton.setAttribute('href', "#tabort")
-    getPhoneClearButton.innerText = " Ta bort"
-
-    phone.appendChild(getPhoneClearButton)
+    
     return phone
 }
 
 
-/* sum for picked phones */
+/* creating localstorage and storing products */
+var shoppingCart = [];
+var ulElement;
 
-function calculator(price) {
-    var price = listOfProducts.price
-    document.getElementById("sumOfProducts").innerHTML = "Total pris:" + price
-    console.log()
+if(localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
+}
+
+function addPhones(product) {
+    
+    shoppingCart.push(product);
+    
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
 }
 
 
-//Function To Display Popup
-$(document).ready(function(){
-    $("#userclick").click(function(){
-        $("#popUp").fadeIn(500)
-    })
 
-    $("#userclose").click(function(){
-        $("#popUp").hide()
-    })
+//create a account for new users and save in localstorage
+var accounts = []
 
-})
+if(localStorage.accounts) {
+   
+} else {
+    localStorage.accounts 
+}
+
+// storing input from register-form
+function reg() {
+    // Name, Password and Mail from the register-form
+    var regUserName = document.getElementsByClassName('newUserName')[0].value;
+    var regPassword = document.getElementsByClassName('newPassword')[0].value;
+    var regMail = document.getElementsByClassName('mail')[0].value;
+
+    var userList = JSON.parse(localStorage.getItem("accounts"))
+    console.log(userList)
+
+    /* if values empty */
+    if (regUserName == "" || regPassword == "" || regMail == "" ) {
+        alert ("Du har missat ett fält");
+        return false;
+    } 
+    
+    if (!userList) {
+        // Skapa en ny array med ett nytt userobjekt
+        var newUser = [{
+            username: regUserName,
+            password: regPassword,
+        }]
+        localStorage.setItem("accounts", JSON.stringify(newUser))
+        accoutCreatedFeedback();
+            
+    } else {
+        // Lägg till en ny user i account och spara igen
+
+       /*  userList.forEach(user => */
+        for (var i = 0; i < userList; i++ ) {
+            if(userList[i].username == regUserName) {
+                alert ("Detta användarnamn finns redan. Välj annat!");
+                return;
+            }
+        }
+
+        /*var newUser = {
+            username: regUserName,
+            password: regPassword
+        }*/
+
+        userList.push(newUser)
+
+        localStorage.setItem("accounts", JSON.stringify(userList))
+        accoutCreatedFeedback();
+       /*  userList.push({userName: regUserName, password: regPassword})
+        localStorage.setItem("accounts", userList) */
+    }
+     
+}
+
+function accoutCreatedFeedback () {
+    alert ("Du har nu skapat ett konto 😎");    
+    $("#popUp").fadeOut(500)
+    $("#popUp").fadeIn(500).delay(2000)
+    $(".loginUser").fadeIn(500).delay(3000)
+    $(".userReg").fadeOut(500).delay(3000)
+}
 
 
-//Login function
+
+//Login function for already exists account
 var attempt = 3; 
 
 function validate(){
-    var userName = document.getElementsByClassName("userName")[0].value;
-    var password = document.getElementsByClassName("password")[0].value;
-    if ( userName == "admin" && password == "admin" ){
-        alert ("Du har loggat in!");
-        window.location = "userpage.html";
-        return true;
-    }
-    else{
-    attempt --;
-    alert("Du har "+attempt+" försök kvar;");
-    } if( attempt == 0){ 
+    /*var userName = document.getElementsByClassName("userName")[0].value;
+    var password = document.getElementsByClassName("password")[0].value;*/
 
-    alert = false; 
-    document.getElementsByClassName("userName")[0].value = "";
-    document.getElementsByClassName("password")[0].value = "";    
-    return;
+    // stored data from the register-form
+  
+   var userName = document.getElementsByClassName('userName')[0];
+   var userPw = document.getElementsByClassName('password')[0];
+   var existingAccount = JSON.parse(localStorage.getItem("accounts"))
+   
+   console.log(userName.value, userPw.value, existingAccount)
+
+    for (var i = 0; i < existingAccount.length; i++) {
+          // entered data from the login-form
+
+        if (userName.value == existingAccount[i].username && userPw.value == existingAccount[i].password ){
+            alert ("Du har loggat in!");
+            window.location = "userpage.html";
+            return true;
+        } else {
+            attempt --;
+            alert("Du har "+attempt+" försök kvar;");
+        } if( attempt == 0){ 
+            alert = false; 
+            userName.value = "";
+            userPw.value = "";    
+            return;
+        }
+        }
     }
 
-}
 
 /* localStorage cookies number of orders in shopping cart */
 
@@ -123,17 +201,43 @@ function validate(){
             localStorage.clickcount = 0;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+
         $(".add-to-cart").click(function() {
             if (localStorage.clickcount) {
                 localStorage.clickcount = Number(localStorage.clickcount) + 1;
             } else {
                 localStorage.clickcount = 1;
             }
-            console.log(localStorage.clickcount)
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
             $(".fa-shopping-cart").effect("bounce", "slow")
-        });   
-        
+       
         }); 
 
+
+        //Function To Display Popup
+        $("#userclick").click(function(){
+            $("#popUp").fadeIn(500)
+        })
+    
+        $("#userclose").click(function(){
+            $("#popUp").hide()
+        })
+    
+        //Change between popup forms
+        $(".message").click(function(){
+            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    }); 
+
+   
+
+    /*  Array and object inside */
+ /* 
+            transaction: [
+                {
+                    date: new Date(),
+                    products: cartList
+                }
+            ] 
+            */
    
