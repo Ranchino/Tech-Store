@@ -88,29 +88,71 @@ function addPhones(product) {
 
 
 //create a account for new users and save in localstorage
+var accounts = []
 
+if(localStorage.accounts) {
+   
+} else {
+    localStorage.accounts 
+}
 
 // storing input from register-form
 function reg() {
     // Name, Password and Mail from the register-form
-    var regUserName = document.getElementsByClassName('newUserName')[0];
-    var regPassword = document.getElementsByClassName('newPassword')[0];
+    var regUserName = document.getElementsByClassName('newUserName')[0].value;
+    var regPassword = document.getElementsByClassName('newPassword')[0].value;
     var regMail = document.getElementsByClassName('mail')[0];
 
-    console.log(regUserName, regPassword, regMail)
+    var userList = JSON.parse(localStorage.getItem("accounts"))
+    console.log(userList)
 
-    if (regUserName.value == "" || regPassword.value == "" || regMail.value == "" ) {
+    /* if values empty */
+    if (regUserName == "" || regPassword == "" || regMail == "" ) {
         alert ("Du har missat ett fält");
+    } 
+    if (!userList) {
+        // Skapa en ny array med ett nytt userobjekt
+        var newUser = [{
+            username: regUserName,
+            password: regPassword
+        }]
+            localStorage.setItem("accounts", JSON.stringify(newUser))
     } else {
-    localStorage.setItem('regUserName', regUserName.value);
-    localStorage.setItem('regPassword', regPassword.value);
-    alert ("Du har nu skapat ett konto 😎");
-    $("#popUp").fadeOut(500)
-    $("#popUp").fadeIn(500).delay(2000)
-    $(".loginUser").fadeIn(500).delay(3000)
-    $(".userReg").fadeOut(500).delay(3000)
+        // Lägg till en ny user i account och spara igen
+
+       /*  userList.forEach(user => */
+        for (var i = 0; i < userList; i++ ) {
+            if(userList[i].username == regUserName) {
+                alert ("Detta användarnamn finns redan. Välj annat!");
+                return;
+            }
+        };
+
+        var newUser = {
+            username: regUserName,
+            password: regPassword
+        }
+
+        userList.push(newUser)
+
+        localStorage.setItem("accounts", JSON.stringify(userList))
+       /*  userList.push({userName: regUserName, password: regPassword})
+        localStorage.setItem("accounts", userList) */
     }
+
+       /*  if (accounts) {
+        localStorage.setItem('regUserName', regUserName.value);
+        localStorage.setItem('regPassword', regPassword.value); 
+        alert ("Du har nu skapat ett konto 😎"); 
+
+        $("#popUp").fadeOut(500)
+        $("#popUp").fadeIn(500).delay(2000)
+        $(".loginUser").fadeIn(500).delay(3000)
+        $(".userReg").fadeOut(500).delay(3000)
+    } */
 }
+
+
 
 //Login function for already exists account
 var attempt = 3; 
@@ -120,14 +162,17 @@ function validate(){
     var password = document.getElementsByClassName("password")[0].value;*/
 
     // stored data from the register-form
+    localStorage.getItem("accounts", JSON.stringify())
     var storedName = localStorage.getItem('regUserName');
     var storedPassword = localStorage.getItem('regPassword');
+    console.log(storedName)
+    console.log(storedPassword)
 
     // entered data from the login-form
-    var userName = document.getElementsByClassName('userName');
-    var userPw = document.getElementsByClassName('password');
+    var userName = document.getElementsByClassName('userName')[0];
+    var userPw = document.getElementsByClassName('password')[0];
 
-    if ( userName.value == storedName && userPw.value == storedPassword ){
+    if (userName.value == storedName && userPw.value == storedPassword ){
         alert ("Du har loggat in!");
         window.location = "userpage.html";
         return true;
