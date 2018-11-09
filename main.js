@@ -68,6 +68,34 @@ function createPhoneCard(product) {
     return phone
 }
 
+/* creating localstorage and storing products */
+var shoppingCart = [];
+var ulElement;
+
+if(localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
+}
+
+function addPhones(product) {
+    
+    shoppingCart.push(product);
+    
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
+}
+
+/* adds sum to cartsite */
+function initSite() {
+    var totalPrice = 0;
+    var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
+    
+    for(var i = 0; i < shoppingCartItems.length; i++) { 
+        totalPrice += shoppingCartItems[i].price;
+    }
+    $('#sumOfProducts').append(totalPrice);
+    console.log(totalPrice)
+}
+
 //Function To Display Popup
 $(document).ready(function(){
     $("#userclick").click(function(){
