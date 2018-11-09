@@ -69,6 +69,24 @@ function createPhoneCard(product) {
 }
 
 
+/* creating localstorage and storing products */
+var shoppingCart = [];
+var ulElement;
+
+if(localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
+}
+
+function addPhones(product) {
+    
+    shoppingCart.push(product);
+    
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
+}
+
+
+
 //create a account for new users and save in localstorage
 var accounts = []
 

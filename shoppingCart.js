@@ -1,107 +1,134 @@
-/* sum for picked phones and adding them to the shoppingcart */
+
+/* creating phones for the cartpage */
+function addProductsToWebpage() {
+    for(var i = 0; i < listOfProducts.length; i++)
+    {
+        var createPhone = createPhoneCard(listOfProducts[i])
+        wrapperForAllPhones.appendChild(createPhone)
+    }
+    document.getElementById("main").appendChild(wrapperForAllPhones)
+}
+/* this creates the wrapperForAllPhones */
+var wrapperForAllPhones = document.createElement("div")
+wrapperForAllPhones.className = "wrapperForAllPhones"
+
+function createPhoneCard(product) {
+    var phone = document.createElement("div")
+    phone.className = "phoneCardClass"
+    
+    var getPhoneImage = document.createElement("img")
+    getPhoneImage.src = "./assets/" + product.image
+    phone.appendChild(getPhoneImage)
+    
+    var getPhoneName = document.createElement("h2")
+    getPhoneName.innerText = product.title
+    phone.appendChild(getPhoneName)
+    
+    var getPhonePrice = document.createElement("h3")
+    getPhonePrice.innerText = product.price + " kr"
+    phone.appendChild(getPhonePrice)
+
+    var deletePhoneFromCart = document.createElement("button")
+    deletePhoneFromCart.className = "fa-trash-alt"
+    deletePhoneFromCart.onclick = deletePhone.bind(undefined, product)
+    deletePhoneFromCart.innerText = " Ta bort";
+
+    phone.appendChild(deletePhoneFromCart)
+    
+    return phone
+}
+
+/* here it will be a confirmation purchase with jquery */
+function purchaseComplete() {
+    alert("Köp slutfört!");
+}
 
 
+/* creating localstorage and storing products */
 var shoppingCart = [];
 var ulElement;
-
 
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
 }
 
-function addPhones(product) {
-    
+function addPhones(product) {  
     shoppingCart.push(product);
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
 
+
+// adds products to cart page//
 function initSite() {
+    printProductsInCart();
+}
+
+/* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
+function printProductsInCart() {
+    document.getElementById("wrapperForAllPhones").innerHTML = ""
+    document.getElementById("sumOfProducts").innerHTML = ""
+
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
-    console.log(shoppingCartItems)
-
-    for(var i = 0; i < shoppingCartItems.length; i++) {
-        createPhoneCard(shoppingCartItems[i]);
+    for(var i = 0; i < shoppingCartItems.length; i++) { 
         totalPrice += shoppingCartItems[i].price;
     }
     $('#sumOfProducts').append(totalPrice);
-    console.log(totalPrice)
+    
+    for (i = 0; i < shoppingCart.length; i++) {
+        var createPhone = createPhoneCard(shoppingCart[i])
+        console.log(shoppingCart)
+        document.getElementById("wrapperForAllPhones").appendChild(createPhone)
+    }
 }
 
-/* this will help us print out products in cart */
-
-function createPhoneCard(product) {
-    var phone = document.createElement("div")
-    phone.className = "phoneCardClass"
-
-    var getPhoneName = document.createElement("h1")
-    getPhoneName.innerText = product.title
-    phone.appendChild(getPhoneName)
-
-    var getDescription = document.createElement("h5")
-    getDescription.innerText = product.description
-    phone.appendChild(getDescription)
-
-    var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + product.image
-    phone.appendChild(getPhoneImage)
-
-    var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = product.title
-    phone.appendChild(getPhoneName)
-
-    var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = product.price + " kr"
-    phone.appendChild(getPhonePrice)
-
-    var addToCart = document.createElement("button")
-    addToCart.className = "add-to-cart"
-    addToCart.onclick = addPhones.bind(undefined, product)
-    addToCart.innerText = " Lägg till i kundvagnen"
-    phone.appendChild(addToCart)
+/* deletProducts form cart page */
+function deletePhone(product) {
+    shoppingCart.shift(product);
     
-    return phone
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
+    printProductsInCart();
+    console.log(product)
 }
 
 
+/* localStorage cookies number of orders in shopping cart */
 
-/* ta bort för vi gör en ny funktion */
+$(document).ready(function() {
+    if (localStorage.clickcount) {
+        localStorage.clickcount = Number(localStorage.clickcount);
+    } else {
+        localStorage.clickcount = 0;
+    }
+    document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
 
-/* function addPhones(element) {
-    var productTitle = element.getAttribute("data")
-    shoppingCart.push(element)
-    
-     for (var i = 0; i < listOfProducts.length; i++) {
-
-        if (productTitle == listOfProducts[i].title) {
-            var productsToSave = {
-                image: listOfProducts[i].image,
-                title: listOfProducts[i].title,
-                description: listOfProducts[i].description,
-                price: listOfProducts[i].price
-            }
-            var parentDiv = document.getElementById("addedItems")
-
-            var getPhoneImage = document.createElement("img")
-            getPhoneImage.src = "./assets/" + productsToSave.image
-            parentDiv.appendChild(getPhoneImage)
-
-            var getPhoneName = document.createElement("h1")
-            getPhoneName.innerText = productsToSave.title
-            parentDiv.appendChild(getPhoneName)
-
-            var getDescription = document.createElement("h5")
-            getDescription.innerText = productsToSave.description
-            parentDiv.appendChild(getDescription)
-
-            var getPhonePrice = document.createElement("h3")
-            getPhonePrice.innerText = productsToSave.price + " kr"
-            parentDiv.appendChild(getPhonePrice)
+    $(".add-to-cart").click(function() {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        } else {
+            localStorage.clickcount = 1;
         }
-     }
-     $('#addedItems').append(productsToSave);
-}
-  */
+        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+        $(".fa-shopping-cart").effect("bounce", "slow")
+   
+    }); 
+
+
+    //Function To Display Popup
+    $("#userclick").click(function(){
+        $("#popUp").fadeIn(500)
+    })
+
+    $("#userclose").click(function(){
+        $("#popUp").hide()
+    })
+
+    //Change between popup forms
+    $(".message").click(function(){
+        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+}); 
