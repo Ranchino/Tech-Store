@@ -130,12 +130,12 @@ function reg() {
                 alert ("Detta användarnamn finns redan. Välj annat!");
                 return;
             }
-        };
+        }
 
-        var newUser = {
+        /*var newUser = {
             username: regUserName,
             password: regPassword
-        }
+        }*/
 
         userList.push(newUser)
 
