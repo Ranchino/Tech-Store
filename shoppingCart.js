@@ -47,8 +47,14 @@ function addPhones(product) {
     localStorage.shoppingCart = phoneArray;
 }
 
-/* adds sum to cartsite */
+
+// adds products to cart page//
 function initSite() {
+    printProductsInCart();
+}
+    
+
+function printProductsInCart() {
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
@@ -56,19 +62,12 @@ function initSite() {
         totalPrice += shoppingCartItems[i].price;
     }
     $('#sumOfProducts').append(totalPrice);
-}
-
-// adds products to cart page//
-function initSite() {
-    printProductsInCart()
-}
-    
-
-function printProductsInCart() {
+    console.log("test")
 
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
-        console.log(createPhone)
+        console.log(shoppingCart)
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
     }
 }
+

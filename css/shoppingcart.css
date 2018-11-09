@@ -47,7 +47,7 @@
         margin-right: 0.3em;
     }
 
-    .wrapperForAllPhones {
+    #wrapperForAllPhones {
         width: 100%;
         display: flex;
         flex-wrap: wrap;

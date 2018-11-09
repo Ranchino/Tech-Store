@@ -68,7 +68,7 @@ function createPhoneCard(product) {
     return phone
 }
 
-<<<<<<< HEAD
+
 /* creating localstorage and storing products */
 var shoppingCart = [];
 var ulElement;
@@ -85,36 +85,7 @@ function addPhones(product) {
     localStorage.shoppingCart = phoneArray;
 }
 
-/* adds sum to cartsite */
-function initSite() {
-    var totalPrice = 0;
-    var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
-    
-    for(var i = 0; i < shoppingCartItems.length; i++) { 
-        totalPrice += shoppingCartItems[i].price;
-    }
-    $('#sumOfProducts').append(totalPrice);
-    console.log(totalPrice)
-}
 
-//Function To Display Popup
-$(document).ready(function(){
-    $("#userclick").click(function(){
-        $("#popUp").fadeIn(500)
-    })
-
-    $("#userclose").click(function(){
-        $("#popUp").hide()
-    })
-
-    //Change between popup forms
-    $(".message").click(function(){
-        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-
-})
-=======
->>>>>>> 235b3abb7b9415232f2dcfa1785f814e9ce0315f
 
 //create a account for new users and save in localstorage
 
