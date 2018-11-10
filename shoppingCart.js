@@ -67,6 +67,12 @@ function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = ""
 
+    /* time for product added */
+    var dateForClick = new Date ();
+    dateForClick.setMilliseconds();
+    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
+    console.log(dateForClick)
+
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
@@ -77,7 +83,6 @@ function printProductsInCart() {
     
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
-        console.log(shoppingCart)
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
     }
 }
@@ -85,7 +90,6 @@ function printProductsInCart() {
 /* deletProducts form cart page */
 function deletePhone(product) {
     shoppingCart.splice();
-    
     //var tempShopingCart = []
 
     for (var i = 0; i < shoppingCart.length; i++) {
