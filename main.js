@@ -104,9 +104,8 @@ function reg() {
     var regMail = document.getElementsByClassName('mail')[0].value;
 
     var userList = JSON.parse(localStorage.getItem("accounts"))
-    console.log(userList)
 
-    /* if values empty */
+    /* if input values empty */
     if (regUserName == "" || regPassword == "" || regMail == "" ) {
         alert ("Du har missat ett fält");
         return false;
@@ -124,7 +123,6 @@ function reg() {
     } else {
         // Lägg till en ny user i account och spara igen
 
-       /*  userList.forEach(user => */
         for (var i = 0; i < userList; i++ ) {
             if(userList[i].username == regUserName) {
                 alert ("Detta användarnamn finns redan. Välj annat!");
@@ -132,13 +130,7 @@ function reg() {
             }
         }
 
-        /*var newUser = {
-            username: regUserName,
-            password: regPassword
-        }*/
-
         userList.push(newUser)
-
         localStorage.setItem("accounts", JSON.stringify(userList))
         accoutCreatedFeedback();
        /*  userList.push({userName: regUserName, password: regPassword})
@@ -176,13 +168,16 @@ function validate(){
           // entered data from the login-form
 
         if (userName.value == existingAccount[i].username && userPw.value == existingAccount[i].password ){
+           /* Successful login */
             alert ("Du har loggat in!");
             window.location = "userpage.html";
             return true;
         } else {
+            /* Failed login */
             attempt --;
             alert("Du har "+attempt+" försök kvar;");
         } if( attempt == 0){ 
+            /* Three attempts maximum */
             alert = false; 
             userName.value = "";
             userPw.value = "";    
@@ -192,29 +187,31 @@ function validate(){
     }
 
 
-/* localStorage cookies number of orders in shopping cart */
 
-    $(document).ready(function() {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount);
-        } else {
-            localStorage.clickcount = 0;
-        }
-        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+        
+        $(document).ready(function() {
 
-        $(".add-to-cart").click(function() {
+            /* Amount times clicked button */
             if (localStorage.clickcount) {
-                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                localStorage.clickcount = Number(localStorage.clickcount);
             } else {
-                localStorage.clickcount = 1;
+                localStorage.clickcount = 0;
             }
             document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-            $(".fa-shopping-cart").effect("bounce", "slow")
-       
-        }); 
+        
+            $(".add-to-cart").click(function() {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+                $(".fa-shopping-cart").effect("bounce", "slow")
+           
+            }); 
 
 
-        //Function To Display Popup
+            //Function To Display Popup Login Form
         $("#userclick").click(function(){
             $("#popUp").fadeIn(500)
         })
@@ -227,17 +224,17 @@ function validate(){
         $(".message").click(function(){
             $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
         });
-    }); 
+        }); 
 
    
 
-    /*  Array and object inside */
- /* 
+    /* This is how array with object looks like 
+
             transaction: [
                 {
                     date: new Date(),
                     products: cartList
                 }
             ] 
-            */
+    */
    

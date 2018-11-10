@@ -65,7 +65,7 @@ function initSite() {
 /* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
 function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = ""
+    document.getElementById("sumOfProducts").innerHTML = "" 
 
     /* time for product added */
     var dateForClick = new Date ();
@@ -79,7 +79,7 @@ function printProductsInCart() {
     for(var i = 0; i < shoppingCartItems.length; i++) { 
         totalPrice += shoppingCartItems[i].price;
     }
-    $('#sumOfProducts').append(totalPrice);
+    $('#sumOfProducts').append(totalPrice + " kr");
     
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
@@ -90,57 +90,40 @@ function printProductsInCart() {
 /* deletProducts form cart page */
 function deletePhone(product) {
     shoppingCart.splice();
+    if (localStorage.clickcount) {
+        localStorage.clickcount = Number(localStorage.clickcount) - 1;
+        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+    }
     //var tempShopingCart = []
-
     for (var i = 0; i < shoppingCart.length; i++) {
 
         if (product.title == shoppingCart[i].title) {
             shoppingCart.splice(i, 1)
             break;
         }
-
     }
 
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();
-    console.log(product)
 }
 
-
-/* localStorage cookies number of orders in shopping cart */
-
 $(document).ready(function() {
+    /* Amount times clicked button */
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount);
     } else {
         localStorage.clickcount = 0;
     }
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+});
 
-    $(".add-to-cart").click(function() {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-        $(".fa-shopping-cart").effect("bounce", "slow")
-   
-    }); 
+/* Reset localStorage because purchase is completed */
 
-
-    //Function To Display Popup
-    $("#userclick").click(function(){
-        $("#popUp").fadeIn(500)
-    })
-
-    $("#userclose").click(function(){
-        $("#popUp").hide()
-    })
-
-    //Change between popup forms
-    $(".message").click(function(){
-        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-}); 
+function purchaseComplete() {
+    document.querySelector(".number-of-orders").innerHTML = 0;
+    localStorage.clickcount = 0
+    console.log(localStorage.shoppingCart)
+    localStorage.removeItem("")
+    /* Save purchase history to login webpage */
+}
