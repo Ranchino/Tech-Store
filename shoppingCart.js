@@ -69,7 +69,7 @@ function printProductsInCart() {
 
     /* time for product added */
     var dateForClick = new Date ();
-    dateForClick.setMilliseconds();
+    dateForClick.setMilliseconds(20);
     document.getElementsByClassName("add-to-cart").innerText = dateForClick;
     console.log(dateForClick)
 
