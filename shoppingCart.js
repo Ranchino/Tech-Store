@@ -68,6 +68,14 @@ function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
+    document.getElementById("sumOfProducts").innerHTML = "" 
+
+    /* time for product added */
+    var dateForClick = new Date ();
+    dateForClick.setMilliseconds(20);
+    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
+    console.log(dateForClick)
+
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
