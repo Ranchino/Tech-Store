@@ -68,8 +68,6 @@ function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
-    document.getElementById("sumOfProducts").innerHTML = "" 
-
     /* time for product added */
     var dateForClick = new Date ();
     dateForClick.setMilliseconds(20);
