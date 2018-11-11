@@ -51,7 +51,7 @@ if(localStorage.shoppingCart) {
 
 function addPhones(product) {  
     shoppingCart.push(product);
-    
+   
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
@@ -60,24 +60,25 @@ function addPhones(product) {
 // adds products to cart page//
 function initSite() {
     printProductsInCart();
+    
 }
 
 /* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
 function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = "" 
-
+    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
+    
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
     for(var i = 0; i < shoppingCartItems.length; i++) { 
         totalPrice += shoppingCartItems[i].price;
+        
     }
-    $('#sumOfProducts').append(totalPrice + " kr");
+    $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
-        console.log(shoppingCart)
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
     }
 }
@@ -113,12 +114,14 @@ $(document).ready(function() {
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
 });
 
-/* Reset localStorage because purchase is completed */
+/* Reset clickcount and shoppingcart because purchase is completed */
 
 function purchaseComplete() {
     document.querySelector(".number-of-orders").innerHTML = 0;
     localStorage.clickcount = 0
-    console.log(localStorage.shoppingCart)
-    localStorage.removeItem("")
+    $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
+    localStorage.removeItem("shoppingCart")
+    printProductsInCart();
+
     /* Save purchase history to login webpage */
 }

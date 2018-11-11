@@ -78,12 +78,21 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {
-    
     shoppingCart.push(product);
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
-}
+   
+    for (var i = 0; i < shoppingCart.length; i++) {
+               shoppingCart[i] = {
+                  createDate: new Date()   
+               }
+         
+        }
+    
+    }
+   
+
 
 
 
