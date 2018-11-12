@@ -78,12 +78,14 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {
-    
     shoppingCart.push(product);
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
-}
+    
+    }
+   
+
 
 
 
