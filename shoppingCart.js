@@ -84,7 +84,6 @@ function printProductsInCart() {
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
         }
     }
-}
 
 /* deletProducts form cart page */
 function deletePhone(product) {
