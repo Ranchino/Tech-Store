@@ -81,7 +81,7 @@ function printProductsInCart() {
         var createPhone = createPhoneCard(shoppingCart[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
     }
-
+}
 
 /* deletProducts form cart page */
 function deletePhone(product) {
