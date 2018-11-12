@@ -82,11 +82,12 @@ function addPhones(product) {
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
-    
-    }
-   
-
-
+}  
+    /* var dateForClick = new Date ();
+    dateForClick.setMilliseconds(20);
+    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
+    console.log(dateForClick)
+ */
 
 
 //create a account for new users and save in localstorage

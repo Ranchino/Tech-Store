@@ -63,21 +63,11 @@ function initSite() {
     
 }
 
-/* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
+/* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
-<<<<<<< HEAD
-    document.getElementById("sumOfProducts").innerHTML = ""
-=======
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
-    /* time for product added */
-    var dateForClick = new Date ();
-    dateForClick.setMilliseconds(20);
-    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
-    console.log(dateForClick)
->>>>>>> 7156192968ed803eca1b5f4f11eb1f8d4a42cc71
-
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
@@ -91,7 +81,7 @@ function printProductsInCart() {
         var createPhone = createPhoneCard(shoppingCart[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
     }
-}
+
 
 /* deletProducts form cart page */
 function deletePhone(product) {
@@ -102,17 +92,18 @@ function deletePhone(product) {
     }
     //var tempShopingCart = []
     for (var i = 0; i < shoppingCart.length; i++) {
-
+        
         if (product.title == shoppingCart[i].title) {
             shoppingCart.splice(i, 1)
             break;
         }
     }
-
+    
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();
 }
+
 
 $(document).ready(function() {
     /* Amount times clicked button */
@@ -132,6 +123,6 @@ function purchaseComplete() {
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart")
     printProductsInCart();
-
+    
     /* Save purchase history to login webpage */
 }
