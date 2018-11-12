@@ -129,11 +129,15 @@ function reg() {
     } else {
         // Lägg till en ny user i account och spara igen
 
-        for (var i = 0; i < userList; i++ ) {
+        for (var i = 0; i < userList.length; i++ ) {
             if(userList[i].username == regUserName) {
                 alert ("Detta användarnamn finns redan. Välj annat!");
                 return;
             }
+        }
+        var newUser = {
+            username: regUserName,
+            password: regPassword
         }
 
         userList.push(newUser)
@@ -178,6 +182,7 @@ function validate(){
             alert ("Du har loggat in!");
             window.location = "userpage.html";
             return true;
+            
         } else {
             /* Failed login */
             attempt --;

@@ -10,21 +10,22 @@
         <!-- Fontawesome ikoner -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
         <!-- Våra egna filer, skriv inte css i HTML filen tack! -->
+        <script src="./userpage.js"></script>
         <script src="./main.js"></script>
-        <link rel="stylesheet" href="mobile.css">
-        <link rel="stylesheet" href="tablet.css">
+        <link rel="stylesheet" href="./css/userpage.css">
+        <link rel="stylesheet" href="./css/tablet.css">
+        <link rel="stylesheet" href="./css/mobile.css">
     </head>
-    <body>
+    <body onload="initSite()">
         <header>
             <div class="nav-bar">
             <!-- Logotype linking to home page  -->
-            <h1><a href="#homepage">TechStore</a></h1>
+            <h1><a href="./index.html">TechStore</a></h1>
            
             <div class="right-section">
-                <!-- Number of orders we will manipulate with javascript -->
-                <span class="number-of-orders">4</span>
-                <!-- Varukorgen on click takes us to another page  -->
-                <a href="#gotovarukorgen"><i class="fas fa-shopping-cart fa-2x"></i></a> 
+                <div id="textWelcome"></div>
+                <button type="button" id="logOut" onclick="signOut()">Logga ut</button>
+                <i class="fas fa-user-check fa-2x"></i>
              </div>
             </div>
         </header>
