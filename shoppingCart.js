@@ -38,7 +38,6 @@ function createPhoneCard(product) {
     return phone
 }
 
-/* here it will be a confirmation purchase with jquery */
 
 
 /* creating localstorage and storing products */
@@ -50,7 +49,7 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {  
-    shoppingCart.push(product);
+    shoppingCart.push({product, DateOfClick});;
    
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
@@ -65,6 +64,10 @@ function initSite() {
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
+
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
+
     document.getElementById("wrapperForAllPhones").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
@@ -73,13 +76,13 @@ function printProductsInCart() {
     
     for(var i = 0; i < shoppingCartItems.length; i++) { 
         totalPrice += shoppingCartItems[i].price;
-        
-    }
+        }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
+        }
     }
 
 
@@ -90,6 +93,7 @@ function deletePhone(product) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
     }
+
     //var tempShopingCart = []
     for (var i = 0; i < shoppingCart.length; i++) {
         
@@ -98,7 +102,6 @@ function deletePhone(product) {
             break;
         }
     }
-    
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();
@@ -114,7 +117,6 @@ $(document).ready(function() {
     }
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
 });
-
 /* Reset clickcount and shoppingcart because purchase is completed */
 
 function purchaseComplete() {
