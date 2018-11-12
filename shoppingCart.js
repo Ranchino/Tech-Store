@@ -65,13 +65,7 @@ function initSite() {
 /* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
 function printProductsInCart() {
     document.getElementById("wrapperForAllPhones").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = "" 
-
-    /* time for product added */
-    var dateForClick = new Date ();
-    dateForClick.setMilliseconds(20);
-    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
-    console.log(dateForClick)
+    document.getElementById("sumOfProducts").innerHTML = ""
 
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
