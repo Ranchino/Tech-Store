@@ -2,11 +2,7 @@
 
 Kravspecifikationer kvar
 
-
 Kundvagnssida (Godkänt)
-•	Kundvagnssidan skall lista produkterna som användaren har lagt till i kundvagnen.
-•	Varje produkt i listan skall visa bilden, titeln, priset och en knapp för att ta bort produkten ur kundvagnen.
-•	Nedanför listan skall det ﬁnnas ett totalbelopp samt en knapp för att slutföra köpet.
 •	Knappen för att slutföra köpet skall, vid klickning, visa en bekräftelse på köpet i en popup.
 
 Kriterier för Väl Godkänd

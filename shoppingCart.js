@@ -38,7 +38,6 @@ function createPhoneCard(product) {
     return phone
 }
 
-/* here it will be a confirmation purchase with jquery */
 
 
 /* creating localstorage and storing products */
@@ -50,8 +49,8 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {  
-    shoppingCart.push(product);
-    
+    shoppingCart.push({product, DateOfClick});;
+   
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
@@ -60,83 +59,71 @@ function addPhones(product) {
 // adds products to cart page//
 function initSite() {
     printProductsInCart();
+    
 }
 
-/* here is a printProductsInCart function that I kallar på i initSite för att räkna ut produkten man väljer och priser */
+/* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
-    document.getElementById("wrapperForAllPhones").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = ""
 
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
+
+    document.getElementById("wrapperForAllPhones").innerHTML = ""
+    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
+    
     var totalPrice = 0;
     var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
     
     for(var i = 0; i < shoppingCartItems.length; i++) { 
         totalPrice += shoppingCartItems[i].price;
-    }
-    $('#sumOfProducts').append(totalPrice);
+        }
+    $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < shoppingCart.length; i++) {
         var createPhone = createPhoneCard(shoppingCart[i])
-        console.log(shoppingCart)
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
+        }
     }
-}
 
 /* deletProducts form cart page */
 function deletePhone(product) {
     shoppingCart.splice();
-    
+    if (localStorage.clickcount) {
+        localStorage.clickcount = Number(localStorage.clickcount) - 1;
+        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+    }
+
     //var tempShopingCart = []
-
     for (var i = 0; i < shoppingCart.length; i++) {
-
+        
         if (product.title == shoppingCart[i].title) {
             shoppingCart.splice(i, 1)
             break;
         }
-
     }
-
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();
-    console.log(product)
 }
 
 
-/* localStorage cookies number of orders in shopping cart */
-
 $(document).ready(function() {
+    /* Amount times clicked button */
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount);
     } else {
         localStorage.clickcount = 0;
     }
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+});
+/* Reset clickcount and shoppingcart because purchase is completed */
 
-    $(".add-to-cart").click(function() {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-        $(".fa-shopping-cart").effect("bounce", "slow")
-   
-    }); 
-
-
-    //Function To Display Popup
-    $("#userclick").click(function(){
-        $("#popUp").fadeIn(500)
-    })
-
-    $("#userclose").click(function(){
-        $("#popUp").hide()
-    })
-
-    //Change between popup forms
-    $(".message").click(function(){
-        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-}); 
+function purchaseComplete() {
+    document.querySelector(".number-of-orders").innerHTML = 0;
+    localStorage.clickcount = 0
+    $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
+    localStorage.removeItem("shoppingCart");
+    printProductsInCart();
+    
+    /* Save purchase history to login webpage */
+}
