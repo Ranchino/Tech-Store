@@ -78,10 +78,10 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {
-    
-    var DateOfClick = new Date().toDateString();
-    shoppingCart.push({product, DateOfClick});
-    console.log(product, DateOfClick)
+
+    var dateOfClick = new Date().toUTCString();
+    shoppingCart.push({product, dateOfClick});
+    console.log(product, dateOfClick)
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
