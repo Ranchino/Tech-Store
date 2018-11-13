@@ -79,11 +79,17 @@ if(localStorage.shoppingCart) {
 
 function addPhones(product) {
     
+<<<<<<< HEAD
     var phoneArray = JSON.stringify(localStorage.shoppingCart);
     
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});
     console.log(product, dateOfClick)
+=======
+    var DateOfClick = new Date().toDateString();
+    shoppingCart.push({product, DateOfClick});
+    console.log(product, DateOfClick)
+>>>>>>> parent of 4d5d31a... fixing bugs
     
     localStorage.shoppingCart = phoneArray;
 }
