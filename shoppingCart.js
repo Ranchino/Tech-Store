@@ -17,15 +17,15 @@ function createPhoneCard(cartItem) {
     phone.className = "phoneCardClass"
     
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + cartItem.product.image
+    getPhoneImage.src = "./assets/" + cartItem.image
     phone.appendChild(getPhoneImage)
     
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = cartItem.product.title
+    getPhoneName.innerText = cartItem.title
     phone.appendChild(getPhoneName)
     
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = cartItem.product.price + " kr"
+    getPhonePrice.innerText = cartItem.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var deletePhoneFromCart = document.createElement("button")
@@ -71,7 +71,7 @@ function printProductsInCart() {
     var totalPrice = 0;
     
     for(var i = 0; i < phoneArray.length; i++) { 
-        totalPrice += phoneArray[i].product.price;
+        totalPrice += phoneArray[i].price;
         }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
@@ -87,6 +87,8 @@ function deletePhone(cartItem) {
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
 
+    console.log(phoneArray)
+
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
@@ -94,14 +96,12 @@ function deletePhone(cartItem) {
 
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
-        
+        console.log(phoneArray)
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
             break;
         }
     }
-    var phoneArray = JSON.stringify(localStorage.shoppingCart);
-    localStorage.shoppingCart = phoneArray;
     printProductsInCart();
 }
 

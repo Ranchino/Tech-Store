@@ -78,28 +78,16 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {
-<<<<<<< HEAD
-
+    
+    var phoneArray = JSON.stringify(localStorage.shoppingCart);
+    
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});
     console.log(product, dateOfClick)
-=======
     
-    var DateOfClick = new Date();
-    shoppingCart.push(product);
-    console.log(DateOfClick)
->>>>>>> acd7e0cf14053a05c1ca435e604a5b4c3ccb12a4
-    
-    var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
-}  
-    /* var dateForClick = new Date ();
-    dateForClick.setMilliseconds(20);
-    document.getElementsByClassName("add-to-cart").innerText = dateForClick;
-    console.log(dateForClick)
- */
-
-
+}
+   
 //create a account for new users and save in localstorage
 var accounts = []
 
