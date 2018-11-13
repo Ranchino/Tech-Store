@@ -178,28 +178,29 @@ function validate(){
           // entered data from the login-form
 
         if (userName.value == existingAccount[i].username && userPw.value == existingAccount[i].password ){
+            localStorage.setItem("loggedinUser",JSON.stringify(existingAccount[i]));
            /* Successful login */
             alert ("Du har loggat in!");
             window.location = "userpage.html";
             return true;
+        }
             
-        } else {
-            /* Failed login */
-            attempt --;
-            alert("Du har "+attempt+" försök kvar;");
-        } if( attempt == 0){ 
-            /* Three attempts maximum */
+    }
+        /* Failed login */
+    if (userName.value !== existingAccount.username && userPw.value !== existingAccount.password){
+        attempt --;
+        alert("Du har "+attempt+" försök kvar;");
+        /* Three attempts maximum */
+        if( attempt == 0) { 
             alert = false; 
             userName.value = "";
             userPw.value = "";    
             return;
         }
-        }
-    }
+    } 
 
+}
 
-
-        
         $(document).ready(function() {
 
             /* Amount times clicked button */
