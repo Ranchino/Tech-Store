@@ -2,16 +2,16 @@
 function signOut() {
     alert("Du är nu utloggad!")
     window.location = "index.html";
+    localStorage.removeItem("loggedinUser");
 
 }
 
 
 function initSite() {
    
-    var existingAccount = JSON.parse(localStorage.getItem("accounts"))
+    var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
    
-    for(var i = 0; i < existingAccount.length; i++) {
-        document.getElementById("textWelcome").innerText = "🖐 Hello " + existingAccount[i].username;
-    }
-    console.log(existingAccount[0].username)
+    document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username
+    
+    console.log(existingAccount[i].username)
 }
