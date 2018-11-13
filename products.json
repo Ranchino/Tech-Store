@@ -1,0 +1,55 @@
+{
+    "phones": [
+        {
+            "title": "iPhone X",
+            "description": "Last years phone from Apple with a beautiful all display front.",
+            "image": "iPhoneX.png",
+            "price": 11495
+        },{
+            "title": "One Plus 5",
+            "description": "Sleek and powerful smartphone from One Plus.",
+            "image": "OnePlus5.png",
+            "price": 4995
+        },{
+            "title": "Galaxy S8",
+            "description": "Really cool edge to edge smartphone from Samsung.",
+            "image": "SamsungS8.png",
+            "price": 7990
+        },{
+            "title": "LG V30",
+            "description": "Super nice and beautiful smartphone from LG.",
+            "image": "LGV30.png",
+            "price": 7495
+        },{
+            "title": "Honor 10",
+            "description": "The phone is powered by Huawei's Kirin 970 chipset, 4 GB of RAM, 128 GB of storage.",
+            "image": "honor-10.png",
+            "price": 4190
+        },{
+            "title": "Huawei Mate 20 Pro",
+            "description": "The Mate 20 Pro is sports a large, high-res OLED display with a notch at the top housing a face-recognition system.",
+            "image": "huawei-mate-20-pro.png",
+            "price": 9990
+        },{
+            "title": "iPhone XR",
+            "description": "The iPhone XR is an affordable, yet still very capable alternative to the iPhone XS.",
+            "image": "Iphone_xr.png",
+            "price": 9490
+        },{
+            "title": "Microsoft Lumia 950",
+            "description": "Lumia 950 is a premium phone made by Microsoft and running on Windows 10.",
+            "image": "lumia-950.png",
+            "price": 3496
+        },{
+            "title": "Samsung Galaxy S9 plus",
+            "description": "Galaxy S9 is the company's flagship smartphone for 2018.",
+            "image": "SAMSUNG-S9-Plus.png",
+            "price": 8189
+        },{
+            "title": "Sony Xperia XZ3",
+            "description": "XZ3 is a high-end Android flagship phone and with an OLED display.",
+            "image": "sony-xperia-xz3.png",
+            "price": 7990
+        }
+    ]
+}
