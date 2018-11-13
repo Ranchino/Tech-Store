@@ -121,7 +121,7 @@ function purchaseComplete() {
     document.querySelector(".number-of-orders").innerHTML = 0;
     localStorage.clickcount = 0
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
-    localStorage.removeItem("shoppingCart")
+    localStorage.removeItem("shoppingCart");
     printProductsInCart();
     
     /* Save purchase history to login webpage */
