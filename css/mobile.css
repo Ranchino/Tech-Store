@@ -1,7 +1,0 @@
-
-/* ONLY for mobile. All devices under 700px gets this css */
-@media screen and (max-width: 700px) {
-    .phoneCardClass img {
-        width: 8em!important;
-    }
-}
