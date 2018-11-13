@@ -79,9 +79,9 @@ if(localStorage.shoppingCart) {
 
 function addPhones(product) {
     
-    var DateOfClick = new Date().toDateString();
-    shoppingCart.push({product, DateOfClick});
-    console.log(product, DateOfClick)
+    var DateOfClick = new Date();
+    shoppingCart.push(product);
+    console.log(DateOfClick)
     
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
@@ -182,7 +182,6 @@ function validate(){
             alert ("Du har loggat in!");
             window.location = "userpage.html";
             return true;
-            
         } else {
             /* Failed login */
             attempt --;
