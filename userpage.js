@@ -9,9 +9,27 @@ function signOut() {
 
 function initSite() {
    
-    var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
+   /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
    
-    document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username
-    
-    console.log(existingAccount[i].username)
+    document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
+    loginSession()
 }
+
+function loginSession() {
+    
+    if (localStorage.loggedinUser) {
+        var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
+        document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
+        document.getElementById("userclick").style.display = "none";
+        document.getElementById("dropdown").style.display = "block";
+        loginSession()
+        console.log("rllrl")
+    } else {
+        document.getElementById("purchase-history").style.display = "none";
+       
+    
+        
+    }
+}
+
+

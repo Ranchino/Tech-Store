@@ -68,7 +68,6 @@ function printProductsInCart() {
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 
-    document.getElementById("wrapperForAllPhones").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
@@ -115,6 +114,20 @@ $(document).ready(function() {
         localStorage.clickcount = 0;
     }
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+         
+    //Function To Display Popup Login Form
+          $("#userclick").click(function(){
+            $("#popUp").fadeIn(500)
+        })
+    
+        $("#userclose").click(function(){
+            $("#popUp").hide()
+        })
+    
+        //Change between popup forms
+        $(".message").click(function(){
+            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
@@ -127,3 +140,5 @@ function purchaseComplete() {
     
     /* Save purchase history to login webpage */
 }
+
+
