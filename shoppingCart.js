@@ -63,7 +63,7 @@ function initSite() {
 }
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
-function printProductsInCart(cartItem) {
+function printProductsInCart() {
     
     var phoneArray = JSON.parse(localStorage.shoppingCart);
 
@@ -75,6 +75,7 @@ function printProductsInCart(cartItem) {
     for(var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
         }
+
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < phoneArray.length; i++) {
@@ -87,11 +88,10 @@ function printProductsInCart(cartItem) {
 /* deletProducts form cart page */
 function deletePhone(cartItem) {
     
-    var phoneArray = JSON.parse(shoppingCart);
+    var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
-
-
     console.log(phoneArray)
+
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
@@ -99,13 +99,13 @@ function deletePhone(cartItem) {
 
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
-        
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
             break;
         }
-        console.log(phoneArray)
     }
+    var phoneArray = JSON.parse(localStorage.shoppingCart);
+    localStorage.shoppingCart = phoneArray;
     printProductsInCart();
 }
 
