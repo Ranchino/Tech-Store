@@ -12,25 +12,25 @@ function addProductsToWebpage() {
 var wrapperForAllPhones = document.createElement("div")
 wrapperForAllPhones.className = "wrapperForAllPhones"
 
-function createPhoneCard(product) {
+function createPhoneCard(cartItem) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
     
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + product.image
+    getPhoneImage.src = "./assets/" + cartItem.image
     phone.appendChild(getPhoneImage)
     
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = product.title
+    getPhoneName.innerText = cartItem.title
     phone.appendChild(getPhoneName)
     
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = product.price + " kr"
+    getPhonePrice.innerText = cartItem.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var deletePhoneFromCart = document.createElement("button")
     deletePhoneFromCart.className = "fa-trash-alt"
-    deletePhoneFromCart.onclick = deletePhone.bind(undefined, dateOfClick)
+    deletePhoneFromCart.onclick = deletePhone.bind(undefined, cartItem.dateOfClick)
     deletePhoneFromCart.innerText = " Ta bort";
 
     phone.appendChild(deletePhoneFromCart)
@@ -52,7 +52,7 @@ function addPhones(product) {
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});;
    
-    var phoneArray = JSON.parse(shoppingCart);
+    var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
 
@@ -64,29 +64,32 @@ function initSite() {
 }
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
-function printProductsInCart() {
+function printProductsInCart(cartItem) {
 
-    var phoneArray = JSON.stringify(shoppingCart);
-    localStorage.shoppingCart = phoneArray;
+    var phoneArray = JSON.parse(localStorage.shoppingCart);
+    console.log(phoneArray)
 
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
-    var shoppingCartItems = JSON.parse(localStorage.shoppingCart);
-    
-    for(var i = 0; i < shoppingCartItems.length; i++) { 
-        totalPrice += shoppingCartItems[i].price;
+
+    for(var i = 0; i < phoneArray.length; i++) { 
+        totalPrice += phoneArray[i].price;
+        console.log(phoneArray[i].price)
         }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
-    for (i = 0; i < shoppingCart.length; i++) {
-        var createPhone = createPhoneCard(shoppingCart[i])
+    for (i = 0; i < phoneArray.length; i++) {
+        var createPhone = createPhoneCard(phoneArray[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
         }
     }
 
 /* deletProducts form cart page */
-function deletePhone(product) {
+function deletePhone(cartItem) {
+    
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
 
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
@@ -94,15 +97,13 @@ function deletePhone(product) {
     }
 
     //var tempShopingCart = []
-    for (var i = 0; i < shoppingCart.length; i++) {
+    for (var i = 0; i < phoneArray.length; i++) {
         
-        if (product.title == shoppingCart[i].title) {
+        if (cartItem.title == phoneArray[i].title) {
             shoppingCart.splice(i, 1)
             break;
         }
     }
-    var phoneArray = JSON.stringify(shoppingCart);
-    localStorage.shoppingCart = phoneArray;
     printProductsInCart();
 }
 
