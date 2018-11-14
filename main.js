@@ -72,7 +72,7 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {
-    
+  
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});
     console.log(product, dateOfClick)

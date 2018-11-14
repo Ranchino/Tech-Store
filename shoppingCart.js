@@ -17,15 +17,15 @@ function createPhoneCard(cartItem) {
     phone.className = "phoneCardClass"
     
     var getPhoneImage = document.createElement("img")
-    getPhoneImage.src = "./assets/" + cartItem.image
+    getPhoneImage.src = "./assets/" + cartItem.product.image
     phone.appendChild(getPhoneImage)
     
     var getPhoneName = document.createElement("h2")
-    getPhoneName.innerText = cartItem.title
+    getPhoneName.innerText = cartItem.product.title
     phone.appendChild(getPhoneName)
     
     var getPhonePrice = document.createElement("h3")
-    getPhonePrice.innerText = cartItem.price + " kr"
+    getPhonePrice.innerText = cartItem.product.price + " kr"
     phone.appendChild(getPhonePrice)
 
     var deletePhoneFromCart = document.createElement("button")
@@ -48,13 +48,13 @@ if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
 }
 
-function addPhones(product) {  
-    var dateOfClick = new Date().toUTCString();
-    shoppingCart.push({product, dateOfClick});;
+function addPhones(cartItem) {  
 
-    var phoneArray = JSON.parse(shoppingCart);
+    shoppingCart.push(cartItem)
+   
+    var phoneArray = JSON.stringify(shoppingCart);
+    localStorage.shoppingCart = phoneArray;
 }
-
 
 // adds products to cart page//
 function initSite() {
@@ -66,25 +66,23 @@ function initSite() {
 function printProductsInCart(cartItem) {
     
     var phoneArray = JSON.parse(localStorage.shoppingCart);
-    console.log(phoneArray)
-    
+
     document.getElementById("wrapperForAllPhones").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!"
- 
+    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
+    
     var totalPrice = 0;
- 
-    for(var i = 0; i < phoneArray.length; i++) {
-        totalPrice += phoneArray[i].price;
-        console.log(phoneArray[i].price)
+
+    for(var i = 0; i < phoneArray.length; i++) { 
+        totalPrice += phoneArray[i].product.price;
         }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
- 
+    
     for (i = 0; i < phoneArray.length; i++) {
         var createPhone = createPhoneCard(phoneArray[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
         }
     }
-    
+
 
 /* deletProducts form cart page */
 function deletePhone(cartItem) {
@@ -102,8 +100,8 @@ function deletePhone(cartItem) {
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
         
-        if (cartItem[i].dateOfClick == phoneArray.dateOfClick) {
-            shoppingCart.splice(i, 1)
+        if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
+            phoneArray.splice(i, 1)
             break;
         }
         console.log(phoneArray)
