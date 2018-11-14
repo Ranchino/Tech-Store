@@ -137,7 +137,7 @@ function purchaseComplete() {
     localStorage.clickcount = 0
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart");
-    printProductsInCart();
+    localStorage.setItem("historyX", JSON.stringify(shoppingCart));
     
     /* Save purchase history to login webpage */
 }
