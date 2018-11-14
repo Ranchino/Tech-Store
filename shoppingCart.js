@@ -52,7 +52,7 @@ function addPhones(product) {
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});;
    
-    var phoneArray = JSON.parse(shoppingCart);
+    var phoneArray = JSON.stringify(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
 
@@ -64,7 +64,7 @@ function initSite() {
 }
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
-function printProductsInCart() {
+function printProductsInCart(cartItem) {
 
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     console.log(phoneArray)
@@ -72,10 +72,10 @@ function printProductsInCart() {
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
-    
+
     for(var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].price;
-        console.log(totalPrice)
+        console.log(phoneArray[i].price)
         }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
