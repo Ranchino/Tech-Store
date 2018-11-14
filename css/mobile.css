@@ -5,7 +5,10 @@
         width: 8em!important;
     }
     
-#popUp {
-    width: 18em;
-}
+    #popUp {
+        width: 18em;
+    }
+    .fa-user {
+        margin-top: 0;
+    }
 }

@@ -21,6 +21,8 @@ Because most tablets have this width
     .add-to-cart {
         font-size: 1.4em;
     }
-
+    .fa-user {
+        margin-top: 0;
+    }
     
 }
