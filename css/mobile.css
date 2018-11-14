@@ -4,4 +4,8 @@
     .phoneCardClass img {
         width: 8em!important;
     }
+    
+#popUp {
+    width: 18em;
+}
 }

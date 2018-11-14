@@ -138,7 +138,8 @@ $(document).ready(function() {
             $('.purchasePopup').show();
         });
         $('.purchasePopup').click(function(){
-            $('.purchasePopup').hide();
+            $('.purchasePopup').hide()
+            location.reload()
         });
         $('.popupCloseButton').click(function(){
             $('.purchasePopup').hide();

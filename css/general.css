@@ -224,7 +224,7 @@ background-color: #F5F5F5;
     width: 70%;
 }
 
-#regist:hover{
+#regist:hover{  
     background-color: white;
     color: #5596F5;
     border: 1px solid #5596F5;
@@ -262,8 +262,8 @@ ul li a:hover {
     margin-top: 1.5em;
     margin-left: 1em;
     width: 15em;
-   height: 10em;
-   display: none;
+    height: 10em;
+    display: none;
   
 }
 
