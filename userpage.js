@@ -7,14 +7,14 @@ function signOut() {
 }
 
 
-function initSite() {
+$(document).ready(function() {
    
    /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
    
     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
     loginSession()
     printHistoryX()
-}
+});
 
 function loginSession() {
     
@@ -23,16 +23,12 @@ function loginSession() {
         document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
         document.getElementById("userclick").style.display = "none";
         document.getElementById("dropdown").style.display = "block";
-        loginSession()
-        console.log("rllrl")
     } else {
         document.getElementById("purchase-history").style.display = "none";
     
         
     }
 }
-
-
 
 var historyX = [];
 
@@ -43,32 +39,33 @@ function printHistoryX() {
     
     var historyArray = JSON.parse(localStorage.historyX);
 
-    var totalPrice = 0;
-
     for (var i = 0; i < historyArray.length; i++) {
         var createPhone = createHistoryCard(historyArray[i])
         historyParentWrapper.appendChild(createPhone)
     }
     
-    document.getElementById("userpage-wrap").appendChild(historyParentWrapper)
-   
+    document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
 }
 
-function createHistoryCard(product) {
+function createHistoryCard(userProduct) {
    /*  document.getElementById("historyParentWrapper").innerText = "qfewkf" */
    var phone = document.createElement("div")
    phone.className = "historyCardClass"
 
-   var getPhoneName = document.createElement("h1")
-   getPhoneName.innerText = product.title
-   phone.appendChild(getPhoneName)
+   var getDate = document.createElement("h4")
+   getDate.innerText = userProduct.dateOfClick
+   phone.appendChild(getDate)
 
    var getPhoneImage = document.createElement("img")
-   getPhoneImage.src = "./assets/" + product.image
+   getPhoneImage.src = "./assets/" + userProduct.product.image
    phone.appendChild(getPhoneImage)
 
+   var getPhoneName = document.createElement("h1")
+   getPhoneName.innerText = userProduct.product.title
+   phone.appendChild(getPhoneName)
+
    var getPhonePrice = document.createElement("h3")
-   getPhonePrice.innerText = product.price + " kr"
+   getPhonePrice.innerText = userProduct.product.price + " kr"
    phone.appendChild(getPhonePrice)
 
    
