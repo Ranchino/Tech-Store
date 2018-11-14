@@ -7,14 +7,14 @@ function signOut() {
 }
 
 
-function initSite() {
+$(document).ready(function() {
    
    /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
    
     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
     loginSession()
-    getHistoryX()
-}
+    printHistoryX()
+});
 
 function loginSession() {
     
@@ -23,8 +23,6 @@ function loginSession() {
         document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
         document.getElementById("userclick").style.display = "none";
         document.getElementById("dropdown").style.display = "block";
-        loginSession()
-        console.log("rllrl")
     } else {
         document.getElementById("purchase-history").style.display = "none";
     
@@ -32,20 +30,48 @@ function loginSession() {
     }
 }
 
-function getHistoryX() {
+var historyX = [];
 
-    var historywrapper = document.createElement("div")
-    historywrapper.className = "historyrapper"
-    document.body.appendChild(historywrapper)
-    localStorage.getItem("historyX")
-    if(localStorage.historyX) {
-        var phone = document.createElement("div")
-        phone.className = "phoneCardClassHistory"
+var historyParentWrapper = document.createElement("div")
+historyParentWrapper.className = "historyParentWrapper"
 
-        var getPhoneImage = document.createElement("img")
-        getPhoneImage.innerHTML = "dfgdfgdf"
-        phone.appendChild(getPhoneImage)
+function printHistoryX() {
+    
+    var historyArray = JSON.parse(localStorage.historyX);
+
+    for (var i = 0; i < historyArray.length; i++) {
+        var createPhone = createHistoryCard(historyArray[i])
+        historyParentWrapper.appendChild(createPhone)
     }
+    
+    document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
 }
+
+function createHistoryCard(userProduct) {
+   /*  document.getElementById("historyParentWrapper").innerText = "qfewkf" */
+   var phone = document.createElement("div")
+   phone.className = "historyCardClass"
+
+   var getDate = document.createElement("h4")
+   getDate.innerText = userProduct.dateOfClick
+   phone.appendChild(getDate)
+
+   var getPhoneImage = document.createElement("img")
+   getPhoneImage.src = "./assets/" + userProduct.product.image
+   phone.appendChild(getPhoneImage)
+
+   var getPhoneName = document.createElement("h1")
+   getPhoneName.innerText = userProduct.product.title
+   phone.appendChild(getPhoneName)
+
+   var getPhonePrice = document.createElement("h3")
+   getPhonePrice.innerText = userProduct.product.price + " kr"
+   phone.appendChild(getPhonePrice)
+
+   
+   return phone
+
+}
+
 
 

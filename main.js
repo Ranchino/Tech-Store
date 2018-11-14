@@ -66,7 +66,6 @@ function createPhoneCard(product) {
 
 /* New array for shopping cart page */
 var shoppingCart = [];
-var ulElement;
 
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
@@ -74,7 +73,7 @@ if(localStorage.shoppingCart) {
 
 function addPhones(product) {
   
-    var dateOfClick = new Date().toUTCString();
+    var dateOfClick = new Date().toLocaleString();
     shoppingCart.push({product, dateOfClick});
     console.log(product, dateOfClick)
     

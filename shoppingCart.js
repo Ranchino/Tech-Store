@@ -1,20 +1,7 @@
 
-/* creating phones for the cartpage */
-function addProductsToWebpage() {
-    for(var i = 0; i < listOfProducts.length; i++)
-    {
-        var createPhone = createPhoneCard(listOfProducts[i])
-        wrapperForAllPhones.appendChild(createPhone)
-    }
-    document.getElementById("main").appendChild(wrapperForAllPhones)
-}
-/* this creates the wrapperForAllPhones */
-var wrapperForAllPhones = document.createElement("div")
-wrapperForAllPhones.className = "wrapperForAllPhones"
-
-function createPhoneCard(cartItem) {
+function shoppingCards(cartItem) {
     var phone = document.createElement("div")
-    phone.className = "phoneCardClass"
+    phone.className = "shoppingCardClass"
     
     var getPhoneImage = document.createElement("img")
     getPhoneImage.src = "./assets/" + cartItem.product.image
@@ -39,17 +26,14 @@ function createPhoneCard(cartItem) {
 }
 
 
-
 /* creating localstorage and storing products */
 var shoppingCart = [];
-var ulElement;
 
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
 }
 
 function addPhones(cartItem) {  
-
     shoppingCart.push(cartItem)
    
     var phoneArray = JSON.stringify(shoppingCart);
@@ -59,15 +43,13 @@ function addPhones(cartItem) {
 // adds products to cart page//
 function initSite() {
     printProductsInCart();
-    
 }
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
-    
     var phoneArray = JSON.parse(localStorage.shoppingCart);
 
-    document.getElementById("wrapperForAllPhones").innerHTML = ""
+    document.getElementById("shoppingCartWrapper").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
@@ -79,8 +61,8 @@ function printProductsInCart() {
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < phoneArray.length; i++) {
-        var createPhone = createPhoneCard(phoneArray[i])
-        document.getElementById("wrapperForAllPhones").appendChild(createPhone)
+        var createPhone = shoppingCards(phoneArray[i])
+        document.getElementById("shoppingCartWrapper").appendChild(createPhone)
         }
     }
 
@@ -147,18 +129,27 @@ $(document).ready(function() {
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
+var historyX = [];
+
+if(localStorage.history) {
+    history = JSON.parse(localStorage.history);
+}
+
 
 function purchaseComplete() {
     document.querySelector(".number-of-orders").innerHTML = 0;
     localStorage.clickcount = 0
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart");
+
     localStorage.setItem("historyX", JSON.stringify(shoppingCart));
     /*if (localStorage.historyX) {
         historyX.push(shoppingCart)
         localStorage.setItem("historyX", JSON.stringify(shoppingCart));
     }*/
+
     
+
     /* Save purchase history to login webpage */
     
 }
