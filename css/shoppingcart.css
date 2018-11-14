@@ -164,6 +164,12 @@
         font-size: 2em;
         font-family: Arial, Helvetica, sans-serif;
     }
+    .fa-user {
+        color: #FFFFFF;
+        margin-top: 0.67em;
+        margin-right: 0.5em;
+        
+    }
 }
 
 /* this is for tablet */
@@ -335,6 +341,13 @@ div .phoneCardClass {
     color: black;
     font-size: 3em;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.fa-user {
+    color: #FFFFFF;
+    margin-top: 0.67em;
+    margin-right: 0.5em;
+    
 }
 
 }

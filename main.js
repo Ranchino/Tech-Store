@@ -1,9 +1,7 @@
-/* if we put a function in javascript the problem would be that when hitting referesh customer looses his basket */
-
+/* Home page array list of products*/
 var listOfProducts = []
 
-
-/* Getting json files ready */
+/* Loading json files */
     fetch("./products.json")
     .then(function(response) {
         return response.json();
@@ -15,13 +13,12 @@ var listOfProducts = []
     
     });
 
-/* Creating one parent div for all */
+/* Creating one parent div for whole section */
 var wrapperForAllPhones = document.createElement("div")
 wrapperForAllPhones.className = "wrapperForAllPhones"
 
-/* Telling json objects to go into our div #main,
-Loop will always add new product automatically and display on html
-Example when adding new phone  */
+/* Printing products to div "main",
+Loop will always check if theres new a product & display on page */
 function addProductsToWebpage() {
     for(var index = 0; index < listOfProducts.length; index++)
     {
@@ -31,8 +28,7 @@ function addProductsToWebpage() {
     document.getElementById("main").appendChild(wrapperForAllPhones)
 }
 
- /* This makes json objects visual on website */
- 
+ /* Print out cards to home page */
 function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
@@ -63,13 +59,11 @@ function createPhoneCard(product) {
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
-    /* Shopping cart site */
-    
     return phone
 }
 
 
-/* creating localstorage and storing products */
+/* New array for shopping cart page */
 var shoppingCart = [];
 var ulElement;
 
@@ -96,14 +90,8 @@ function addPhones(product) {
 //create a account for new users and save in localstorage
 var accounts = []
 
-if(localStorage.accounts) {
-   
-} else {
-    localStorage.accounts 
-}
-
 // storing input from register-form
-function reg() {
+function reg(event) {
     // Name, Password and Mail from the register-form
     var regUserName = document.getElementsByClassName('newUserName')[0].value;
     var regPassword = document.getElementsByClassName('newPassword')[0].value;
@@ -111,9 +99,10 @@ function reg() {
 
     var userList = JSON.parse(localStorage.getItem("accounts"))
 
+    
     /* if input values empty */
     if (regUserName == "" || regPassword == "" || regMail == "" ) {
-        alert ("Du har missat ett fält");
+        event.preventDefault()
         return false;
     } 
     
@@ -124,7 +113,7 @@ function reg() {
             password: regPassword,
         }]
         localStorage.setItem("accounts", JSON.stringify(newUser))
-        accoutCreatedFeedback();
+        accountCreatedFeedback();
             
     } else {
         // Lägg till en ny user i account och spara igen
@@ -142,14 +131,14 @@ function reg() {
 
         userList.push(newUser)
         localStorage.setItem("accounts", JSON.stringify(userList))
-        accoutCreatedFeedback();
+        accountCreatedFeedback();
        /*  userList.push({userName: regUserName, password: regPassword})
         localStorage.setItem("accounts", userList) */
     }
      
 }
 
-function accoutCreatedFeedback () {
+function accountCreatedFeedback() {
     alert ("Du har nu skapat ett konto 😎");    
     $("#popUp").fadeOut(500)
     $("#popUp").fadeIn(500).delay(2000)
@@ -223,30 +212,20 @@ function validate(){
             }); 
 
 
-            //Function To Display Popup Login Form
-        $("#userclick").click(function(){
-            $("#popUp").fadeIn(500)
-        })
-    
-        $("#userclose").click(function(){
-            $("#popUp").hide()
-        })
-    
-        //Change between popup forms
-        $(".message").click(function(){
-            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-        });
+                //Function To Display Popup Login Form
+            $("#userclick").click(function(){
+                $("#popUp").fadeIn(500)
+            })
+        
+            $("#userclose").click(function(){
+                $("#popUp").hide()
+            })
+        
+            //Change between popup forms
+            $(".message").click(function(){
+                $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+            });
         }); 
 
    
-
-    /* This is how array with object looks like 
-
-            transaction: [
-                {
-                    date: new Date(),
-                    products: cartList
-                }
-            ] 
-    */
    
