@@ -132,6 +132,17 @@ $(document).ready(function() {
         $(".message").click(function(){
             $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
         });
+
+
+        $(".containerForFaCheck").click(function(){
+            $('.purchasePopup').show();
+        });
+        $('.purchasePopup').click(function(){
+            $('.purchasePopup').hide();
+        });
+        $('.popupCloseButton').click(function(){
+            $('.purchasePopup').hide();
+        });
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
@@ -148,6 +159,8 @@ function purchaseComplete() {
     }*/
     
     /* Save purchase history to login webpage */
+    
 }
+
 
 
