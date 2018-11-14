@@ -60,6 +60,7 @@ function createPhoneCard(product) {
     phone.appendChild(addToCart)
     
     return phone
+   
 }
 
 

@@ -13,6 +13,7 @@ function initSite() {
    
     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
     loginSession()
+    getHistoryX()
 }
 
 function loginSession() {
@@ -26,9 +27,24 @@ function loginSession() {
         console.log("rllrl")
     } else {
         document.getElementById("purchase-history").style.display = "none";
-       
     
         
+    }
+}
+
+function getHistoryX() {
+
+    var historywrapper = document.createElement("div")
+    historywrapper.className = "historyrapper"
+    document.body.appendChild(historywrapper)
+    localStorage.getItem("historyX")
+    if(localStorage.historyX) {
+        var phone = document.createElement("div")
+        phone.className = "phoneCardClassHistory"
+
+        var getPhoneImage = document.createElement("img")
+        getPhoneImage.innerHTML = "dfgdfgdf"
+        phone.appendChild(getPhoneImage)
     }
 }
 
