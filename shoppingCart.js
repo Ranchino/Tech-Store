@@ -75,6 +75,7 @@ function printProductsInCart() {
     for(var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
         }
+
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < phoneArray.length; i++) {
@@ -89,6 +90,7 @@ function deletePhone(cartItem) {
     
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
+    console.log(phoneArray)
 
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
@@ -97,13 +99,12 @@ function deletePhone(cartItem) {
 
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
-        
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
-            phoneArray[i].dateOfClick.splice(i, 1)
+            phoneArray.splice(i, 1)
             break;
         }
     }
-    var phoneArray = JSON.stringify(localStorage.shoppingCart);
+    var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
     printProductsInCart();
 }
