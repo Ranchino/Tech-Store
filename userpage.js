@@ -13,7 +13,7 @@ function initSite() {
    
     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
     loginSession()
-    getHistoryX()
+    printHistoryX()
 }
 
 function loginSession() {
@@ -32,20 +32,49 @@ function loginSession() {
     }
 }
 
-function getHistoryX() {
 
-    var historywrapper = document.createElement("div")
-    historywrapper.className = "historyrapper"
-    document.body.appendChild(historywrapper)
-    localStorage.getItem("historyX")
-    if(localStorage.historyX) {
-        var phone = document.createElement("div")
-        phone.className = "phoneCardClassHistory"
 
-        var getPhoneImage = document.createElement("img")
-        getPhoneImage.innerHTML = "dfgdfgdf"
-        phone.appendChild(getPhoneImage)
+var historyX = [];
+
+var historyParentWrapper = document.createElement("div")
+historyParentWrapper.className = "historyParentWrapper"
+
+function printHistoryX() {
+    
+    var historyArray = JSON.parse(localStorage.historyX);
+
+    var totalPrice = 0;
+
+    for (var i = 0; i < historyArray.length; i++) {
+        var createPhone = createHistoryCard(historyArray[i])
+        historyParentWrapper.appendChild(createPhone)
     }
+    
+    document.getElementById("userpage-wrap").appendChild(historyParentWrapper)
+   
 }
+
+function createHistoryCard(product) {
+   /*  document.getElementById("historyParentWrapper").innerText = "qfewkf" */
+   var phone = document.createElement("div")
+   phone.className = "historyCardClass"
+
+   var getPhoneName = document.createElement("h1")
+   getPhoneName.innerText = product.title
+   phone.appendChild(getPhoneName)
+
+   var getPhoneImage = document.createElement("img")
+   getPhoneImage.src = "./assets/" + product.image
+   phone.appendChild(getPhoneImage)
+
+   var getPhonePrice = document.createElement("h3")
+   getPhonePrice.innerText = product.price + " kr"
+   phone.appendChild(getPhonePrice)
+
+   
+   return phone
+
+}
+
 
 

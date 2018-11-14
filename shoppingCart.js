@@ -135,13 +135,21 @@ $(document).ready(function() {
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
+var historyX = [];
+
+if(localStorage.history) {
+    history = JSON.parse(localStorage.history);
+}
+
+
 function purchaseComplete() {
     document.querySelector(".number-of-orders").innerHTML = 0;
     localStorage.clickcount = 0
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart");
-    localStorage.setItem("historyX", JSON.stringify(shoppingCart));
+    localStorage.setItem("historyX", JSON.stringify(shoppingCart))
     
+
     /* Save purchase history to login webpage */
 }
 

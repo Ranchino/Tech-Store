@@ -168,10 +168,8 @@
         color: #FFFFFF;
         margin-top: 0.67em;
         margin-right: 0.5em;
-        
     }
 }
-
 /* this is for tablet */
 
 @media screen and (min-width: 769px) {
