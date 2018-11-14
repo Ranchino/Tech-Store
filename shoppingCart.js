@@ -30,7 +30,7 @@ function createPhoneCard(product) {
 
     var deletePhoneFromCart = document.createElement("button")
     deletePhoneFromCart.className = "fa-trash-alt"
-    deletePhoneFromCart.onclick = deletePhone.bind(undefined, product)
+    deletePhoneFromCart.onclick = deletePhone.bind(undefined, dateOfClick)
     deletePhoneFromCart.innerText = " Ta bort";
 
     phone.appendChild(deletePhoneFromCart)
@@ -49,9 +49,10 @@ if(localStorage.shoppingCart) {
 }
 
 function addPhones(product) {  
-    shoppingCart.push({product, DateOfClick});;
+    var dateOfClick = new Date().toUTCString();
+    shoppingCart.push({product, dateOfClick});;
    
-    var phoneArray = JSON.stringify(shoppingCart);
+    var phoneArray = JSON.parse(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 }
 
@@ -86,7 +87,7 @@ function printProductsInCart() {
 
 /* deletProducts form cart page */
 function deletePhone(product) {
-    shoppingCart.splice();
+
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
