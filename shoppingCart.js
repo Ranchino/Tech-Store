@@ -51,9 +51,8 @@ if(localStorage.shoppingCart) {
 function addPhones(product) {  
     var dateOfClick = new Date().toUTCString();
     shoppingCart.push({product, dateOfClick});;
-   
-    var phoneArray = JSON.stringify(shoppingCart);
-    localStorage.shoppingCart = phoneArray;
+
+    var phoneArray = JSON.parse(shoppingCart);
 }
 
 
@@ -65,32 +64,36 @@ function initSite() {
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart(cartItem) {
-
+    
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     console.log(phoneArray)
-
-    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
+    document.getElementById("wrapperForAllPhones").innerHTML = ""
+    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!"
+ 
     var totalPrice = 0;
-
-    for(var i = 0; i < phoneArray.length; i++) { 
+ 
+    for(var i = 0; i < phoneArray.length; i++) {
         totalPrice += phoneArray[i].price;
         console.log(phoneArray[i].price)
         }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
-    
+ 
     for (i = 0; i < phoneArray.length; i++) {
         var createPhone = createPhoneCard(phoneArray[i])
         document.getElementById("wrapperForAllPhones").appendChild(createPhone)
         }
     }
+    
 
 /* deletProducts form cart page */
 function deletePhone(cartItem) {
     
-    var phoneArray = JSON.stringify(shoppingCart);
+    var phoneArray = JSON.parse(shoppingCart);
     localStorage.shoppingCart = phoneArray;
 
+
+    console.log(phoneArray)
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
@@ -99,10 +102,11 @@ function deletePhone(cartItem) {
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
         
-        if (cartItem.title == phoneArray[i].title) {
+        if (cartItem[i].dateOfClick == phoneArray.dateOfClick) {
             shoppingCart.splice(i, 1)
             break;
         }
+        console.log(phoneArray)
     }
     printProductsInCart();
 }
