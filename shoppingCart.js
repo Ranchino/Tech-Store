@@ -92,6 +92,7 @@ function deletePhone(cartItem) {
 }
 
 
+
 $(document).ready(function() {
     /* Amount times clicked button */
     if (localStorage.clickcount) {
@@ -102,38 +103,32 @@ $(document).ready(function() {
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
          
     //Function To Display Popup Login Form
-          $("#userclick").click(function(){
-            $("#popUp").fadeIn(500)
-        })
-    
-        $("#userclose").click(function(){
-            $("#popUp").hide()
-        })
-    
-        //Change between popup forms
-        $(".message").click(function(){
-            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-        });
+    $("#userclick").click(function(){
+        $("#popUp").fadeIn(500)
+    })
 
+    $("#userclose").click(function(){
+        $("#popUp").hide()
+    })
 
-        $(".containerForFaCheck").click(function(){
-            $('.purchasePopup').show();
-        });
-        $('.purchasePopup').click(function(){
-            $('.purchasePopup').hide()
-            location.reload()
-        });
-        $('.popupCloseButton').click(function(){
-            $('.purchasePopup').hide();
-        });
+    //Change between popup forms
+    $(".message").click(function(){
+        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+
+    $(".containerForFaCheck").click(function(){
+        $('.purchasePopup').show();
+        console.log("hejdavid")
+    });
+    $('.purchasePopup').click(function(){
+        $('.purchasePopup').hide()
+        location.reload()
+    });
+    $('.popupCloseButton').click(function(){
+        $('.purchasePopup').hide();
+    });
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
-
-var historyX = [];
-
-if(localStorage.history) {
-    history = JSON.parse(localStorage.history);
-}
 
 
 function purchaseComplete() {
@@ -142,17 +137,35 @@ function purchaseComplete() {
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart");
 
-    localStorage.setItem("historyX", JSON.stringify(shoppingCart));
-    /*if (localStorage.historyX) {
-        historyX.push(shoppingCart)
-        localStorage.setItem("historyX", JSON.stringify(shoppingCart));
-    }*/
-
     
 
-    /* Save purchase history to login webpage */
+    var orders = [];
+    if (localStorage.orders) {
+        orders = JSON.parse(localStorage.orders);
+    }
+    var user = JSON.parse(localStorage.getItem("loggedinUser"))
+
+    var order = {
+        "products": shoppingCart,
+        "customer": user.username
+    }
+    console.log(order)
+
+    orders.push(order)
+
+    console.log(orders)
+    
+    localStorage.setItem("orders", JSON.stringify(orders))
+    
+
+    /* Save purchase history to the loggedin user */
+
+    var historyDone = JSON.parse(localStorage.getItem("historyX"));
+   
+
+
     
 }
 
-
+    
 

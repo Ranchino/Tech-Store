@@ -26,7 +26,6 @@ function loginSession() {
     } else {
         document.getElementById("purchase-history").style.display = "none";
     
-        
     }
 }
 
