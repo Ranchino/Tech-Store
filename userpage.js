@@ -7,17 +7,8 @@ function signOut() {
 }
 
 
-$(document).ready(function() {
-   
-   /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
-   
-    document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
-    loginSession()
-    printHistoryX()
-});
 
 function loginSession() {
-    
     if (localStorage.loggedinUser) {
         var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
         document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
@@ -25,18 +16,16 @@ function loginSession() {
         document.getElementById("dropdown").style.display = "block";
     } else {
         document.getElementById("purchase-history").style.display = "none";
-    
-        
     }
 }
 
-var historyX = [];
+
 
 var historyParentWrapper = document.createElement("div")
 historyParentWrapper.className = "historyParentWrapper"
 
 function printHistoryX() {
-    
+    console.log("wfefwf")
     var historyArray = JSON.parse(localStorage.historyX);
 
     for (var i = 0; i < historyArray.length; i++) {
@@ -73,5 +62,10 @@ function createHistoryCard(userProduct) {
 
 }
 
-
-
+$(document).ready(function() {
+    /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
+    
+     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
+     loginSession()
+     printHistoryX()
+ });

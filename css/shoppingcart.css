@@ -239,11 +239,17 @@
         margin-left: -0.5em;
     }
 
-
+    .wrapperForAllPhones {
+        display: none;
+    }
 }
 /* this is for tablet */
 
 @media screen and (min-width: 769px) {
+    .wrapperForAllPhones {
+        display: none;
+    }
+
     #shoppingCartWrapper {
         width: 100%;
         display: flex;
