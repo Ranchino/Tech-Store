@@ -1,3 +1,15 @@
+/* creating localstorage and storing products */
+var shoppingCart = [];
+var historyX = [];
+
+if(localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
+}
+
+/* Reset clickcount and shoppingcart because purchase is completed */
+if(localStorage.history) {
+    history = JSON.parse(localStorage.history);
+}
 
 function shoppingCards(cartItem) {
     var phone = document.createElement("div")
@@ -17,7 +29,7 @@ function shoppingCards(cartItem) {
 
     var deletePhoneFromCart = document.createElement("button")
     deletePhoneFromCart.className = "fa-trash-alt"
-    deletePhoneFromCart.onclick = deletePhone.bind(undefined, cartItem.dateOfClick)
+    deletePhoneFromCart.onclick = deletePhone.bind(undefined, cartItem)
     deletePhoneFromCart.innerText = " Ta bort";
 
     phone.appendChild(deletePhoneFromCart)
@@ -25,13 +37,6 @@ function shoppingCards(cartItem) {
     return phone
 }
 
-
-/* creating localstorage and storing products */
-var shoppingCart = [];
-
-if(localStorage.shoppingCart) {
-    shoppingCart = JSON.parse(localStorage.shoppingCart);
-}
 
 function addPhones(cartItem) {  
     shoppingCart.push(cartItem)
@@ -53,18 +58,18 @@ function printProductsInCart() {
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
-
-    for(var i = 0; i < phoneArray.length; i++) { 
+    console.log(phoneArray)
+    for (var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
-        }
+    }
 
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     
     for (i = 0; i < phoneArray.length; i++) {
         var createPhone = shoppingCards(phoneArray[i])
         document.getElementById("shoppingCartWrapper").appendChild(createPhone)
-        }
     }
+}
 
 
 /* deletProducts form cart page */
@@ -72,7 +77,6 @@ function deletePhone(cartItem) {
     
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
-    console.log(phoneArray)
 
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount) - 1;
@@ -81,13 +85,15 @@ function deletePhone(cartItem) {
 
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
+        console.log(cartItem.dateOfClick, phoneArray[i].dateOfClick)
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
             break;
         }
     }
-    var phoneArray = JSON.parse(localStorage.shoppingCart);
-    localStorage.shoppingCart = phoneArray;
+
+    console.log(phoneArray)
+    localStorage.shoppingCart = JSON.stringify(phoneArray);
     printProductsInCart();
 }
 
@@ -102,39 +108,31 @@ $(document).ready(function() {
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
          
     //Function To Display Popup Login Form
-          $("#userclick").click(function(){
-            $("#popUp").fadeIn(500)
-        })
-    
-        $("#userclose").click(function(){
-            $("#popUp").hide()
-        })
-    
-        //Change between popup forms
-        $(".message").click(function(){
-            $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-        });
+    $("#userclick").click(function(){
+        $("#popUp").fadeIn(500)
+    })
+
+    $("#userclose").click(function(){
+        $("#popUp").hide()
+    })
+
+    //Change between popup forms
+    $(".message").click(function(){
+        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
 
 
-        $(".containerForFaCheck").click(function(){
-            $('.purchasePopup').show();
-        });
-        $('.purchasePopup').click(function(){
-            $('.purchasePopup').hide()
-            location.reload()
-        });
-        $('.popupCloseButton').click(function(){
-            $('.purchasePopup').hide();
-        });
+    $(".containerForFaCheck").click(function(){
+        $('.purchasePopup').show();
+    });
+    $('.purchasePopup').click(function(){
+        $('.purchasePopup').hide()
+        location.reload()
+    });
+    $('.popupCloseButton').click(function(){
+        $('.purchasePopup').hide();
+    });
 });
-/* Reset clickcount and shoppingcart because purchase is completed */
-
-var historyX = [];
-
-if(localStorage.history) {
-    history = JSON.parse(localStorage.history);
-}
-
 
 function purchaseComplete() {
     document.querySelector(".number-of-orders").innerHTML = 0;
@@ -148,10 +146,7 @@ function purchaseComplete() {
         localStorage.setItem("historyX", JSON.stringify(shoppingCart));
     }*/
 
-    
-
     /* Save purchase history to login webpage */
-    
 }
 
 
