@@ -118,23 +118,23 @@ function reg(event) {
     } else {
         // Lägg till en ny user i account och spara igen
 
-        for (var i = 0; i < userList.length; i++ ) {
-            if(userList[i].username == regUserName) {
-                alert ("Detta användarnamn finns redan. Välj annat!");
-                return;
-            }
+    for (var i = 0; i < userList.length; i++ ) {
+        if(userList[i].username == regUserName) {
+            alert ("Detta användarnamn finns redan. Välj annat!");
+            return;
         }
-        var newUser = {
-            username: regUserName,
-            password: regPassword
-        }
-
-        userList.push(newUser)
-        localStorage.setItem("accounts", JSON.stringify(userList))
-        accountCreatedFeedback();
-       /*  userList.push({userName: regUserName, password: regPassword})
-        localStorage.setItem("accounts", userList) */
     }
+    var newUser = {
+        username: regUserName,
+        password: regPassword
+    }
+
+    userList.push(newUser)
+    localStorage.setItem("accounts", JSON.stringify(userList))
+    accountCreatedFeedback();
+/*  userList.push({userName: regUserName, password: regPassword})
+    localStorage.setItem("accounts", userList) */
+}
      
 }
 
@@ -161,7 +161,6 @@ function validate(){
    var userPw = document.getElementsByClassName('password')[0];
    var existingAccount = JSON.parse(localStorage.getItem("accounts"))
    
-   console.log(userName.value, userPw.value, existingAccount)
 
     for (var i = 0; i < existingAccount.length; i++) {
           // entered data from the login-form
@@ -185,47 +184,48 @@ function validate(){
             userName.value = "";
             userPw.value = "";    
             return;
+        
         }
     } 
 
 }
 
-        $(document).ready(function() {
+$(document).ready(function() {
 
-            /* Amount times clicked button */
-            if (localStorage.clickcount) {
-                localStorage.clickcount = Number(localStorage.clickcount);
-            } else {
-                localStorage.clickcount = 0;
-            }
-            document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-        
-            $(".add-to-cart").click(function() {
-                if (localStorage.clickcount) {
-                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
-                } else {
-                    localStorage.clickcount = 1;
-                }
-                document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-                $(".fa-shopping-cart").effect("bounce", "slow")
-           
-            }); 
+    /* Amount times clicked button */
+    if (localStorage.clickcount) {
+        localStorage.clickcount = Number(localStorage.clickcount);
+    } else {
+        localStorage.clickcount = 0;
+    }
+    document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+
+    $(".add-to-cart").click(function() {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
+        $(".fa-shopping-cart").effect("bounce", "slow")
+
+    }); 
 
 
-                //Function To Display Popup Login Form
-            $("#userclick").click(function(){
-                $("#popUp").fadeIn(500)
-            })
-        
-            $("#userclose").click(function(){
-                $("#popUp").hide()
-            })
-        
-            //Change between popup forms
-            $(".message").click(function(){
-                $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-            });
-        }); 
+        //Function To Display Popup Login Form
+    $("#userclick").click(function(){
+        $("#popUp").fadeIn(500)
+    })
 
-   
-   
+    $("#userclose").click(function(){
+        $("#popUp").hide()
+    })
+
+    //Change between popup forms
+    $(".message").click(function(){
+        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+}); 
+
+
+
