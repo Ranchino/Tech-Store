@@ -161,7 +161,6 @@ function validate(){
    var userPw = document.getElementsByClassName('password')[0];
    var existingAccount = JSON.parse(localStorage.getItem("accounts"))
    
-   console.log(userName.value, userPw.value, existingAccount)
 
     for (var i = 0; i < existingAccount.length; i++) {
           // entered data from the login-form
@@ -185,6 +184,7 @@ function validate(){
             userName.value = "";
             userPw.value = "";    
             return;
+        
         }
     } 
 
