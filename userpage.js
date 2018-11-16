@@ -1,8 +1,8 @@
 //function to logout from userpage and send to index
 function signOut() {
+    localStorage.removeItem("loggedinUser");
     alert("Du är nu utloggad!")
     window.location = "index.html";
-    localStorage.removeItem("loggedinUser");
 
 }
 
@@ -27,55 +27,48 @@ function loginSession() {
     }
 }
 
+function createOrders(order) {
+    var orderContainer = document.createElement("div")
+    for (var i = 0; i < order.products.length; i++) {
+        orderContainer.appendChild(createProductCard(order.products[i]))
+    }
+    return orderContainer
+}
 
-var historyParentWrapper = document.createElement("div")
-historyParentWrapper.className = "historyParentWrapper"
+function createProductCard(userProduct) {
+    console.log(userProduct)
+    var phone = document.createElement("div")
+    phone.className = "historyCardClass"
+    
+    var getPhoneImage = document.createElement("img")
+    getPhoneImage.src = "./assets/" + userProduct.product.image
+    phone.appendChild(getPhoneImage)
+    
+    var getPhoneName = document.createElement("h1")
+    getPhoneName.innerText = userProduct.product.title
+    phone.appendChild(getPhoneName)
+    
+    var getPhonePrice = document.createElement("h3")
+    getPhonePrice.innerText = userProduct.product.price + " kr"
+    phone.appendChild(getPhonePrice)
+    
+    return phone
+}
+
 
 function printHistoryX() {
-    
+    var historyParentWrapper = document.createElement("div")
+    historyParentWrapper.className = "historyParentWrapper"
+
     var historyArray = JSON.parse(localStorage.getItem("orders"));
     var userOnSite = JSON.parse(localStorage.getItem("loggedinUser"))
-    console.log(historyArray)
+    
     for (var i = 0; i < historyArray.length; i++) {
         if (userOnSite.username == historyArray[i].customer) {
-            var orderContainer = createOrders(historyArray[i].products)
+            var orderContainer = createOrders(historyArray[i])
             historyParentWrapper.appendChild(orderContainer)
         }
     }
-    document.getElementById("historyParentWrapper").innerText = "qfewkf" 
     document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
+    localStorage.shoppingCart = JSON.stringify(historyArray);
 }
-
-function createOrders(userProduct) {
-   
-   var phone = document.createElement("div")
-   phone.className = "historyCardClass"
-
-   var getDate = document.createElement("h4")
-   getDate.innerText = userProduct.dateOfClick
-   phone.appendChild(getDate)
-
-   var getPhoneImage = document.createElement("img")
-   getPhoneImage.src = "./assets/" + userProduct.products.image
-   phone.appendChild(getPhoneImage)
-
-   var getPhoneName = document.createElement("h1")
-   getPhoneName.innerText = userProduct.products.title
-   phone.appendChild(getPhoneName)
-
-   var getPhonePrice = document.createElement("h3")
-   getPhonePrice.innerText = userProduct.products.price + " kr"
-   phone.appendChild(getPhonePrice)
-
-   
-   return phone
-
-}
-
-$(document).ready(function() {
-    /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
-    
-     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
-     loginSession()
-     printHistoryX()
- });

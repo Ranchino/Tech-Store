@@ -5,13 +5,12 @@ var listOfProducts = []
     fetch("./products.json")
     .then(function(response) {
         return response.json();
-    })
+})
 
     .then(function(data) {
         listOfProducts = data.phones;
         addProductsToWebpage();
-    
-    });
+});
 
 /* Creating one parent div for whole section */
 var wrapperForAllPhones = document.createElement("div")
@@ -52,40 +51,38 @@ function createPhoneCard(product) {
     var getPhonePrice = document.createElement("h3")
     getPhonePrice.innerText = product.price + " kr"
     phone.appendChild(getPhonePrice)
-
+    
     var addToCart = document.createElement("button")
     addToCart.className = "add-to-cart"
     addToCart.onclick = addPhones.bind(undefined, product)
     addToCart.innerText = " Lägg till i kundvagnen"
     phone.appendChild(addToCart)
     
-    return phone
-   
+    return phone  
 }
-
 
 /* New array for shopping cart page */
-var shoppingCart = [];
-
-if(localStorage.shoppingCart) {
-    shoppingCart = JSON.parse(localStorage.shoppingCart);
-}
 
 function addPhones(product) {
-  
+    var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+    console.log(shoppingCart)
+
     var dateOfClick = new Date().toLocaleString();
-    shoppingCart.push({product, dateOfClick});
-    console.log(product, dateOfClick)
-    
+
+    if (!shoppingCart) {
+        shoppingCart = [{product: product, dateOfClick: dateOfClick}]
+    } else {
+        shoppingCart.push({product: product, dateOfClick: dateOfClick})
+    }
+
     var phoneArray = JSON.stringify(shoppingCart);
-    localStorage.shoppingCart = phoneArray;
+    localStorage.setItem("shoppingCart", phoneArray)
 }  
     /* var dateForClick = new Date ();
     dateForClick.setMilliseconds(20);
     document.getElementsByClassName("add-to-cart").innerText = dateForClick;
     console.log(dateForClick)
  */
-
 
 //create a account for new users and save in localstorage
 var accounts = []
@@ -111,7 +108,7 @@ function reg(event) {
         var newUser = [{
             username: regUserName,
             password: regPassword,
-        }]
+    }]
         localStorage.setItem("accounts", JSON.stringify(newUser))
         accountCreatedFeedback();
             
@@ -151,17 +148,15 @@ function accountCreatedFeedback() {
 //Login function for already exists account
 var attempt = 3; 
 
-function validate(){
+function validate() {
     /*var userName = document.getElementsByClassName("userName")[0].value;
     var password = document.getElementsByClassName("password")[0].value;*/
 
-    // stored data from the register-form
-  
+    // stored data from the register-form  
    var userName = document.getElementsByClassName('userName')[0];
    var userPw = document.getElementsByClassName('password')[0];
    var existingAccount = JSON.parse(localStorage.getItem("accounts"))
    
-
     for (var i = 0; i < existingAccount.length; i++) {
           // entered data from the login-form
 
@@ -191,7 +186,6 @@ function validate(){
 }
 
 $(document).ready(function() {
-
     /* Amount times clicked button */
     if (localStorage.clickcount) {
         localStorage.clickcount = Number(localStorage.clickcount);
@@ -225,7 +219,4 @@ $(document).ready(function() {
     $(".message").click(function(){
         $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
     });
-}); 
-
-
-
+});
