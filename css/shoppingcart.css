@@ -254,6 +254,7 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     div .shoppingCardClass {
@@ -268,6 +269,7 @@
 
     .shoppingCardClass img {
         height: 18em;
+        width: 10em;
     }
 
 

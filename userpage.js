@@ -34,7 +34,6 @@ function createOrders(order) {
 }
 
 function createProductCard(userProduct) {
-    console.log(userProduct)
     var phone = document.createElement("div")
     phone.className = "historyCardClass"
     
@@ -62,7 +61,6 @@ function printHistoryX() {
     var userOnSite = JSON.parse(localStorage.getItem("loggedinUser"))
     
     for (var i = 0; i < historyArray.length; i++) {
-        
         if (userOnSite.username == historyArray[i].customer) {
             var orderContainer = createOrders(historyArray[i])
             historyParentWrapper.appendChild(orderContainer)
