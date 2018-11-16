@@ -1,430 +1,380 @@
 @media screen and (max-width: 768px) {
-    #shoppingCartWrapper {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 2em;
-        height: auto;
-        font-family: Arial, Helvetica, sans-serif;
-        flex-direction: row;
-    }
-    
-    div .shoppingCardClass {
-        height: auto!important;
-        border: 0.1em solid #5596F5;
-        border-radius: 1em;
-        text-align: center;
-        padding: 0.5em;
-        margin: 0.5em;
-        background-color: #f5f5f5;
-    }
-
-    div .shoppingCardClass img {
-        width: 9em;
-        height: 18em;
-    }
-
-    /* this is the header for mobiles on mobile  */
-    .shoppingCardClass h2 {
-        margin: 0;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .shoppingCardClass h3 {
-        margin: 0;
-        text-align: center;
-    }
-
-    /* display only in shoppingcart */
-
-    .fa-trash-alt:before {
-        content: "\f2ed";
-        font-family: 'font awesome\ 5 free';
-    }
-
-    .fa-trash-alt {
-        font-family: Arial, Helvetica, sans-serif;
-        text-decoration: none;
-        color: #FFFFFF;
-        background-color: #E64E4E;
-        border-radius: 0.5em;
-        padding: 0.5em;
-        margin-top: 1em;
-        font-size: 1em;
-        outline: 0;
-        border: 0.1em solid #E64E4E;
-    }
-
-    .fa-trash-alt:hover {
-        cursor: pointer;
-        color: #E64E4E;
-        background-color: #f5f5f5;
-    }
-
-    .containerForFaCheck {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 2em;
-    }
-    
-    .fa-check:before {
-        content: "\f00c";
-        font-family: 'font awesome\ 5 free';
-    }
-    
-    .fa-check:hover {
-        outline: 0;
-        cursor: pointer;
-        background-color: white;
-        color: #5596F5;
-    }
-
-    .fa-check {
-        background-color: #5596F5;
-        color: white;
-        border-radius: 0.3em;
-        font-size: 2em;
-        padding: 0.5em;
-        font-family: Arial, Helvetica, sans-serif;
-        border: 0.1em solid #5596F5;
-    }
-
-    #sumOfProducts {
-        margin-top: 1em;
-        margin-bottom: 1em;
-        font-size: 2em;
-        width: 100%;
-        text-align: center;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .containerForShoppingCart {
-        width: 100%;
-        text-align: center;
-        margin-top: 1em;
-    }
-
-    .fa-shopping-cart:before {
-        content: "\f07a";
-        font-family: 'font awesome\ 5 free';
-    }
-    
-    .containerForShoppingCart .fa-shopping-cart {
-        color: black;
-        font-size: 2em;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .fa-user {
-        color: #FFFFFF;
-        margin-top: 0.67em;
-        margin-right: 0.5em;
-    }
-
-        /* Popup box BEGIN */
-    .purchasePopup{
-        background:rgba(0,0,0,.4);
-        cursor:pointer;
-        display:none;
-        height:100%;
-        position:fixed;
-        text-align:center;
-        top:0;
-        width:100%;
-        z-index:100;
-    }
-    .purchasePopup .helper{
-        display:inline-block;
-        height:100%;
-        vertical-align:middle;
-    }
-    .purchasePopup > div {
-        background-color: #FFFFFF;
-        box-shadow: 10px 10px 60px #555;
-        display: inline-block;
-        height: auto;
-        max-width: 20em;
-        min-height: 5em;
-        vertical-align: middle;
-        width: 60%;
-        position: relative;
-        border-radius: 1em;
-        padding: 15px 5%;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.3em;
-    }
-    .popupCloseButton {
-        background-color: #FFFFFF;
-        border: 3px solid #E64E4E;
-        border-radius: 50px;
-        cursor: pointer;
-        display: inline-block;
-        font-family: arial;
-        font-weight: bold;
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        font-size: 25px;
-        line-height: 30px;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-    }
-    .popupCloseButton:hover {
-        background-color: #F5F5F5;
-    }
-
-    .fa-check-circle{
-        color: green;
-    }
-        /*form display when click on user icon*/
-    #profileForm {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        padding-top: 0.03em;
-        position: relative;
-    }
-
-    #popUp {
-        display: none;
-        height: auto;
-        max-width: 24em;
-        padding-bottom: 2%;
-        border: 1px solid black;
-        text-align: center;
-        border-radius: 10%;
-        color: black;
-        background-color: #F5F5F5;
-        position: fixed;
-        z-index: 100;
-
-    }
-
-    #popUp input {
-        font-family: "Roboto", sans-serif; 
-        outline: 1;
-        background: #FFFFFF;
-        width: 70%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #popUp .message{
-        margin: 1em;
-        font-size: 1em;
-    }
-
-    #popUp .message a{
-        text-decoration: none;
-    }
-
-    #popUp .userReg{
-        display: none;
-    }
-
-
-    /*LogIn form*/
-    .fa-times-circle {
-        color: red;
-        text-align: right;
-        margin-top: 0.3em;
-        margin-left: -0.5em;
-    }
-
-    .wrapperForAllPhones {
-        display: none;
-    }
+	#shoppingCartWrapper {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 2em;
+		height: auto;
+		font-family: Arial, Helvetica, sans-serif;
+		flex-direction: row;
+	}
+	div .shoppingCardClass {
+		height: auto!important;
+		border: 0.1em solid #5596F5;
+		border-radius: 1em;
+		text-align: center;
+		padding: 0.5em;
+		margin: 0.5em;
+		background-color: #f5f5f5;
+	}
+	div .shoppingCardClass img {
+		width: 9em;
+		height: 18em;
+	}
+	/* this is the header for mobiles on mobile  */
+	.shoppingCardClass h2 {
+		margin: 0;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.shoppingCardClass h3 {
+		margin: 0;
+		text-align: center;
+	}
+	/* display only in shoppingcart */
+	.fa-trash-alt:before {
+		content: "\f2ed";
+		font-family: 'font awesome\ 5 free';
+	}
+	.fa-trash-alt {
+		font-family: Arial, Helvetica, sans-serif;
+		text-decoration: none;
+		color: #FFFFFF;
+		background-color: #E64E4E;
+		border-radius: 0.5em;
+		padding: 0.5em;
+		margin-top: 1em;
+		font-size: 1em;
+		outline: 0;
+		border: 0.1em solid #E64E4E;
+	}
+	.fa-trash-alt:hover {
+		cursor: pointer;
+		color: #E64E4E;
+		background-color: #f5f5f5;
+	}
+	.containerForFaCheck {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 2em;
+	}
+	.fa-check:before {
+		content: "\f00c";
+		font-family: 'font awesome\ 5 free';
+	}
+	.fa-check:hover {
+		outline: 0;
+		cursor: pointer;
+		background-color: white;
+		color: #5596F5;
+	}
+	.fa-check {
+		background-color: #5596F5;
+		color: white;
+		border-radius: 0.3em;
+		font-size: 2em;
+		padding: 0.5em;
+		font-family: Arial, Helvetica, sans-serif;
+		border: 0.1em solid #5596F5;
+	}
+	#sumOfProducts {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		font-size: 2em;
+		width: 100%;
+		text-align: center;
+		font-weight: bold;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.containerForShoppingCart {
+		width: 100%;
+		text-align: center;
+		margin-top: 1em;
+	}
+	.fa-shopping-cart:before {
+		content: "\f07a";
+		font-family: 'font awesome\ 5 free';
+	}
+	.containerForShoppingCart .fa-shopping-cart {
+		color: black;
+		font-size: 2em;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.fa-user {
+		color: #FFFFFF;
+		margin-top: 0.67em;
+		margin-right: 0.5em;
+	}
+	/* Popup box BEGIN */
+	.purchasePopup {
+		background: rgba(0, 0, 0, .4);
+		cursor: pointer;
+		display: none;
+		height: 100%;
+		position: fixed;
+		text-align: center;
+		top: 0;
+		width: 100%;
+		z-index: 100;
+	}
+	.purchasePopup .helper {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+	.purchasePopup>div {
+		background-color: #FFFFFF;
+		box-shadow: 10px 10px 60px #555;
+		display: inline-block;
+		height: auto;
+		max-width: 20em;
+		min-height: 5em;
+		vertical-align: middle;
+		width: 60%;
+		position: relative;
+		border-radius: 1em;
+		padding: 15px 5%;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1.3em;
+	}
+	.popupCloseButton {
+		background-color: #FFFFFF;
+		border: 3px solid #E64E4E;
+		border-radius: 50px;
+		cursor: pointer;
+		display: inline-block;
+		font-family: arial;
+		font-weight: bold;
+		position: absolute;
+		top: -20px;
+		right: -20px;
+		font-size: 25px;
+		line-height: 30px;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+	}
+	.popupCloseButton:hover {
+		background-color: #F5F5F5;
+	}
+	.fa-check-circle {
+		color: green;
+	}
+	/*form display when click on user icon*/
+	#profileForm {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding-top: 0.03em;
+		position: relative;
+	}
+	#popUp {
+		display: none;
+		height: auto;
+		max-width: 24em;
+		padding-bottom: 2%;
+		border: 1px solid black;
+		text-align: center;
+		border-radius: 10%;
+		color: black;
+		background-color: #F5F5F5;
+		position: fixed;
+		z-index: 100;
+	}
+	#popUp input {
+		font-family: "Roboto", sans-serif;
+		outline: 1;
+		background: #FFFFFF;
+		width: 70%;
+		border: 0;
+		margin: 0 0 15px;
+		padding: 15px;
+		box-sizing: border-box;
+		font-size: 14px;
+		text-align: center;
+	}
+	#popUp .message {
+		margin: 1em;
+		font-size: 1em;
+	}
+	#popUp .message a {
+		text-decoration: none;
+	}
+	#popUp .userReg {
+		display: none;
+	}
+	/*LogIn form*/
+	.fa-times-circle {
+		color: red;
+		text-align: right;
+		margin-top: 0.3em;
+		margin-left: -0.5em;
+	}
+	.wrapperForAllPhones {
+		display: none;
+	}
 }
+
+
 /* this is for tablet */
 
 @media screen and (min-width: 769px) {
-    .wrapperForAllPhones {
-        display: none;
-    }
-
-    #shoppingCartWrapper {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    div .shoppingCardClass {
-        border: 0.1em solid #5596F5;
-        border-radius: 1em;
-        text-align: center;
-        padding: 1em;
-        margin: 1em;
-        background-color: #f5f5f5;
-    }
-
-
-    .shoppingCardClass img {
-        height: 18em;
-        width: 10em;
-    }
-
-
-
-    /* this is the header for mobiles on mobile  */
-    .shoppingCardClass h2 { 
-        margin: 0;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .shoppingCardClass h3 {
-        margin: 0;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    
-    .fa-trash-alt:before {
-        content: "\f2ed";
-        font-family: 'font awesome\ 5 free';
-    }
-
-    .fa-trash-alt {
-        margin-top: 1em;
-        padding: 0.5em;
-        outline: 0;
-        text-decoration: none;
-        color: #FFFFFF;
-        background-color: #E64E4E;
-        border-radius: 0.5em;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1em;
-    }
-
-    .fa-trash-alt:hover {
-        cursor: pointer!important;
-        background-color: #FFFFFF;
-        color: #E64E4E;
-        border: 1px solid #E64E4E;
-    }
-
-    .containerForFaCheck {
-        width: 100%;
-        text-align: center;
-        
-    }
-
-    .fa-check:before {
-        content: "\f00c";
-        font-family: 'font awesome\ 5 free';
-    }
-
-    .fa-check {
-        background-color: #5596F5;
-        color: white;
-        border-radius: 0.6em;
-        text-align: center;
-        padding: 1em;
-        font-size: 2em;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.5em;
-    }
-
-    .fa-check:hover {
-        cursor: pointer;
-        background-color: #FFFFFF;
-        color: #5596F5;
-        border: 1px solid #5596F5;
-    }
-
-    #sumOfProducts {
-        margin-top: 1em;
-        margin-bottom: 1em;
-        font-size: 2em;
-        width: 100%;
-        text-align: center;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .containerForShoppingCart {
-        width: 100%;
-        text-align: center;
-        margin-top: 1em;
-    }
-
-    .fa-shopping-cart:before {
-        content: "\f07a";
-        font-family: 'font awesome\ 5 free';
-    }
-
-    .containerForShoppingCart .fa-shopping-cart {
-        color: black;
-        font-size: 3em;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-
-
-    /* Popup box BEGIN */
-    .purchasePopup{
-        background:rgba(0,0,0,.4);
-        cursor:pointer;
-        display:none;
-        height:100%;
-        position:fixed;
-        text-align:center;
-        top:0;
-        width:100%;
-        z-index:100;
-    }
-    .purchasePopup .helper{
-        display:inline-block;
-        height:100%;
-        vertical-align:middle;
-    }
-    .purchasePopup > div {
-        background-color: #FFFFFF;
-        box-shadow: 10px 10px 60px #555;
-        display: inline-block;
-        height: auto;
-        max-width: 20em;
-        min-height: 5em;
-        vertical-align: middle;
-        width: 60%;
-        position: relative;
-        border-radius: 1em;
-        padding: 15px 5%;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.3em;
-    }
-    .popupCloseButton {
-        background-color: #FFFFFF;
-        border: 3px solid #E64E4E;
-        border-radius: 50px;
-        cursor: pointer;
-        display: inline-block;
-        font-family: arial;
-        font-weight: bold;
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        font-size: 25px;
-        line-height: 30px;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-    }
-    .popupCloseButton:hover {
-        background-color: #F5F5F5;
-    }
-
-    .fa-check-circle{
-        color: green;
-    }
+	.wrapperForAllPhones {
+		display: none;
+	}
+	#shoppingCartWrapper {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	div .shoppingCardClass {
+		border: 0.1em solid #5596F5;
+		border-radius: 1em;
+		text-align: center;
+		padding: 1em;
+		margin: 1em;
+		background-color: #f5f5f5;
+	}
+	.shoppingCardClass img {
+		height: 18em;
+		width: 10em;
+	}
+	/* this is the header for mobiles on mobile  */
+	.shoppingCardClass h2 {
+		margin: 0;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.shoppingCardClass h3 {
+		margin: 0;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.fa-trash-alt:before {
+		content: "\f2ed";
+		font-family: 'font awesome\ 5 free';
+	}
+	.fa-trash-alt {
+		margin-top: 1em;
+		padding: 0.5em;
+		outline: 0;
+		text-decoration: none;
+		color: #FFFFFF;
+		background-color: #E64E4E;
+		border-radius: 0.5em;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1em;
+	}
+	.fa-trash-alt:hover {
+		cursor: pointer!important;
+		background-color: #FFFFFF;
+		color: #E64E4E;
+		border: 1px solid #E64E4E;
+	}
+	.containerForFaCheck {
+		width: 100%;
+		text-align: center;
+	}
+	.fa-check:before {
+		content: "\f00c";
+		font-family: 'font awesome\ 5 free';
+	}
+	.fa-check {
+		background-color: #5596F5;
+		color: white;
+		border-radius: 0.6em;
+		text-align: center;
+		padding: 1em;
+		font-size: 2em;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1.5em;
+	}
+	.fa-check:hover {
+		cursor: pointer;
+		background-color: #FFFFFF;
+		color: #5596F5;
+		border: 1px solid #5596F5;
+	}
+	#sumOfProducts {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		font-size: 2em;
+		width: 100%;
+		text-align: center;
+		font-weight: bold;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.containerForShoppingCart {
+		width: 100%;
+		text-align: center;
+		margin-top: 1em;
+	}
+	.fa-shopping-cart:before {
+		content: "\f07a";
+		font-family: 'font awesome\ 5 free';
+	}
+	.containerForShoppingCart .fa-shopping-cart {
+		color: black;
+		font-size: 3em;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	/* Popup box BEGIN */
+	.purchasePopup {
+		background: rgba(0, 0, 0, .4);
+		cursor: pointer;
+		display: none;
+		height: 100%;
+		position: fixed;
+		text-align: center;
+		top: 0;
+		width: 100%;
+		z-index: 100;
+	}
+	.purchasePopup .helper {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+	.purchasePopup>div {
+		background-color: #FFFFFF;
+		box-shadow: 10px 10px 60px #555;
+		display: inline-block;
+		height: auto;
+		max-width: 20em;
+		min-height: 5em;
+		vertical-align: middle;
+		width: 60%;
+		position: relative;
+		border-radius: 1em;
+		padding: 15px 5%;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1.3em;
+	}
+	.popupCloseButton {
+		background-color: #FFFFFF;
+		border: 3px solid #E64E4E;
+		border-radius: 50px;
+		cursor: pointer;
+		display: inline-block;
+		font-family: arial;
+		font-weight: bold;
+		position: absolute;
+		top: -20px;
+		right: -20px;
+		font-size: 25px;
+		line-height: 30px;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+	}
+	.popupCloseButton:hover {
+		background-color: #F5F5F5;
+	}
+	.fa-check-circle {
+		color: green;
+	}
 }

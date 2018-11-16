@@ -1,117 +1,95 @@
 #orderContainer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-   justify-content: center;
-    height: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    flex-direction: row;
-   margin-top: 2em;
-   border: 1px solid #b3b3b3;
-   padding-top: 2em;
-   background-color: #fff;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	flex-direction: row;
+	margin-top: 2em;
+	border: 1px solid #b3b3b3;
+	padding-top: 2em;
+	background-color: #fff;
 }
-
 #user-page-wrap {
-    min-height: 100vh;
-    background-color: #F8F8F8;
-    padding: 2em;
-   
+	min-height: 100vh;
+	background-color: #F8F8F8;
+	padding: 2em;
 }
-
 /*All styles for userpages*/
-
 .historyCardClass {
-    
-   border: 1px solid #ddd;
-    text-align: center;
-    padding-bottom: 1em;
- padding: 1em;
-    background-color: #fff;
+	border: 1px solid #ddd;
+	text-align: center;
+	padding-bottom: 1em;
+	padding: 1em;
+	background-color: #fff;
 }
-
 div .historyCardClass img {
-    width: 10em;
-    height: 15em;
-   padding-top: 1em;
-    
-    
+	width: 10em;
+	height: 15em;
+	padding-top: 1em;
 }
-
 .historyCardClass h3 {
-    margin: 0;
-    text-align: center;
-    font-size: 1em;
+	margin: 0;
+	text-align: center;
+	font-size: 1em;
 }
-
 .historyCardClass h1 {
-    margin: 0;
-    text-align: center;
-    padding: 1em;
-    font-size: 1em;
-
+	margin: 0;
+	text-align: center;
+	padding: 1em;
+	font-size: 1em;
 }
 .historyCardClass h4 {
-    margin: 0;
-    background-color: #212121;
-    padding: 1em;
-    border-bottom: 1px solid #ddd;
-    color: #fff;
-   
+	margin: 0;
+	background-color: #212121;
+	padding: 1em;
+	border-bottom: 1px solid #ddd;
+	color: #fff;
 }
-
 .history-text {
-    padding: 1em;
-    text-align: center;
-    width: 10em;
-    border: 1px solid #b3b3b3;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    color: #333;
-    font-size: 1.2em;
+	padding: 1em;
+	text-align: center;
+	width: 10em;
+	border: 1px solid #b3b3b3;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	margin: 0;
+	color: #333;
+	font-size: 1.2em;
 }
-
 .history-text-wrap {
-    display: flex;
-    justify-content: center;
-    padding-top: 1em;
+	display: flex;
+	justify-content: center;
+	padding-top: 1em;
 }
-
 .fa-user-check {
-    padding-right: 0.5em;
-   
+	padding-right: 0.5em;
 }
-
 #logOut {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    color: #000;
-    border: none;
-    width: 100%;
-    text-align: left;
-    outline: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #000;
+	border: none;
+	width: 100%;
+	text-align: left;
+	outline: none;
 }
-
-#logOut:hover{
-    color: #5596F5;
-    cursor: pointer;
-   outline: none;
+#logOut:hover {
+	color: #5596F5;
+	cursor: pointer;
+	outline: none;
 }
-
 #textWelcome {
-    width: 10em;
-    height: 2.8em;
-    align-items: center;
-    font-size: 1.2em;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
+	width: 10em;
+	height: 2.8em;
+	align-items: center;
+	font-size: 1.2em;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
 }
-#textWelcome::after{
-   content: " \f0d7";
-   font-weight: 900;
-   font-family: "Font Awesome 5 Free";
+#textWelcome::after {
+	content: " \f0d7";
+	font-weight: 900;
+	font-family: "Font Awesome 5 Free";
 }
-
-
-

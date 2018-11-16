@@ -1,62 +1,48 @@
-
 /* ONLY for mobile. All devices under 700px gets this css */
+
 @media screen and (max-width: 700px) {
-    .wrapperForAllPhones .phoneCardClass img {
-        height: 20em;
-    }
-    
-    .wrapperForAllPhones .phoneCardClass {
-        padding-top: 0;
-    }
-    #popUp {
-        width: 18em;
-    }
-    .fa-user {
-        margin-top: 0;
-    }
-
-    header {
-        height: 6em!important;
-    }
-
-   
-    header h1{
-   
-       font-size: 1.7em;
-       width: 100%;
-       height: 1em;
-       text-align: center;
-
-      
-    }
-
-    header .nav-bar {
-        height: auto;
-        flex-wrap: wrap;
-        flex: none;
-        padding-bottom: 1em;
-    }
-   
-    header .dropdown {
-        width: 100%;
-        height: 3em;
-        display: none;
-        margin: 0;
-    }
-
-    #textWelcome {
-      height: 2em!important;
-      width: 100%;
-      text-align: center;
-      margin: 0 auto;
-      
-    }
-
-    header .right-section {
-        display: flex;
-       justify-content: center;
-       margin-top: 0.5em;
-    }
-
-    
+	.wrapperForAllPhones .phoneCardClass img {
+		height: 20em;
+	}
+	.wrapperForAllPhones .phoneCardClass {
+		padding-top: 0;
+	}
+	#popUp {
+		width: 18em;
+	}
+	.fa-user {
+		margin-top: 0;
+	}
+	header {
+		height: 6em!important;
+	}
+	header h1 {
+		font-size: 1.7em;
+		width: 100%;
+		height: 1em;
+		text-align: center;
+	}
+	header .nav-bar {
+		height: auto;
+		flex-wrap: wrap;
+		flex: none;
+		padding-bottom: 1em;
+	}
+	header .dropdown {
+		width: 100%;
+		height: 3em;
+		display: none;
+		margin: 0;
+	}
+	#textWelcome {
+		height: 2em!important;
+		width: 100%;
+		text-align: center;
+		margin: 0 auto;
+	}
+	header .right-section {
+		display: flex;
+		justify-content: center;
+		margin-top: 0.5em;
+	}
 }

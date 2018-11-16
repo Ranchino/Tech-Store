@@ -1,300 +1,315 @@
 /* This CSS applies to all pages */
+
 body {
-    margin: 0;
+	margin: 0;
 }
 
 header {
-    height: 5em;
+	height: 5em;
 }
 
 /* Navigation bar */
 .nav-bar {
-    background-color: #212121;
-    height: 5em;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    color: #FFFFFF;
+	background-color: #212121;
+	height: 5em;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	color: #FFFFFF;
 }
 
 /* Logotype link to home page */
-header h1 a{
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-left: 0.4em;
-    font-family: Arial, Helvetica, sans-serif;
+
+header h1 a {
+	color: #FFFFFF;
+	text-decoration: none;
+	margin-left: 0.4em;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Shopping cart and order number PARENT */
+
 .right-section {
-   width: 100%;
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
+
+
 /* Number of orders */
+
 .number-of-orders {
-  
-    margin-right: 0.2em;
-    font-size: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
+	margin-right: 0.2em;
+	font-size: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* Header shopping cart icon */
+
 .fa-shopping-cart {
-   color: #FFFFFF;
-   margin-right: 0.3em;
+	color: #FFFFFF;
+	margin-right: 0.3em;
 }
+
 
 /* Header login profile icon */
+
 .fa-user {
-    color: #FFFFFF;
-    margin-right: 0.5em;
+	color: #FFFFFF;
+	margin-right: 0.5em;
 }
 
-.phoneCardClass h2{
-    display: none;
+.phoneCardClass h2 {
+	display: none;
 }
 
 .phoneCardClass {
-    height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #212121;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	color: #212121;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Every other element apply grey bg */
-.phoneCardClass:nth-child(even){
-background-color: #F5F5F5;
+
+.phoneCardClass:nth-child(even) {
+	background-color: #F5F5F5;
 }
 
 /* Phone image */
+
 .phoneCardClass img {
-    height: 25em;
+	height: 25em;
 }
 
 /* Phone title */
+
 .phoneCardClass h1 {
-    margin: 0;
+	margin: 0;
 }
 
 /* Phone description */
+
 .phoneCardClass h5 {
-    margin: 1em;
+	margin: 1em;
 }
 
 /* Button add to shopping cart */
+
 .add-to-cart {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #5596F5;
-    text-decoration: none;
-    color: #F5F5F5;
-    padding: 1em;
-    border-radius: 0.7em;
-    font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #5596F5;
+	text-decoration: none;
+	color: #F5F5F5;
+	padding: 1em;
+	border-radius: 0.7em;
+	font-size: 1em;
 }
 
-.add-to-cart:hover{
-    background-color: white;
-    color: #5596F5;
-    border: 1px solid #5596F5;
-    cursor: pointer;
+.add-to-cart:hover {
+	background-color: white;
+	color: #5596F5;
+	border: 1px solid #5596F5;
+	cursor: pointer;
 }
 
 /* Removes default border when clicking button */
-.add-to-cart:focus{
-    outline: none;
+
+.add-to-cart:focus {
+	outline: none;
 }
 
 /* When clicking button gives it a animation effect */
-.add-to-cart:active{
-    border: 1px solid white;
+
+.add-to-cart:active {
+	border: 1px solid white;
 }
 
 /* Font awesome icon added here */
+
 .add-to-cart:before {
-    content: "\f218";
-    font-family: 'Font Awesome\ 5 Free';
-    font-weight: 900;
-    
+	content: "\f218";
+	font-family: 'Font Awesome\ 5 Free';
+	font-weight: 900;
 }
 
-
 /*form display when click on user icon*/
+
 #profileForm {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding-top: 0.03em;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding-top: 0.03em;
+	position: relative;
 }
 
 #popUp {
-    display: none;
-    height: auto;
-    max-width: 24em;
-    padding-bottom: 2%;
-    border: 1px solid black;
-    text-align: center;
-    border-radius: 10%;
-    color: black;
-    background-color: #F5F5F5;
-    position: fixed;
-    z-index: 100;
-
+	display: none;
+	height: auto;
+	max-width: 24em;
+	padding-bottom: 2%;
+	border: 1px solid black;
+	text-align: center;
+	border-radius: 10%;
+	color: black;
+	background-color: #F5F5F5;
+	position: fixed;
+	z-index: 100;
 }
 
 #popUp input {
-    font-family: "Roboto", sans-serif; 
-    outline: 1;
-    background: #FFFFFF;
-    width: 70%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-    text-align: center;
+	font-family: "Roboto", sans-serif;
+	outline: 1;
+	background: #FFFFFF;
+	width: 70%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+	text-align: center;
 }
 
-#popUp .message{
-    margin: 1em;
-    font-size: 1em;
+#popUp .message {
+	margin: 1em;
+	font-size: 1em;
 }
 
-#popUp .message a{
-    text-decoration: none;
+#popUp .message a {
+	text-decoration: none;
 }
 
-#popUp .userReg{
-    display: none;
+#popUp .userReg {
+	display: none;
 }
-
 
 /*LogIn form*/
+
 .fa-times-circle {
-    color: red;
-    text-align: right;
-    margin-top: 0.3em;
-    margin-left: -0.5em;
+	color: red;
+	text-align: right;
+	margin-top: 0.3em;
+	margin-left: -0.5em;
 }
 
 #birdImg {
-    width: 8em;
-    height: 8em;
+	width: 8em;
+	height: 8em;
 }
 
 .formImage {
-    height: 12em;
+	height: 12em;
 }
 
 #userclose {
-    height: 1em;
-    width: 100%;    
+	height: 1em;
+	width: 100%;
 }
 
 #logIn {
-    background: #5596F5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    padding: 5px;
-    border-radius: 0.7em;
-    margin-top: 1em;
-    text-transform: uppercase;
-    outline: 0;
-    width: 70%;
+	background: #5596F5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	padding: 5px;
+	border-radius: 0.7em;
+	margin-top: 1em;
+	text-transform: uppercase;
+	outline: 0;
+	width: 70%;
 }
 
-#logIn:hover{
-    background-color: white;
-    color: #5596F5;
-    border: 1px solid #5596F5;
-    cursor: pointer;
-    text-transform: uppercase;
-    outline: 0;
-    width: 70%;
+#logIn:hover {
+	background-color: white;
+	color: #5596F5;
+	border: 1px solid #5596F5;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: 0;
+	width: 70%;
 }
 
 #regist {
-    background: #5596F5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    padding: 5px;
-    border-radius: 0.7em;
-    margin-top: 1em;
-    text-transform: uppercase;
-    outline: 0;
-    width: 70%;
+	background: #5596F5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	padding: 5px;
+	border-radius: 0.7em;
+	margin-top: 1em;
+	text-transform: uppercase;
+	outline: 0;
+	width: 70%;
 }
 
-#regist:hover{  
-    background-color: white;
-    color: #5596F5;
-    border: 1px solid #5596F5;
-    cursor: pointer;
-    text-transform: uppercase;
-    outline: 0;
-    width: 70%;
+#regist:hover {
+	background-color: white;
+	color: #5596F5;
+	border: 1px solid #5596F5;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: 0;
+	width: 70%;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-right: 0.5em;
+	list-style: none;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	padding: 0;
+	margin-right: 0.5em;
 }
 
+
 /* Purchase history header link " */
+
 ul li a {
-    text-decoration: none;
-    list-style: none;
-    font-size: 1.1em;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0.3em;
-    color: #FFFFFF;
+	text-decoration: none;
+	list-style: none;
+	font-size: 1.1em;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0.3em;
+	color: #FFFFFF;
 }
 
 ul li a:hover {
-    color: #5596F5;
+	color: #5596F5;
 }
 
+
 /* Hover dropdown */
+
 .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-top: 1.5em;
-    margin-left: 1em;
-    width: 15em;
-    height: 10em;
-    display: none;
-  
+	position: relative;
+	display: inline-block;
+	margin-top: 1.5em;
+	margin-left: 1em;
+	width: 15em;
+	height: 10em;
+	display: none;
 }
 
 .dropdown-content {
-    display: none;
-    background-color: #ffffff;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-    border: 1px solid #ddd;
-    border-radius: 5%;
+	display: none;
+	background-color: #ffffff;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+	border: 1px solid #ddd;
+	border-radius: 5%;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+	display: block;
 }
 
 button#logOut {
-    background-color: white;
+	background-color: white;
 }
-
-
-
