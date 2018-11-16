@@ -109,30 +109,7 @@ $(document).ready(function() {
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
     $('#sumOfProducts').text("Ojsan, din varukorg är tom!");
     //Function To Display Popup Login Form
-    $("#userclick").click(function(){
-        $("#popUp").fadeIn(500)
-    })
 
-    $("#userclose").click(function(){
-        $("#popUp").hide()
-    })
-
-    //Change between popup forms
-    $(".message").click(function(){
-        $("form").animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-
-
-    $(".containerForFaCheck").click(function(){
-        $('.purchasePopup').show();
-    });
-    $('.purchasePopup').click(function(){
-        $('.purchasePopup').hide()
-        location.reload()
-    });
-    $('.popupCloseButton').click(function(){
-        $('.purchasePopup').hide();
-    });
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
@@ -148,6 +125,7 @@ function purchaseComplete() {
             $('.purchasePopup').hide();
             location.reload()
         }); 
+        console.log("ewfw")
     } else {
         alert("LOGGA IN först")
        
