@@ -17,7 +17,6 @@ function loadHistory() {
 }
 
 function loginSession() {
-    
     if (localStorage.loggedinUser) {
         var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
         document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
@@ -25,7 +24,6 @@ function loginSession() {
         document.getElementById("dropdown").style.display = "block";
     } else {
         document.getElementById("purchase-history").style.display = "none";
-    
     }
 }
 
@@ -38,7 +36,6 @@ function printHistoryX() {
     var historyArray = JSON.parse(localStorage.getItem("orders"));
     var userOnSite = JSON.parse(localStorage.getItem("loggedinUser"))
     console.log(historyArray)
-
     for (var i = 0; i < historyArray.length; i++) {
         if (userOnSite.username == historyArray[i].customer) {
             var orderContainer = createOrders(historyArray[i].products)
@@ -75,5 +72,10 @@ function createOrders(userProduct) {
 
 }
 
-
-
+$(document).ready(function() {
+    /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
+    
+     document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
+     loginSession()
+     printHistoryX()
+ });

@@ -107,7 +107,7 @@ $(document).ready(function() {
         localStorage.clickcount = 0;
     }
     document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-         
+    $('#sumOfProducts').text("Ojsan, din varukorg är tom!");
     //Function To Display Popup Login Form
     $("#userclick").click(function(){
         $("#popUp").fadeIn(500)
@@ -138,12 +138,22 @@ $(document).ready(function() {
 
 
 function purchaseComplete() {
-    document.querySelector(".number-of-orders").innerHTML = 0;
-    localStorage.clickcount = 0
-    $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
-    localStorage.removeItem("shoppingCart");
+    if (localStorage.loggedinUser) {
+        localStorage.removeItem("shoppingCart");
+        localStorage.setItem("historyX", JSON.stringify(shoppingCart));
+        document.querySelector(".number-of-orders").innerHTML = 0;
+        localStorage.clickcount = 0
+        $('.purchasePopup').show();
+        $('.popupCloseButton').click(function(){
+            $('.purchasePopup').hide();
+            location.reload()
+        }); 
+    } else {
+        alert("LOGGA IN först")
+       
+    }
 
-    /* Save purchasehistory to the loggedin user */
+
     var orders = [];
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);
@@ -164,10 +174,10 @@ function purchaseComplete() {
     
 
 
-    //var historyDone = JSON.parse(localStorage.getItem("historyX"));
 
-    
 }
 
     
 
+
+    
