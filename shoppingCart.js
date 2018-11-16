@@ -58,13 +58,11 @@ function printProductsInCart() {
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
-    console.log(phoneArray)
+
     for (var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
     }
-
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
-    
     for (i = 0; i < phoneArray.length; i++) {
         var createPhone = shoppingCards(phoneArray[i])
         document.getElementById("shoppingCartWrapper").appendChild(createPhone)
@@ -117,7 +115,6 @@ $(document).ready(function() {
 function purchaseComplete() {
     if (localStorage.loggedinUser) {
         localStorage.removeItem("shoppingCart");
-        localStorage.setItem("historyX", JSON.stringify(shoppingCart));
         document.querySelector(".number-of-orders").innerHTML = 0;
         localStorage.clickcount = 0
         $('.purchasePopup').show();
@@ -142,17 +139,8 @@ function purchaseComplete() {
         "products": shoppingCart,
         "customer": user.username
     }
-    console.log(order)
-
     orders.push(order)
-
-    console.log(orders)
-    
     localStorage.setItem("orders", JSON.stringify(orders))
-    
-
-
-
 }
 
     
