@@ -38,11 +38,11 @@ function printHistoryX() {
     console.log(historyArray)
     for (var i = 0; i < historyArray.length; i++) {
         if (userOnSite.username == historyArray[i].customer) {
+            console.log("hej")
             var orderContainer = createOrders(historyArray[i].products)
             historyParentWrapper.appendChild(orderContainer)
         }
     }
-    document.getElementById("historyParentWrapper").innerText = "qfewkf" 
     document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
 }
 
