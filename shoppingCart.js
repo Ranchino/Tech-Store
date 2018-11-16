@@ -143,8 +143,7 @@ function purchaseComplete() {
     $('#sumOfProducts').text("Totalt pris: " +  "0" + " kr");
     localStorage.removeItem("shoppingCart");
 
-    
-
+    /* Save purchasehistory to the loggedin user */
     var orders = [];
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);
@@ -164,11 +163,8 @@ function purchaseComplete() {
     localStorage.setItem("orders", JSON.stringify(orders))
     
 
-    /* Save purchase history to the loggedin user */
 
-    var historyDone = JSON.parse(localStorage.getItem("historyX"));
-   
-
+    //var historyDone = JSON.parse(localStorage.getItem("historyX"));
 
     
 }
