@@ -60,7 +60,6 @@ function printProductsInCart() {
     var totalPrice = 0;
 
     for (var i = 0; i < phoneArray.length; i++) { 
-        console.log(phoneArray[i])
         totalPrice += phoneArray[i].product.price;
     }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");

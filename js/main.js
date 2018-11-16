@@ -65,7 +65,6 @@ function createPhoneCard(product) {
 
 function addPhones(product) {
     var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
-    console.log(shoppingCart)
 
     var dateOfClick = new Date().toLocaleString();
 
@@ -81,7 +80,6 @@ function addPhones(product) {
     /* var dateForClick = new Date ();
     dateForClick.setMilliseconds(20);
     document.getElementsByClassName("add-to-cart").innerText = dateForClick;
-    console.log(dateForClick)
  */
 
 //create a account for new users and save in localstorage
