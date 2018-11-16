@@ -1,4 +1,4 @@
-/* CSS for home page ONLY */
+/* This CSS applies to all pages */
 body {
     margin: 0;
 }
@@ -52,49 +52,40 @@ header h1 a{
     margin-right: 0.5em;
 }
 
-.history-text {
-    padding: 1em;
-    text-align: center;
-    width: 10em;
-    border: 1px solid #b3b3b3;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    color: #333;
-    font-size: 1.2em;
-}
-
-.history-text-wrap {
-    display: flex;
-    justify-content: center;
-    padding-top: 1em;
-}
-
 .phoneCardClass h2{
     display: none;
 }
 
 .phoneCardClass {
-    height: 100%;
+    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #212121;
     width: 100%;
-    padding-top: 4em;
-    padding-bottom: 4em;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Every other element apply grey bg */
 .phoneCardClass:nth-child(even){
 background-color: #F5F5F5;
 }
 
+/* Phone image */
 .phoneCardClass img {
-    width: 20em;
-    height: 30em;
+    height: 25em;
 }
+
+/* Phone title */
 .phoneCardClass h1 {
     margin: 0;
+}
+
+/* Phone description */
+.phoneCardClass h5 {
+    margin: 1em;
 }
 
 /* Button add to shopping cart */
@@ -261,6 +252,7 @@ ul {
     margin-right: 0.5em;
 }
 
+/* Purchase history header link " */
 ul li a {
     text-decoration: none;
     list-style: none;
@@ -274,6 +266,7 @@ ul li a:hover {
     color: #5596F5;
 }
 
+/* Hover dropdown */
 .dropdown {
     position: relative;
     display: inline-block;

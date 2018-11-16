@@ -1,10 +1,13 @@
 
 /* ONLY for mobile. All devices under 700px gets this css */
 @media screen and (max-width: 700px) {
-    .phoneCardClass img {
-        width: 8em!important;
+    .wrapperForAllPhones .phoneCardClass img {
+        height: 20em;
     }
     
+    .wrapperForAllPhones .phoneCardClass {
+        padding-top: 0;
+    }
     #popUp {
         width: 18em;
     }
@@ -13,7 +16,7 @@
     }
 
     header {
-        height: 10em;
+        height: 6em!important;
     }
 
    
@@ -31,6 +34,7 @@
         height: auto;
         flex-wrap: wrap;
         flex: none;
+        padding-bottom: 1em;
     }
    
     header .dropdown {
@@ -52,5 +56,6 @@
         display: flex;
        justify-content: center;
     }
+
     
 }

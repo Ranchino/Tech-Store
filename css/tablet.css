@@ -3,12 +3,15 @@ Devices between 768px - 1024px will get this css.
 Because most tablets have this width
 */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .phoneCardClass {
-        padding-bottom: 6em;
-        padding-top: 5em;
+    .wrapperForAllPhones .phoneCardClass {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0;
     }
     .phoneCardClass img {
-        width: 20em!important;
+        height: 35em;
     }
     .phoneCardClass h1 {
         font-size: 4em!important;
@@ -19,10 +22,30 @@ Because most tablets have this width
     }
    
     .add-to-cart {
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
+
+    .number-of-orders {
+        font-size: 3em;
+    }
+
     .fa-user {
-        margin-top: 0;
+        font-size: 3em;
+    }
+    
+    header .nav-bar {
+        height: 7em!important;
+    }
+
+    header h1 {
+       display: flex;
+       align-content: center;
+       align-items: center;
+       font-size: 3em;
+    }
+
+    .fa-shopping-cart {
+        font-size: 3em;
     }
     
 }
