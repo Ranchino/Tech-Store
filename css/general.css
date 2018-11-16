@@ -288,11 +288,12 @@ ul li a:hover {
     display: none;
     position: absolute;
     background-color: #ffffff;
-    min-width: 160px;
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
     border: 1px solid #ddd;
+    border-radius: 5%;
 }
 
 .dropdown:hover .dropdown-content {
