@@ -151,12 +151,10 @@ function purchaseComplete() {
     localStorage.setItem("orders", JSON.stringify(orders))
     
 
-    /* Save purchase history to the loggedin user */
 
-    var historyDone = JSON.parse(localStorage.getItem("historyX"));
-   
 
-    }
+}
+
     
 
 
