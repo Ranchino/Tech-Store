@@ -52,7 +52,7 @@ function initSite() {
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
-    var phoneArray = JSON.parse(localStorage.shoppingCart);
+    var phoneArray = JSON.parse(localStorage.getItem("shoppingCart"));
 
     document.getElementById("shoppingCartWrapper").innerHTML = ""
     document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
@@ -60,6 +60,7 @@ function printProductsInCart() {
     var totalPrice = 0;
 
     for (var i = 0; i < phoneArray.length; i++) { 
+        console.log(phoneArray[i])
         totalPrice += phoneArray[i].product.price;
     }
     $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
@@ -69,10 +70,8 @@ function printProductsInCart() {
     }
 }
 
-
 /* deletProducts form cart page */
 function deletePhone(cartItem) {
-    
     var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
 
@@ -83,14 +82,12 @@ function deletePhone(cartItem) {
 
     //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
-        console.log(cartItem.dateOfClick, phoneArray[i].dateOfClick)
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
             break;
         }
     }
 
-    console.log(phoneArray)
     localStorage.shoppingCart = JSON.stringify(phoneArray);
     printProductsInCart();
 }
@@ -104,10 +101,7 @@ $(document).ready(function() {
     } else {
         localStorage.clickcount = 0;
     }
-    document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-    $('#sumOfProducts').text("Ojsan, din varukorg är tom!");
     //Function To Display Popup Login Form
-
 });
 /* Reset clickcount and shoppingcart because purchase is completed */
 
@@ -117,29 +111,27 @@ function purchaseComplete() {
         localStorage.removeItem("shoppingCart");
         document.querySelector(".number-of-orders").innerHTML = 0;
         localStorage.clickcount = 0
+
         $('.purchasePopup').show();
         $('.popupCloseButton').click(function(){
             $('.purchasePopup').hide();
             location.reload()
         }); 
-        console.log("ewfw")
     } else {
-        alert("LOGGA IN först")
-       
-    }
+        alert("Logga in först")   
+}
 
-
-    var orders = [];
+var orders = [];
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);
-    }
+        }
     var user = JSON.parse(localStorage.getItem("loggedinUser"))
-
     var order = {
         "products": shoppingCart,
         "customer": user.username
     }
-    orders.push(order)
+    orders.push(order)      
+
     localStorage.setItem("orders", JSON.stringify(orders))
 }
 
