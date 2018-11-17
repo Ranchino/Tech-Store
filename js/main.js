@@ -16,8 +16,9 @@ var listOfProducts = []
 var wrapperForAllPhones = document.createElement("div")
 wrapperForAllPhones.className = "wrapperForAllPhones"
 
-/* Printing products to div "main",
-Loop will always check if theres new a product & display on page */
+/* Creating new container div & printing products inside #main.
+Telling our cards to go inside wrapperForAllPhones.
+Loop through our array from 0, if new product added it will create new card */
 function addProductsToWebpage() {
     for(var index = 0; index < listOfProducts.length; index++)
     {
@@ -27,7 +28,7 @@ function addProductsToWebpage() {
     document.getElementById("main").appendChild(wrapperForAllPhones)
 }
 
- /* Print out cards to home page */
+ /* Creating elements & printing out cards to homepage */
 function createPhoneCard(product) {
     var phone = document.createElement("div")
     phone.className = "phoneCardClass"
@@ -61,17 +62,20 @@ function createPhoneCard(product) {
     return phone  
 }
 
-/* New array for shopping cart page */
-
+/* Add to shopping cart button 
+Storing localstorage called shoppingCart
+Applying date for each product for unique ID (for delete button later)
+*/
 function addPhones(product) {
     var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
-
     var dateOfClick = new Date().toLocaleString();
 
     if (!shoppingCart) {
         shoppingCart = [{product: product, dateOfClick: dateOfClick}]
+        console.log("dlsldll")
     } else {
         shoppingCart.push({product: product, dateOfClick: dateOfClick})
+        console.log("ppppppp")
     }
 
     var phoneArray = JSON.stringify(shoppingCart);
