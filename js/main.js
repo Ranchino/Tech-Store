@@ -72,10 +72,9 @@ function addPhones(product) {
 
     if (!shoppingCart) {
         shoppingCart = [{product: product, dateOfClick: dateOfClick}]
-        console.log("dlsldll")
     } else {
         shoppingCart.push({product: product, dateOfClick: dateOfClick})
-        console.log("ppppppp")
+
     }
 
     var phoneArray = JSON.stringify(shoppingCart);
@@ -203,8 +202,7 @@ $(document).ready(function() {
             localStorage.clickcount = 1;
         }
         document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-        $(".fa-shopping-cart").effect("bounce", "slow")
-
+        $(".fa-shopping-cart").effect("bounce", {times: 2})
     }); 
 
 

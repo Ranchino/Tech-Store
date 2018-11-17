@@ -55,7 +55,6 @@ function printProductsInCart() {
     var phoneArray = JSON.parse(localStorage.getItem("shoppingCart"));
 
     document.getElementById("shoppingCartWrapper").innerHTML = ""
-    document.getElementById("sumOfProducts").innerHTML = "Din varukorg är tom!" 
     
     var totalPrice = 0;
 
@@ -87,6 +86,7 @@ function deletePhone(cartItem) {
         }
     }
 
+
     localStorage.shoppingCart = JSON.stringify(phoneArray);
     printProductsInCart();
 }
@@ -100,11 +100,17 @@ $(document).ready(function() {
     } else {
         localStorage.clickcount = 0;
     }
-    //Function To Display Popup Login Form
+
+    /* Check if shopping cart is empty */
+    if (!shoppingCart.length) {
+        document.querySelector(".containerForFaCheck").style.opacity = "0.5"
+        document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
+    } 
+
 });
-/* Reset clickcount and shoppingcart because purchase is completed */
 
-
+/* Save shoppingCart to orderhistory array with unique username.  
+And after that clearing products visible on shopping site */
 function purchaseComplete() {
     if (localStorage.loggedinUser) {
         localStorage.removeItem("shoppingCart");

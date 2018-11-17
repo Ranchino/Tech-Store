@@ -15,23 +15,20 @@ Because most tablets have this width
 		height: 35em;
 	}
 	.phoneCardClass h1 {
-		font-size: 4em!important;
+		font-size: 3em;
 	}
-	.phoneCardClass h5, h3 {
-		font-size: 1.5em!important;
-		margin: 0.7em;
+	.phoneCardClass h5{
+		font-size: 1.5em;
+	}
+	.phoneCardClass h3{
+		font-size: 1.7em;
 	}
 	.add-to-cart {
 		font-size: 1.6em;
 	}
-	.number-of-orders {
-		font-size: 3em;
-	}
-	.fa-user {
-		font-size: 3em;
-	}
+
 	header .nav-bar {
-		height: 7em!important;
+		height: 7em;
 	}
 	header h1 {
 		display: flex;
@@ -39,9 +36,15 @@ Because most tablets have this width
 		align-items: center;
 		font-size: 3em;
 	}
-	.fa-shopping-cart {
-		font-size: 3em;
+
+	header #textWelcome {
+		font-size: 2em;
+		width: 7em;
+		padding-top: 0.5em;
+		height: 2em;
 	}
 
-	
+	.right-section {
+		font-size: 1.4em;
+	}
 }

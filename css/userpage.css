@@ -21,13 +21,12 @@
 	border: 1px solid #ddd;
 	text-align: center;
 	padding-bottom: 1em;
-	padding: 1em;
 	background-color: #fff;
 }
 div .historyCardClass img {
 	width: 10em;
 	height: 15em;
-	padding-top: 1em;
+	padding: 1em;
 }
 .historyCardClass h3 {
 	margin: 0;
@@ -39,6 +38,7 @@ div .historyCardClass img {
 	text-align: center;
 	padding: 1em;
 	font-size: 1em;
+	border-top: 1px solid #ddd;
 }
 .historyCardClass h4 {
 	margin: 0;
@@ -81,7 +81,6 @@ div .historyCardClass img {
 	outline: none;
 }
 #textWelcome {
-	border: 1px solid red;
 	width: 10em;
 	height: 2.8em;
 	font-size: 1.2em;
