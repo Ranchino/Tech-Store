@@ -67,5 +67,4 @@ function printHistoryX() {
         }
     }
     document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
-    localStorage.shoppingCart = JSON.stringify(historyArray);
 }
