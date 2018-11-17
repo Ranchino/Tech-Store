@@ -27,6 +27,7 @@ function loginSession() {
 
 function createOrders(order) {
     var orderContainer = document.createElement("div")
+    orderContainer.id = "orderContainer"
     for (var i = 0; i < order.products.length; i++) {
         orderContainer.appendChild(createProductCard(order.products[i]))
     }
