@@ -1,16 +1,5 @@
 # Tech-Store
 
-Kravspecifikationer kvar
-
-Kundvagnssida (Godkänt)
-•	Knappen för att slutföra köpet skall, vid klickning, visa en bekräftelse på köpet i en popup.
-
-Kriterier för Väl Godkänd
-•	Utöka produktlistan med ett urval från årets modeller så det totalt ﬁnns 10 st. telefoner.
-•	När man bekräftar ett köp skall kundvagnen tömmas.
-•	Skapa en loginsida där det är möjligt att skapa ett konto samt logga in och se alla beställningarna som har gjorts. Här är design och funktionaliteten frivillig men det skall ﬁnnas en motivation kring vilka besluts som har tagits och varför i er readme ﬁl. Använd localStorage för att spara nya användare samt gjorda beställningar.
-•	Användning av Issues på GitHub för att planera och fördela arbetet sinsemellan.
-
 
 
 This is a school project where we have created a website that sells phones and computers (company "Tech-Store").
