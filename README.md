@@ -12,8 +12,7 @@ add products to the customer basket, remove products, calculate total price, log
 
 **Svenska**
 
-Här skapar vi en e-handelssida för att "köpa" mobiltelefoner och datorer, 
-med funktionalitet att lägga produkter i kundvarukorgen, ta bort produkter, räkna ut totalpriset, logga in/registrera funktion och få ut sin köphistorik.
+Här skapar vi en e-handelssida för att "köpa" mobiltelefoner med funktionaliteter så som att lägga produkter i kundvarukorgen, ta bort produkter, räkna ut totalpriset, logga in/registrera funktion och få ut sin köphistorik.
 
 
 __Login/registrera funktion__
