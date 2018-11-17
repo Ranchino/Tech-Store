@@ -8,8 +8,6 @@ function signOut() {
 
 
 $(document).ready(function() {
-   /*  var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
-    document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username */
     loginSession()
     printHistoryX()
 });
@@ -17,7 +15,7 @@ $(document).ready(function() {
 function loginSession() {
     if (localStorage.loggedinUser) {
         var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
-        document.getElementById("textWelcome").innerText = "🖐 Hello " + aktiveAccount.username + "."
+        document.getElementById("textWelcome").innerText = "🖐 Hallå " + aktiveAccount.username + "!"
         document.getElementById("userclick").style.display = "none";
         document.getElementById("dropdown").style.display = "block";
     } else {
@@ -27,6 +25,7 @@ function loginSession() {
 
 function createOrders(order) {
     var orderContainer = document.createElement("div")
+    orderContainer.id = "orderContainer"
     for (var i = 0; i < order.products.length; i++) {
         orderContainer.appendChild(createProductCard(order.products[i]))
     }

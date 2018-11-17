@@ -59,6 +59,7 @@ header h1 a {
 .fa-user {
 	color: #FFFFFF;
 	margin-right: 0.5em;
+	cursor: pointer;
 }
 
 .phoneCardClass h2 {

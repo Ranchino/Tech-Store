@@ -16,6 +16,9 @@
 	.history-text-wrap {
 		margin-top: 3em;
 	}
+	header {
+		height: 9em!important;
+	}
 	header h1 {
 		font-size: 1.7em;
 		width: 100%;
