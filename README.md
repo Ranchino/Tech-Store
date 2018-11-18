@@ -12,8 +12,8 @@ add products to the customer basket, remove products, calculate total price, log
 
 **Svenska**
 
-Här skapar vi en e-handelssida för att "köpa" mobiltelefoner och datorer, 
-med funktionalitet att lägga produkter i kundvarukorgen, ta bort produkter, räkna ut totalpriset, logga in/registrera funktion och få ut sin köphistorik.
+
+Här skapar vi en e-handelssida för att "köpa" mobiltelefoner med funktionaliteter så som att lägga produkter i kundvarukorgen, ta bort produkter, räkna ut totalpriset, logga in/registrera funktion och få ut sin köphistorik.
 
 
 __Login/registrera funktion__
@@ -41,6 +41,7 @@ På köphistorikssidan så har vi valt en mörkare färg på bakgrunden för att
 Vi valde att även göra en popupform för slutföra-köp knappen inne på varukorgen, där bakgrunden tonas ner och popupen hamnar i centrum av händelsen.
 
 __Ändringar utanför kravspecifikationen__
+
 Vi valde att skapa mobil versionen för hemsidan annorlunda. Detta på grund av att vi inte fick plats med innehållet i nav-baren på en och samma rad. Så istället för att ha titeln till vänster och ikonerna till login samt varukorgen (även siffran med antalet produkter i varukorgen) till höger så valde vi att centrerat allt i nav-baren. I efterhand så tycker vi att det blev mycket bättre och snyggare utifrån UX. Nu är det mer användarvänligt för kunderna, då man oftast håller telefonen i en hand när man surfar.
 
 
