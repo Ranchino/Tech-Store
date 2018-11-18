@@ -1,6 +1,9 @@
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
+    console.log("lslsl")
 }
+
+
 
 /* Printing out cards */
 function shoppingCards(cartItem) {
@@ -39,10 +42,12 @@ function addPhones(cartItem) {
 
 /* On site load */
 function initSite() {
-    if (!phoneArray) {
-        document.querySelector(".containerForFaCheck").style.opacity = "0.5"
-        document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
-    } 
+    /* if array empty or does not exist */
+    if (localStorage.shoppingCart === undefined || shoppingCart.length == 0) {
+    document.querySelector(".containerForFaCheck").style.opacity = "0.5"
+    document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
+    }
+
     document.querySelector(".number-of-orders").innerHTML = shoppingCart.length
 
     printProductsInCart();
@@ -117,6 +122,7 @@ var orders = [];
     var order = {
         "products": shoppingCart,
         "customer": user.username,
+        /* create date for every order, we failed to print out */
         "createDate": new Date().toLocaleString()
     }
     orders.push(order)      
