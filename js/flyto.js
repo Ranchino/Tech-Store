@@ -35,7 +35,7 @@
                 left: eltoDrag.offset().left
             })
                 .css({
-                    'opacity': '0.5',
+                    'opacity': '0.6',
                     'position': 'absolute',
                     'height': eltoDrag.height() /2,
                     'width': eltoDrag.width() /2,
@@ -45,22 +45,22 @@
                 .animate({
                     'top': target.offset().top + 10,
                     'left': target.offset().left + 15,
-                    'height': eltoDrag.height() /2,
-                    'width': eltoDrag.width() /2
+                    'height': eltoDrag.height() /5,
+                    'width': eltoDrag.width() /5
             }, 1000, 'easeInOutExpo');
             
             if (settings.shake) {
             setTimeout(function () {
                 target.effect("bounce", {
                     times: 2
-                }, 200);
+                }, 500);
             }, 1500);
             }
 
     
             imgclone.animate({
-                'width': 0,
-                'height': 0
+                'width': 20,
+                'height': 20
             }, function () {
                 $(this).detach()
             });

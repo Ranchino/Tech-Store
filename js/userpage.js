@@ -9,6 +9,7 @@ function createOrders(order) {
     for (var i = 0; i < order.products.length; i++) {
         orderContainer.appendChild(createProductCard(order.products[i]))
     }
+   
     return orderContainer
 }
 
@@ -38,6 +39,22 @@ function printHistoryX() {
 
     var historyArray = JSON.parse(localStorage.getItem("orders"));
     var userOnSite = JSON.parse(localStorage.getItem("loggedinUser"))
+    for (var i = 0; i < historyArray.length; i++) {
+        if (userOnSite.username == historyArray[i].customer) {
+            var orderContainer = createOrders(historyArray[i])
+            historyParentWrapper.appendChild(orderContainer)
+        }
+    }
+    document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
+   
+}
+
+/* function printHistoryX() {
+    var historyParentWrapper = document.createElement("div")
+    historyParentWrapper.className = "historyParentWrapper"
+
+    var historyArray = JSON.parse(localStorage.getItem("orders"));
+    var userOnSite = JSON.parse(localStorage.getItem("loggedinUser"))
     
     for (var i = 0; i < historyArray.length; i++) {
         if (userOnSite.username == historyArray[i].customer) {
@@ -46,4 +63,4 @@ function printHistoryX() {
         }
     }
     document.getElementById("user-page-wrap").appendChild(historyParentWrapper)
-}
+} */
