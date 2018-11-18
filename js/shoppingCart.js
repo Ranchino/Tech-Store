@@ -1,16 +1,8 @@
-/* creating localstorage and storing products */
-var shoppingCart = [];
-var historyX = [];
-
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
 }
 
-/* Reset clickcount and shoppingcart because purchase is completed */
-if(localStorage.history) {
-    history = JSON.parse(localStorage.history);
-}
-
+/* Printing out cards */
 function shoppingCards(cartItem) {
     var phone = document.createElement("div")
     phone.className = "shoppingCardClass"
@@ -45,47 +37,53 @@ function addPhones(cartItem) {
     localStorage.shoppingCart = phoneArray;
 }
 
-// adds products to cart page//
+/* On site load */
 function initSite() {
+    if (!localStorage.shoppingCart) {
+        document.querySelector(".containerForFaCheck").style.opacity = "0.5"
+        document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
+    } 
+    document.querySelector(".number-of-orders").innerHTML = shoppingCart.length
+
     printProductsInCart();
 }
 
+var phoneArray = JSON.parse(localStorage.getItem("shoppingCart"));
+
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
-    var phoneArray = JSON.parse(localStorage.getItem("shoppingCart"));
-
+   
     document.getElementById("shoppingCartWrapper").innerHTML = ""
     
     var totalPrice = 0;
 
     for (var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
+        $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
     }
-    $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
+   
     for (i = 0; i < phoneArray.length; i++) {
         var createPhone = shoppingCards(phoneArray[i])
         document.getElementById("shoppingCartWrapper").appendChild(createPhone)
     }
 }
 
-/* deletProducts form cart page */
+/* Delete button, will remove product with unique date */
 function deletePhone(cartItem) {
-    var phoneArray = JSON.parse(localStorage.shoppingCart);
     localStorage.shoppingCart = phoneArray;
 
-    if (localStorage.clickcount) {
-        localStorage.clickcount = Number(localStorage.clickcount) - 1;
-        document.querySelector(".number-of-orders").innerHTML = localStorage.clickcount;
-    }
-
-    //var tempShopingCart = []
     for (var i = 0; i < phoneArray.length; i++) {
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
+            document.querySelector(".number-of-orders").innerHTML = phoneArray.length
+            /* If cart empty.. */
+            if (!phoneArray.length) {
+                document.querySelector(".containerForFaCheck").style.opacity = "0.5"
+                document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
+            } 
             break;
         }
     }
-
 
     localStorage.shoppingCart = JSON.stringify(phoneArray);
     printProductsInCart();
@@ -93,39 +91,24 @@ function deletePhone(cartItem) {
 
 
 
-$(document).ready(function() {
-    /* Amount times clicked button */
-    if (localStorage.clickcount) {
-        localStorage.clickcount = Number(localStorage.clickcount);
-    } else {
-        localStorage.clickcount = 0;
-    }
+/* Complete purchase button */
 
-    /* Check if shopping cart is empty */
-    if (!shoppingCart.length) {
-        document.querySelector(".containerForFaCheck").style.opacity = "0.5"
-        document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
-    } 
-
-});
-
-/* Save shoppingCart to orderhistory array with unique username.  
-And after that clearing products visible on shopping site */
 function purchaseComplete() {
+    /* Check if user logged in */
     if (localStorage.loggedinUser) {
         localStorage.removeItem("shoppingCart");
-        document.querySelector(".number-of-orders").innerHTML = 0;
-        localStorage.clickcount = 0
-
         $('.purchasePopup').show();
         $('.popupCloseButton').click(function(){
             $('.purchasePopup').hide();
             location.reload()
         }); 
     } else {
-        alert("Logga in först")   
+        alert("Logga in först") 
+       
 }
 
+
+/* Push shoppingCart array to new order array on current customer. */
 var orders = [];
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);

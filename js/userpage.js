@@ -1,27 +1,7 @@
-//function to logout from userpage and send to index
-function signOut() {
-    localStorage.removeItem("loggedinUser");
-    alert("Du är nu utloggad!")
-    window.location = "index.html";
-
-}
-
-
 $(document).ready(function() {
-    loginSession()
     printHistoryX()
 });
 
-function loginSession() {
-    if (localStorage.loggedinUser) {
-        var aktiveAccount = JSON.parse(localStorage.getItem("loggedinUser"))
-        document.getElementById("textWelcome").innerText = "🖐 Hallå " + aktiveAccount.username + "!"
-        document.getElementById("userclick").style.display = "none";
-        document.getElementById("dropdown").style.display = "block";
-    } else {
-        document.getElementById("purchase-history").style.display = "none";
-    }
-}
 
 function createOrders(order) {
     var orderContainer = document.createElement("div")
