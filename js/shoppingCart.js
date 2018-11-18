@@ -75,6 +75,8 @@ function deletePhone(cartItem) {
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
             document.querySelector(".number-of-orders").innerHTML = phoneArray.length
+            location.reload()
+
             /* If cart empty.. */
             if (!phoneArray.length) {
                 document.querySelector(".containerForFaCheck").style.opacity = "0.5"
@@ -89,25 +91,28 @@ function deletePhone(cartItem) {
 }
 
 
+var orders = [];
 
 /* Complete purchase button */
 function purchaseComplete() {
     /* Check if user logged in */
     if (localStorage.loggedinUser) {
-        localStorage.removeItem("shoppingCart");
-        $('.purchasePopup').show();
-        $('.popupCloseButton').click(function(){
+        if (localStorage.shoppingCart) {
+            localStorage.removeItem("shoppingCart");
+            $('.purchasePopup').show();
+            $('.popupCloseButton').click(function(){
             $('.purchasePopup').hide();
             location.reload()
         }); 
+        }
+        
     } else {
         alert("Logga in först") 
        
-}
+    }
 
 
-/* Push shoppingCart array to new order array with current user logged in. */
-var orders = [];
+    /* Push shoppingCart array to new order array with current user logged in. */
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);
         }
