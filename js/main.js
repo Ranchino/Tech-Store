@@ -68,11 +68,12 @@ Applying date for each product for unique ID (for delete button later)
 Showing amount of products in cart
 */
 
-var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
-var dateOfClick = new Date().toLocaleString();
+
 
 function addPhones(product) {
-
+    var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+    var dateOfClick = new Date().toLocaleString();
+    
     if (!shoppingCart) {
         shoppingCart = [{product: product, dateOfClick: dateOfClick}]
     } else {
