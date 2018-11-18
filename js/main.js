@@ -69,11 +69,11 @@ Showing amount of products in cart
 */
 
 
+var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
 function addPhones(product) {
-    var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     var dateOfClick = new Date().toLocaleString();
-    
+
     if (!shoppingCart) {
         shoppingCart = [{product: product, dateOfClick: dateOfClick}]
     } else {

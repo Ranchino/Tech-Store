@@ -75,12 +75,12 @@ function deletePhone(cartItem) {
     for (var i = 0; i < phoneArray.length; i++) {
         if (cartItem.dateOfClick == phoneArray[i].dateOfClick) {
             phoneArray.splice(i, 1)
-           /*  document.querySelector(".number-of-orders").innerHTML = phoneArray.length */
+            document.querySelector(".number-of-orders").innerHTML = phoneArray.length
             /* If cart empty.. */
-            /* if (!phoneArray.length) {
+            if (!phoneArray.length) {
                 document.querySelector(".containerForFaCheck").style.opacity = "0.5"
                 document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
-            }  */
+            } 
             break;
         }
     }
