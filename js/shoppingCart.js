@@ -39,7 +39,7 @@ function addPhones(cartItem) {
 
 /* On site load */
 function initSite() {
-    if (!localStorage.shoppingCart) {
+    if (!phoneArray) {
         document.querySelector(".containerForFaCheck").style.opacity = "0.5"
         document.getElementById("sumOfProducts").innerHTML = "Hoppsan, din varukorg är tom!" 
     } 
