@@ -34,8 +34,9 @@ function reg(event) {
         return false;
     } 
     
+    /* If localstorage accounts dont exist create the first account */
     if (!userList) {
-        // Skapa en ny array med ett nytt userobjekt
+        // Array with user object
         var newUser = [{
             username: regUserName,
             password: regPassword,
@@ -44,14 +45,14 @@ function reg(event) {
         accountCreatedFeedback();
             
     } else {
-        // Lägg till en ny user i account och spara igen
-
+        // Check if account exists
     for (var i = 0; i < userList.length; i++ ) {
         if(userList[i].username == regUserName) {
             alert ("Detta användarnamn finns redan. Välj annat!");
             return;
         }
     }
+    /* Add more users to already existing account array */
     var newUser = {
         username: regUserName,
         password: regPassword
@@ -60,12 +61,11 @@ function reg(event) {
     userList.push(newUser)
     localStorage.setItem("accounts", JSON.stringify(userList))
     accountCreatedFeedback();
-/*  userList.push({userName: regUserName, password: regPassword})
-    localStorage.setItem("accounts", userList) */
-}
+    }
      
 }
 
+/* Succesful register account */
 function accountCreatedFeedback() {
     alert ("Du har nu skapat ett konto 😎");    
     $("#popUp").fadeOut(500)
@@ -75,10 +75,10 @@ function accountCreatedFeedback() {
 }
 
 
-
-//Login function for already exists account
+//Login attempts
 var attempt = 3; 
 
+/* Login button */
 function validate() {
     /*var userName = document.getElementsByClassName("userName")[0].value;
     var password = document.getElementsByClassName("password")[0].value;*/

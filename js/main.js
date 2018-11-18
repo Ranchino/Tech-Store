@@ -63,12 +63,10 @@ function createPhoneCard(product) {
 }
 
 /* Add to shopping cart button 
-Storing localstorage called shoppingCart
-Applying date for each product for unique ID (for delete button later)
-Showing amount of products in cart
+Set localstorage called shoppingCart
+Applying date to each product for unique ID (for delete button later)
+Check cart length and print out number on header
 */
-
-
 var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
 function addPhones(product) {
@@ -82,8 +80,11 @@ function addPhones(product) {
     document.querySelector(".number-of-orders").innerHTML = shoppingCart.length
     var phoneArray = JSON.stringify(shoppingCart);
     localStorage.setItem("shoppingCart", phoneArray)
-}  
 
+    /* Cart animation, we decided to go with flying image instead
+    $(".fa-shopping-cart").effect( "bounce", { times: 2 })
+    */
+}  
 
 /* On site load */
 $(document).ready(function() {

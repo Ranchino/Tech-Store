@@ -1,9 +1,6 @@
 if(localStorage.shoppingCart) {
     shoppingCart = JSON.parse(localStorage.shoppingCart);
-    console.log("lslsl")
 }
-
-
 
 /* Printing out cards */
 function shoppingCards(cartItem) {
@@ -26,13 +23,12 @@ function shoppingCards(cartItem) {
     deletePhoneFromCart.className = "fa-trash-alt"
     deletePhoneFromCart.onclick = deletePhone.bind(undefined, cartItem)
     deletePhoneFromCart.innerText = " Ta bort";
-
     phone.appendChild(deletePhoneFromCart)
     
     return phone
 }
 
-
+/* Add to cart button */
 function addPhones(cartItem) {  
     shoppingCart.push(cartItem)
    
@@ -57,11 +53,9 @@ var phoneArray = JSON.parse(localStorage.getItem("shoppingCart"));
 
 /* here is a printProductsInCart function that I call in i initSite to count the sum of phones added */
 function printProductsInCart() {
-   
     document.getElementById("shoppingCartWrapper").innerHTML = ""
     
     var totalPrice = 0;
-
     for (var i = 0; i < phoneArray.length; i++) { 
         totalPrice += phoneArray[i].product.price;
         $('#sumOfProducts').text("Totalt pris: " + totalPrice + " kr");
@@ -97,7 +91,6 @@ function deletePhone(cartItem) {
 
 
 /* Complete purchase button */
-
 function purchaseComplete() {
     /* Check if user logged in */
     if (localStorage.loggedinUser) {
@@ -113,7 +106,7 @@ function purchaseComplete() {
 }
 
 
-/* Push shoppingCart array to new order array on current customer. */
+/* Push shoppingCart array to new order array with current user logged in. */
 var orders = [];
     if (localStorage.orders) {
         orders = JSON.parse(localStorage.orders);
